@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>Material Comercial · Scaling</title>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" rel="stylesheet"/>
+<style>
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-text-primary: #1a1d29;
+  --color-text-secondary: #6b7189;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f6f9;
+  --color-border-secondary: #e2e4ea;
+  --color-border-tertiary: #e8eaef;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --azul: #0C447C;
+  --azul-medio: #1B4F8A;
+  --azul-claro: #E6F1FB;
+}
+html { -webkit-text-size-adjust: 100%; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background: var(--color-background-primary); color: var(--color-text-primary); }
+.container { padding: 1.5rem 1rem 3rem; max-width: 680px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 1.5rem; }
+.header h1 { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+.header p { font-size: 13px; color: var(--color-text-secondary); }
+.aviso {
+  background: var(--azul-claro); color: var(--azul); font-size: 12px; line-height: 1.55;
+  border-radius: var(--border-radius-md); padding: 10px 14px; margin-bottom: 1.75rem;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.aviso i { margin-top: 1px; flex-shrink: 0; }
+.seccion { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--azul-medio); margin: 0 0 10px 2px; }
+.card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 16px 18px; margin-bottom: 12px;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.card:hover { border-color: var(--azul-medio); transform: translateY(-1px); }
+.card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.card-top i { color: var(--azul-medio); font-size: 16px; }
+.card h2 { font-size: 15px; font-weight: 500; }
+.card p { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.6; }
+.card .abrir { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 500; color: var(--azul-medio); }
+.pie { margin-top: 2rem; padding-top: 1rem; border-top: 0.5px solid var(--color-border-tertiary);
+  font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.6; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>Material Comercial · Scaling</h1>
+<p>Guías de trabajo del proceso comercial</p>
+</div>
+
+<div class="aviso">
+<i aria-hidden="true" class="ti ti-refresh"></i>
+<span><strong>Estas páginas se actualizan.</strong> No guardes copias ni capturas: entrá siempre por acá para tener la última versión.</span>
+</div>
+
+<div class="seccion">Proceso de venta</div>
+
+<a class="card" href="nuggets-de-venta/">
+<div class="card-top"><i aria-hidden="true" class="ti ti-list-check"></i><h2>Nuggets de venta Sandler</h2></div>
+<p>Qué hacer y qué no hacer en cada etapa del proceso comercial, con el guion de preguntas de la reunión de diagnóstico y la metodología Sandler.</p>
+<span class="abrir">Abrir →</span>
+</a>
+
+<a class="card" href="estrategia-comercial/">
+<div class="card-top"><i aria-hidden="true" class="ti ti-target-arrow"></i><h2>Estrategia Comercial</h2></div>
+<p>Los puntos de interacción que usamos para generar y trabajar leads: cliente principal, canales y cómo se trabaja cada nivel de relación.</p>
+<span class="abrir">Abrir →</span>
+</a>
+
+<div class="pie">
+Material interno de Scaling · No compartir fuera del equipo<br/>
+¿Falta algo o hay que corregir un contenido? Avisale a Sofía.
+</div>
+
+</div>
+</body>
+</html>
