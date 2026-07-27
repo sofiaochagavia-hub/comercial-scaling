@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>Nuggets de venta · Scaling</title>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" rel="stylesheet"/>
+<style>
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-text-primary: #1a1d29;
+  --color-text-secondary: #6b7189;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f6f9;
+  --color-border-secondary: #e2e4ea;
+  --color-border-tertiary: #e8eaef;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--color-background-primary); }
+</style>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.container { padding: 1.5rem 1rem; max-width: 680px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 2rem; }
+.header h1 { font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.header p { font-size: 13px; color: var(--color-text-secondary); }
+.stage-nav { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.stage-btn { 
+  flex: 1; min-width: 80px; padding: 10px 6px; font-size: 11.5px; font-weight: 500;
+  border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md);
+  background: var(--color-background-primary); color: var(--color-text-secondary);
+  cursor: pointer; text-align: center; transition: all 0.15s; line-height: 1.3;
+  min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  touch-action: manipulation; -webkit-tap-highlight-color: rgba(27,79,138,0.25);
+}
+.stage-btn:hover { background: var(--color-background-secondary); }
+.stage-btn.active { background: #1B4F8A; color: #fff; border-color: #1B4F8A; }
+.stage-btn .num { display: block; font-size: 16px; font-weight: 500; margin-bottom: 2px; }
+
+.stage-panel { display: none; }
+.stage-panel.active { display: block; }
+
+.stage-header { 
+  padding: 1rem 1.25rem; 
+  background: var(--color-background-secondary); 
+  border-radius: var(--border-radius-lg); 
+  border: 0.5px solid var(--color-border-tertiary);
+  margin-bottom: 1rem;
+}
+.stage-header h2 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.stage-header .objetivo { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.stage-header .tag { 
+  display: inline-block; font-size: 11px; padding: 2px 10px; 
+  border-radius: 20px; margin-bottom: 8px;
+  background: #E6F1FB; color: #0C447C;
+}
+
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.col-card { 
+  background: var(--color-background-primary); 
+  border-radius: var(--border-radius-lg); 
+  border: 0.5px solid var(--color-border-tertiary);
+  overflow: hidden;
+}
+.col-title { 
+  padding: 10px 14px; font-size: 12px; font-weight: 500; 
+  display: flex; align-items: center; gap: 6px;
+}
+.col-title.do { background: #EAF3DE; color: #3B6D11; }
+.col-title.dont { background: #FCEBEB; color: #A32D2D; }
+.col-title i { font-size: 14px; }
+
+.items { padding: 10px 14px; }
+.item { 
+  font-size: 13px; color: var(--color-text-primary); 
+  padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary);
+  line-height: 1.45; display: flex; gap: 8px; align-items: flex-start;
+}
+.item:last-child { border-bottom: none; }
+.item i { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.item.do-item i { color: #3B6D11; }
+.item.dont-item i { color: #A32D2D; }
+
+.tip-box { 
+  margin-top: 12px; padding: 10px 14px; 
+  background: #FAEEDA; 
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid #EF9F27;
+  font-size: 12px; color: #633806; line-height: 1.5;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.tip-box i { font-size: 15px; color: #854F0B; flex-shrink: 0; margin-top: 1px; }
+
+.sandler-tag {
+  margin-top: 10px; font-size: 11px; color: var(--color-text-secondary);
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+}
+.sandler-step { 
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; background: var(--color-background-secondary);
+  border-radius: 20px; border: 0.5px solid var(--color-border-tertiary);
+  font-size: 11px; color: var(--color-text-secondary);
+}
+
+.trello-box {
+  margin-top: 12px; padding: 10px 14px;
+  background: #F0EBFA;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid #8B6FCE;
+  font-size: 12px; color: #4A3572; line-height: 1.5;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.trello-box i { font-size: 15px; color: #5E3FA8; flex-shrink: 0; margin-top: 1px; }
+.trello-box strong { color: #3A2A66; }
+</style>
+<style>
+.nav-radio { position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
+.stage-panel { display: none; }
+#stageradio-0:checked ~ #s0 { display: block; }
+.container:has(#stageradio-0:checked) label[for="stageradio-0"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+#stageradio-1:checked ~ #s1b { display: block; }
+.container:has(#stageradio-1:checked) label[for="stageradio-1"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+#stageradio-2:checked ~ #s1 { display: block; }
+.container:has(#stageradio-2:checked) label[for="stageradio-2"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+#stageradio-3:checked ~ #s2 { display: block; }
+.container:has(#stageradio-3:checked) label[for="stageradio-3"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+#stageradio-4:checked ~ #s3 { display: block; }
+.container:has(#stageradio-4:checked) label[for="stageradio-4"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+#stageradio-5:checked ~ #s4 { display: block; }
+.container:has(#stageradio-5:checked) label[for="stageradio-5"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+#stageradio-6:checked ~ #s5 { display: block; }
+.container:has(#stageradio-6:checked) label[for="stageradio-6"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+</style></head>
+<body>
+<div class="container">
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Nuggets de venta Scaling — qué hacer y qué no hacer en cada etapa del proceso comercial bajo metodología Sandler</h2>
+<div class="header">
+<h1>Nuggets de venta · Scaling</h1>
+<p>Qué hacer y qué no hacer en cada etapa del proceso comercial</p>
+</div>
+<div style="margin-bottom: 1.25rem; padding: 12px 16px; background: #FFF4E5; border: 1px solid #EF9F27; border-radius: var(--border-radius-lg); display: flex; gap: 10px; align-items: flex-start;">
+<i aria-hidden="true" class="ti ti-award" style="font-size: 18px; color: #854F0B; flex-shrink: 0; margin-top: 1px;"></i>
+<div style="font-size: 12.5px; color: #633806; line-height: 1.5;">
+<strong>Regla de oro Sandler — aplica en TODAS las etapas:</strong> nunca presentar la solución, hablar del método o dar el pitch sin antes haber escuchado e identificado el dolor real del prospecto. Primero se escucha, después se presenta.
+    </div>
+</div>
+<input class="nav-radio" id="stageradio-6" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-5" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-4" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-3" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-2" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-1" name="stagenav" type="radio"/><input checked="checked" class="nav-radio" id="stageradio-0" name="stagenav" type="radio"/><div class="stage-nav">
+<label class="stage-btn" for="stageradio-0"><span class="num">1</span>Pitch de asado</label>
+<label class="stage-btn" for="stageradio-1"><span class="num">1B</span>Catch Up</label>
+<label class="stage-btn" for="stageradio-2"><span class="num">2</span>Reunión presentación</label>
+<label class="stage-btn" for="stageradio-3"><span class="num">3</span>Diagnóstico</label>
+<label class="stage-btn" for="stageradio-4"><span class="num">4</span>Propuesta</label>
+<label class="stage-btn" for="stageradio-5"><span class="num">5</span>Seguimiento</label>
+<label class="stage-btn" for="stageradio-6"><span class="num">6</span>Cierre</label>
+</div>
+<div class="stage-panel" id="s0">
+<div class="stage-header">
+<span class="tag">Etapa 1</span>
+<h2>Pitch de asado (frío)</h2>
+<p class="objetivo">Generar interés genuino en 30–60 segundos. El objetivo no es vender, es provocar curiosidad y conseguir una reunión.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-users"></i> Bonding &amp; rapport</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-file-description"></i> Up-front contract</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> fecha concreta de 30 min agendada (si hay interés) o despedirse sin insistir.</div>
+</div>
+<!-- Script del pitch -->
+<div style="margin-bottom: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden;">
+<div style="padding: 10px 14px; font-size: 12px; font-weight: 500; background: #E6F1FB; color: #0C447C; display: flex; align-items: center; gap: 6px;">
+<i aria-hidden="true" class="ti ti-message-2"></i> Script del pitch · palabra por palabra
+      </div>
+<div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 14px;">
+<div>
+<div style="font-size: 12px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; margin-bottom: 6px;">1. Te preguntan: "¿A qué te dedicas?"</div>
+<div style="font-size: 14px; color: var(--color-text-primary); line-height: 1.65; font-style: italic; border-left: 2px solid #1B4F8A; padding-left: 12px;">
+            "Trabajo en una consultora estratégica."
+          </div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">→ Respuesta corta. Pausa. Dejar que el otro pregunte más si le interesa.</div>
+</div>
+<div>
+<div style="font-size: 12px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; margin-bottom: 6px;">2. Si preguntan: "Cuéntame más… ¿qué es lo que hacen?"</div>
+<div style="font-size: 14px; color: var(--color-text-primary); line-height: 1.65; font-style: italic; border-left: 2px solid #1B4F8A; padding-left: 12px;">
+            "Hacemos <strong>coaching y acompañamiento a gerentes generales y sus equipos</strong> para que escalen sus resultados. Implementamos un método de gestión ágil que alinea al equipo, genera compromiso real y accountability — reduciendo el tiempo que los líderes gastan en gestión y logrando resultados financieros concretos."
+          </div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">→ Este es el pitch de asado: breve, sin profundizar en método ni precio.</div>
+</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; padding-top: 4px; border-top: 0.5px dashed var(--color-border-tertiary);">
+<strong>Si hay interés genuino:</strong> profundizar un poco ahí mismo — esto ya es "pitch de presentación", sigue siendo informal. Preguntar qué están buscando, qué les gustaría mejorar. Acá sí se puede hablar de precio y duración del programa si surge naturalmente. Si el interés se sostiene → "¿Tendría sentido juntarnos 30 minutos para ver si aplica a tu contexto?" (ahí pasa a la reunión de presentación).<br/><br/>
+<strong>Si no hay interés:</strong> soltar sin presionar — "Tiene todo el sentido, no siempre es el momento."
+        </div>
+</div>
+</div>
+<div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Herramienta de apoyo en Trello: tarjeta <strong>"Pitch de asado"</strong>.</span></div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-arrows-shuffle"></i><span><strong>Flexibilidad de etapas:</strong> el pitch de asado puede convertirse en "pitch de presentación" ahí mismo. Si se da con profundidad y fluye natural, se puede pasar directo a la reunión de diagnóstico, saltándose la reunión de presentación. Incluso la reunión de presentación completa puede darse dentro del mismo pitch de asado si el contexto lo permite — no es necesario seguir las etapas de forma rígida. <strong>Eso sí:</strong> precio y duración no se hablan en el pitch de asado (todavía no sabemos si hay interés). Una vez que hay interés y se está profundizando — ya sea en el pitch de presentación o en la reunión de presentación — sí se puede hablar de ambos si surge naturalmente.</span></div>
+<div class="columns">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Sí hacer</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Nombrar el perfil exacto: gerentes generales y sus equipos — no "empresas en general"</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Mencionar el resultado concreto: escalar resultados financieros reduciendo tiempo de gestión</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Usar lenguaje de dolor: "alinea, compromete y genera accountability" resuena en quienes lo viven</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Hacer la pausa después del pitch — dejar que el otro reaccione antes de continuar</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Terminar con una pregunta que pone al otro a reflexionar sobre su propia realidad</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Si hay fit, proponer fecha concreta de 30 minutos — no "quedar en algo"</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont"><i aria-hidden="true" class="ti ti-circle-x"></i> No hacer</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No explicar el método Scaling Up ni la metodología Sandler — aún no corresponde</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No hablar de precios ni de duración del programa en el pitch de asado — eso sí se puede tocar en el pitch de presentación, una vez hay interés y se está profundizando</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No seguir vendiendo si no hay señal de interés — irse como amigos</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No decir "ayudamos a todo tipo de empresas" — la especificidad genera credibilidad</span></div>
+</div>
+</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span><strong>Regla Sandler:</strong> el objetivo de esta conversación es conseguir la reunión, no convencer. El pitch perfecto no explica todo — despierta la pregunta "¿cómo lo hacen?". Si tienes que convencer mucho, no es un buen lead.</span></div>
+</div>
+<div class="stage-panel" id="s1b">
+<div class="stage-header">
+<span class="tag">Etapa 1B · en paralelo al pitch de asado</span>
+<h2>Reunión de Catch Up (leads conocidos)</h2>
+<p class="objetivo">Cuando el contacto es alguien conocido, el canal cambia: no hay "asado" que buscar, se agenda directo. El riesgo acá es distinto — lo personal se toma toda la conversación y el objetivo comercial se pierde. Este guion es un ancla, no un pitch.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-users"></i> Bonding</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-file-description"></i> Up-front contract</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-flag"></i> No-lose close</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> reunión de catch up agendada — o, como mínimo, permiso para enviar contenido (no-lose close).</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-alert-triangle"></i><span><strong>El problema que resuelve este guion:</strong> en un café o llamada con alguien conocido, lo personal se toma toda la charla y se sale sin haber tocado el objetivo comercial. Por eso hay anclas fijas que se tocan sí o sí, sin importar hacia dónde vaya la conversación personal.</span></div>
+<div class="script-wrap" style="margin-top: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden;">
+<div style="padding: 10px 14px; font-size: 12px; font-weight: 500; background: #E6F1FB; color: #0C447C; display: flex; align-items: center; gap: 6px;">
+<i aria-hidden="true" class="ti ti-brand-whatsapp"></i> 1. Invitación por WhatsApp · audio corto (si hay cercanía)
+      </div>
+<div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 0;">
+<div style="display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">1</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Saludo</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"¡Hola [nombre]! ¿Cómo estás?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">2</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Vínculo</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"Te escribo porque [felicitaciones por algo puntual / te vi en tal lugar / me acordé de ti por esto]…"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Tiene que ser real y específico. Un vínculo genérico se nota.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">3</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Señalar el nuevo rol</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"Te cuento que hace poco comencé a trabajar en Scaling — y pensé en ti, creo que te podría servir."</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">4</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Invitar a juntarse</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"¿Te hace sentido que nos juntemos un café / una llamada corta esta semana?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Si dice que sí: ahí mismo se agenda día y hora — no dejarlo para "después coordinamos".</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding-top: 12px;">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">5</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Dar salida (si no hace sentido)</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"Sin problema — igual te mando algo de contenido por si te sirve más adelante."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Low-pressure: nunca se insiste después de un "no" o un silencio.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="script-wrap" style="margin-top: 16px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden;">
+<div style="padding: 10px 14px; font-size: 12px; font-weight: 500; background: #E6F1FB; color: #0C447C; display: flex; align-items: center; gap: 6px;">
+<i aria-hidden="true" class="ti ti-map-pin"></i> 2. La reunión · los 4 anclas que no se pueden saltar
+      </div>
+<div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 0;">
+<div style="display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">1</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Lo personal (real, sin cronómetro)</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"¡Qué bueno verte! ¿Cómo has estado? ¿Cómo va la familia / el trabajo?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Se vive con calma, es real. Cuando la charla empieza a decantar ("bueno, cuéntame de ti"), es el momento de pasar al ancla 2.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">2</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Transición con permiso (up-front contract informal)</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"Oye, te cuento algo — capaz te sirve, capaz no, pero quiero comentarte."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Esta frase es la bisagra: anuncia que viene algo, sin prometer nada. Nadie se siente emboscado.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">2b</div>
+<div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"Hace [tiempo] empecé a trabajar en Scaling — ayudamos a gerentes generales y dueños de empresas rentables que están creciendo a mejorar sus resultados con coaching y metodología. Estoy en la etapa de construir mi cartera de clientes."</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic; margin-top: 8px;">"¿Se te ocurre alguien a quien le podría servir?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Pregunta abierta, sin presión: no se asume nada, se pregunta y se espera la respuesta en silencio.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">3</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Si pregunta "¿qué estás buscando exactamente?"</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"Principalmente gerentes generales o dueños de empresas rentables que están en crecimiento — gente que se siente un poco sola con las decisiones, que quiere tener más tiempo y que sabe que su equipo podría dar más. Ahí es donde más ayudamos."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Es la descripción del cliente ideal, no el pitch completo. Corta y concreta.</div>
+<div style="font-size: 13.5px; color: #AD7E1F; line-height: 1.6; font-style: italic; margin-top: 10px; font-weight: 500;">Bifurcación: "Y a todo esto — ¿cómo está tu empresa? Si quieres, te invito a evaluar el programa para ti también, sin ningún compromiso."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Solo si algo de lo que contó en el ancla 1 sonó a dolor real. Si no aplica para él: "Si no, feliz si me presentas a alguien que sientas que le puede servir." Si no hay ni referido ni interés propio: "No hay problema."</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding-top: 12px;">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">4</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Cierre que nunca deja la reunión en cero</div>
+<div style="font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6; font-style: italic;">"Oye, para terminar — ¿te interesaría recibir contenido y herramientas para escalar equipos y empresas?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 4px;">→ Se pregunta siempre, sin importar cómo salió el resto. Es el no-lose close: si dice que sí, queda un canal abierto de bajísima fricción.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tip-box" style="margin-top: 12px;"><i aria-hidden="true" class="ti ti-arrows-shuffle"></i><span>Si en algún punto el conocido muestra interés real y profundo por sí mismo o por su empresa, ahí recién se puede pasar al guion completo de <strong>pitch de presentación</strong> — pero no antes. Acá el objetivo es plantar la semilla y salir con algo, no cerrar una venta en el café.</span></div>
+<div class="columns" style="margin-top: 16px;">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Frases de respaldo</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>"¿Y da resultado?" → "Sí — en promedio las empresas mejoran su EBITDA en más de 400 puntos base en los primeros 12 meses, y generan caja para varios meses de operación."</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>"¿Y es caro?" → "Depende del tamaño del equipo, pero en general si funciona se paga solo con los resultados que genera."</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>"Cuéntame todo ahí mismo" → "Mejor lo vemos con calma en una llamada de 20-30 minutos. ¿Cuándo te acomoda?"</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont"><i aria-hidden="true" class="ti ti-circle-x"></i> No hacer</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No convertir el café en una reunión de venta formal — sigue siendo informal</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No insistir si la respuesta es "no se me ocurre nadie" — arriesga la relación personal</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No irse sin haber preguntado por el referido y sin el cierre de contenido — son las dos anclas que nunca se saltan</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="stage-panel" id="s1">
+<div class="stage-header">
+<span class="tag">Etapa 2</span>
+<h2>Reunión de presentación</h2>
+<p class="objetivo">Escuchar primero, presentar después. El objetivo es entender qué buscan y ver si hay fit — no vender. Si hay interés, proponer diagnóstico.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-users"></i> Bonding</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-file-description"></i> Up-front contract</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-chart-bar"></i> Pain</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> fecha de presentación de propuesta agendada — diagnóstico resuelto en la misma reunión si es posible.</div>
+</div>
+<div style="margin-bottom: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden;">
+<div style="padding: 10px 14px; font-size: 12px; font-weight: 500; background: #E6F1FB; color: #0C447C; display: flex; align-items: center; gap: 6px;">
+<i aria-hidden="true" class="ti ti-route"></i> Guion de la reunión · en orden
+      </div>
+<div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 0;">
+<div style="display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">1</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Bonding</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cómo estás? Qué linda la oficina…" — buscar puntos en común antes de entrar en tema.</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ No apurar este momento. El rapport genuino abre la conversación.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">2</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Agradecer y escuchar</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"Gracias por el tiempo. ¿Qué te llamó la atención de nosotros? ¿Qué estás buscando? Si pensaras en los próximos 12 meses, ¿qué te gustaría que fuera distinto?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Escuchar el dolor, sin entregar demasiada información todavía. <strong>No dar el pitch sin haber identificado el dolor.</strong></div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">3</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Presentar lo que hacemos — adaptado a lo que dijeron</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"Perfecto, buenísimo. Te cuento lo que hacemos… Implementamos un método de gestión ágil que busca alinear al equipo, empoderarlo y generar accountability. Lo más importante es que <strong>implementamos hábitos concretos</strong>, porque queremos que los cambios permanezcan. El foco siempre es que eso se traduzca en <strong>resultados financieros</strong>, no solo en mejorar la dinámica del equipo."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 6px; font-style: italic;">"Para darte una noción, el programa dura entre 6 y 12 meses — instalar hábitos toma tiempo, y si queremos cambios sostenibles en los equipos, necesitamos ese tiempo."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 6px;">→ Conectar cada frase con lo que la persona dijo que le duele o busca. La duración se menciona como noción (6 a 12 meses), nunca como número fijo — siempre se adapta al equipo.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">4</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Precio — solo si se da la conversación</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"Los programas están en un rango de entre 5 y 10 millones en promedio para un programa de ese tipo — pero siempre se adapta según el tamaño del equipo y el objetivo."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Se menciona solo si surge naturalmente, nunca como número cerrado — es un rango de referencia, no una cotización.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">5</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Si hay interés → transición a diagnóstico</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"Si te interesa que te hagamos una propuesta, necesitaría hacerte un par de preguntas más."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Si dice que sí: pasar al diagnóstico ahí mismo, usando solo las preguntas que aún no se respondieron (no repetir lo ya conversado). Evitar agendar una reunión aparte si se puede resolver en esta misma.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">5b</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Si no hay interés en profundizar</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"No hay problema, quedamos en contacto. De todas formas te mando las credenciales — y si sientes que a algún amigo tuyo o proveedor le puede servir, cuéntame."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Cerrar la puerta con cordialidad, sin presionar. Dejar abierta la posibilidad de referidos.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding-top: 12px;">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">6</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Cierre de la reunión</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cuándo te gustaría que te presentáramos la propuesta?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ No salir sin fecha concreta de presentación de propuesta.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Post reunión: enviar mail con credenciales + links a testimonios — <strong>elegir testimonios de industrias o situaciones parecidas</strong> a las del prospecto. En Trello: sección <strong>"Leads con reunión"</strong> → tarjeta <strong>"Envío credenciales post reunión"</strong>.</span></div>
+</div>
+<div class="stage-panel" id="s2">
+<div class="stage-header">
+<span class="tag">Etapa 3</span>
+<h2>Reunión de diagnóstico</h2>
+<p class="objetivo">Identificar qué busca realmente el lead, entender su dolor profundo y recoger la información necesaria para preparar una propuesta a la medida. <strong>El prospecto debe sentir que fue escuchado</strong> y debe salir con claridad sobre la duración del programa: cuando le presentemos la propuesta, el plazo no le puede tomar por sorpresa.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-chart-bar"></i> Pain</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-zoom-money"></i> Pain profundo</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-coin"></i> Budget</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-users-group"></i> Decision</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> dolor validado en sus propias palabras + expectativa de duración alineada (6-12 meses) + fecha de presentación de propuesta agendada.</div>
+<div style="margin-top: 6px; font-size: 12px; color: var(--color-text-secondary);">💻 Si la reunión es online, puede participar Alfonso o Sofía.</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-repeat"></i><span>Usar solo las preguntas de este guion que <strong>no se hayan respondido antes</strong> (en el pitch de presentación o en la reunión de presentación). No repetir preguntas ya conversadas.</span></div>
+<div style="margin-bottom: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden;">
+<div style="padding: 10px 14px; font-size: 12px; font-weight: 500; background: #E6F1FB; color: #0C447C; display: flex; align-items: center; gap: 6px;">
+<i aria-hidden="true" class="ti ti-route"></i> Guion de preguntas · en orden
+      </div>
+<div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 0;">
+<div style="display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">1</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Experiencia previa</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Has tenido alguna experiencia previa con algún coach o consultor?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">2</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Dolor a 12 meses</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Qué es lo número uno que esperas resolver en los próximos 12 meses con la ayuda de un coach o de un externo? A nivel financiero, ¿cuál es el número que quieres mejorar este año?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">3</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Deseo a 90 días</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"Si pudieras pedir un deseo para tu empresa para los próximos 90 días, ¿cuál sería?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">4</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Ambición a 5-10 años</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cuál es tu ambición o sueño para la compañía para los próximos 5 o 10 años?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">5</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Facturación y crecimiento</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"Para tener un orden de magnitud no más — ¿cuánto facturó la empresa el año pasado y cuánto esperas crecer este año y el próximo?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ "Para tener un orden de magnitud" es solo la frase de entrada — no se busca el número exacto, solo una noción.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">6</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Margen / EBITDA</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"Y en cuanto al margen, ¿cuánto fue tu EBITDA el año pasado? ¿Cuánto esperas para este año?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">7</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Caja</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cómo está tu caja? ¿Cuántos meses de costo operacional tienes?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">8</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Equipo y planificación</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Quiénes participarían en una planificación estratégica? ¿Cuántos empleados tienes en total?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">9</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Liderazgo</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Hay algo que te gustaría trabajar de tu liderazgo?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">10</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Transparencia financiera</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Se comparte la data financiera de la compañía con el primer equipo?"</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">11</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Expectativa de duración</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cuánto te imaginas que podría durar un programa como este?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Primero preguntar y <strong>escuchar su expectativa</strong>. Después responder — y ahí impactarlo:</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic; margin-top: 4px; padding-left: 10px; border-left: 2px solid #C9DDF2;">"En general nuestros programas duran entre <strong>6 y 12 meses</strong>, dependiendo del nivel de complejidad. Nosotros queremos implementar hábitos que queden después — y eso requiere tiempo. De todas formas: si los implementan antes, se pueden graduar cuando quieran; y si no se están logrando los resultados buscados, tampoco hay problema con terminar antes de tiempo. A nosotros lo que nos importa es que logren sus resultados."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Objetivo: que la <strong>duración no le tome por sorpresa</strong> cuando le presentemos la propuesta. Debe salir de esta reunión con claridad.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding-top: 12px;">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">12</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Cierre</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cuándo te gustaría que te presentáramos la propuesta?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ No salir sin fecha agendada, validando que el prospecto sintió que fue escuchado. Coordinar con Sofía, según la información recogida, qué propuesta hacer.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Entregable post-diagnóstico: si no se han enviado, mandar las <strong>credenciales</strong> junto con un mail agradeciendo la reunión — elegir testimonios de industrias o situaciones parecidas. En Trello: sección <strong>"Leads con reunión"</strong> → tarjeta <strong>"Envío credenciales post reunión"</strong>.</span></div>
+<div class="columns">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Sí hacer</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Preguntar por los próximos 12 meses: ¿qué número quieres mejorar? ¿cuál es el deseo para los próximos 90 días?</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Explorar pain profundo: impacto en EBITDA, caja o tiempo del equipo directivo</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Preguntar por facturación, crecimiento esperado y cómo está la caja</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Identificar quiénes participarían en la planificación y quiénes deciden la compra</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Preguntar si hay disposición a invertir para resolver el problema (budget)</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Preguntar cuánto imagina que dura un programa <em>antes</em> de decirle el plazo, y recién después anclar los 6-12 meses con el argumento de los hábitos que quedan</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Irse con fecha de presentación de propuesta ya agendada</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont"><i aria-hidden="true" class="ti ti-circle-x"></i> No hacer</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No presentar la solución antes de haber diagnosticado el dolor — regla de oro Sandler</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No improvisar preguntas — seguir la guía de conversación Sandler como estructura</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No avanzar a propuesta si no hay claridad sobre el budget y quién decide</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No dejar la reunión sin haber validado que el prospecto sintió que lo entendiste</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No dejar la duración para la propuesta — si se entera del plazo recién ahí, se cae el cierre</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No mandar la propuesta por correo — siempre se presenta en reunión</span></div>
+</div>
+</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>La propuesta no debe tomarle por sorpresa — <strong>ni en el contenido ni en la duración</strong>. El prospecto debe tener noción de lo que viene, saber que hablamos de un programa de 6 a 12 meses y sentir que la propuesta fue construida para él.</span></div>
+</div>
+<div class="stage-panel" id="s3">
+<div class="stage-header">
+<span class="tag">Etapa 4</span>
+<h2>Presentación de propuesta</h2>
+<p class="objetivo">Presentar la propuesta a la medida, validar que genera valor, explorar ajustes y dejar claro que lo importante es el resultado. La propuesta nunca se envía: siempre se presenta.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-puzzle"></i> Fulfillment</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-shield-check"></i> Post-sell</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> fecha concreta para el llamado de feedback de la propuesta.</div>
+<div style="margin-top: 6px; font-size: 12px; color: var(--color-text-secondary);">👥 Participan en general: Alfonso, Sofía y el coach que liderará el programa.</div>
+</div>
+<div style="margin-bottom: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden;">
+<div style="padding: 10px 14px; font-size: 12px; font-weight: 500; background: #E6F1FB; color: #0C447C; display: flex; align-items: center; gap: 6px;">
+<i aria-hidden="true" class="ti ti-route"></i> Guion de la reunión · en orden
+      </div>
+<div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 0;">
+<div style="display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">1</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Saludo y novedades</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cómo has estado? ¿Hay algo nuevo desde la última vez que hablamos?"</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Si hay alguien en la reunión que no nos conoce: preguntarle qué sabe de Scaling y contarle brevemente antes de avanzar.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary);">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">2</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Presentación (slide a slide)</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55;">Cada slide trae las notas de lo que hay que decir, con lo más importante marcado. Que sea una conversación, no una exposición: pausar, resolver dudas, chequear reacciones.</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Transmitir que es flexible y a medida: la intensidad y los plazos se pueden ajustar según lo que el cliente vea con más valor. La idea es que los resultados del programa paguen su propio costo con los beneficios obtenidos.</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; padding-top: 12px;">
+<div style="font-size: 11px; font-weight: 600; color: #1B4F8A; background: #E6F1FB; border-radius: 20px; padding: 2px 8px; height: fit-content; flex-shrink: 0; margin-top: 1px;">3</div>
+<div>
+<div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Cierre de la reunión</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; font-style: italic;">"¿Cuándo hablamos de nuevo? ¿Te acomoda tal día a tal hora? Buenísimo, nos vemos."</div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 4px;">→ Después de la reunión: enviar la propuesta por mail con testimonios y teléfonos de referencia para llamar. "Si necesitas cualquier otro teléfono, cuéntanos." En Trello: sección <strong>"Leads con propuesta"</strong> → tarjeta <strong>"Mail de presentación de propuesta"</strong>.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Sí hacer</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Conectar cada elemento de la propuesta con el dolor identificado en el diagnóstico</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Preguntar: "¿qué te parece el precio?" — esperar respuesta sin defenderlo de inmediato</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Preguntar si hay algo que sacarían o agregarían — mostrar que es flexible</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Mencionar garantías: cancelación sin compromiso y devolución si no están conformes el primer mes</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Ofrecer referencias de clientes que puedan contactar directamente</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Aplicar post-sell: "¿qué podría impedir que avancemos una vez aprobada?"</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Irse con fecha concreta para el llamado de feedback</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont"><i aria-hidden="true" class="ti ti-circle-x"></i> No hacer</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No enviar la propuesta por correo sin haberla presentado en reunión primero</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No defender el precio sin antes entender la objeción real del prospecto</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No improvisar cambios a la propuesta en el momento — tomar nota y ajustar</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No terminar sin saber cuáles son las posibles objeciones o trabas para el cierre</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No dejar abierto "te contactamos pronto" — siempre con fecha</span></div>
+</div>
+</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>La propuesta no debe tomarle por sorpresa. El prospecto debe tener noción de lo que viene y sentir que fue construida para él. Lo que nos importa es que sea una inversión rentable, no solo un gasto.</span></div>
+</div>
+<div class="stage-panel" id="s4">
+<div class="stage-header">
+<span class="tag">Etapa 5</span>
+<h2>Seguimiento</h2>
+<p class="objetivo">Mantener el momentum sin ser invasivo. Cada contacto debe agregar valor o generar claridad sobre si seguimos o no. Siempre con próxima fecha acordada.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-shield-check"></i> Post-sell</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-file-description"></i> Up-front contract</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> próxima fecha de contacto acordada.</div>
+</div>
+<div class="columns">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Sí hacer</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Hacer seguimiento según la fecha acordada al final de la reunión anterior</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Preguntar directamente si sigue siendo prioridad o si cambió algo</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Si hay demora, explorar qué está frenando la decisión sin presionar</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Cada contacto debe terminar con una próxima fecha de retomar</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Compartir contenido relevante (artículo, caso de éxito) si suma a su contexto</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont"><i aria-hidden="true" class="ti ti-circle-x"></i> No hacer</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No hacer seguimiento sin haber acordado cuándo hacerlo en la reunión anterior</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No escribir "¿cómo van?" sin agregar valor ni contexto</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No insistir más de 2-3 veces sin respuesta — si no hay señal, nombrar la situación</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No bajar el precio como señal de urgencia — devalúa la propuesta</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No dejar el seguimiento solo al prospecto — el comercial lleva la iniciativa</span></div>
+</div>
+</div>
+</div>
+<div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Usar la sección <strong>"Leads con propuesta"</strong> en Trello — revisar las distintas alternativas según la situación de cada lead.</span></div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>Si después de varios contactos no hay avance, aplicar Sandler: "Entiendo que quizás no es el momento. ¿Tiene sentido seguir hablando o te parece que lo dejamos para más adelante?"</span></div>
+</div>
+<div class="stage-panel" id="s5">
+<div class="stage-header">
+<span class="tag">Etapa 6</span>
+<h2>Cierre</h2>
+<p class="objetivo">Toda oportunidad debe cerrarse formalmente — como cliente ganado o como expediente perdido. Lo importante es no dejar situaciones abiertas.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-trophy"></i> Fulfillment confirmado</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> situación cerrada formalmente — como cliente o como expediente.</div>
+</div>
+<div class="columns">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Cierre de cliente (ganado)</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Solicitar confirmación formal por mail antes de iniciar el programa</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Una vez confirmado, enviar documento de bienvenida</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Aplicar el mismo proceso de confirmación en renovaciones</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Hacer el traspaso formal al equipo de delivery con toda la información del diagnóstico</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Agradecer la confianza y generar entusiasmo por el inicio</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont"><i aria-hidden="true" class="ti ti-circle-x"></i> Cierre de expediente (perdido)</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No dejar el lead "en el aire" — si no va a avanzar, cerrarlo formalmente</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>Enviar respuesta cordial confirmando que se entiende la decisión</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>Dejar la puerta abierta para retomar contacto más adelante</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>Registrar el motivo de la pérdida para aprendizaje interno</span></div>
+</div>
+</div>
+</div>
+<div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Si se cierra como <strong>cliente</strong>: usar en Trello la sección "Clientes" → tarjeta <strong>"Mail de bienvenida a Scaling"</strong>.<br/>Si se cierra como <strong>expediente</strong> (perdido): usar en Trello la sección "Leads con propuesta" → tarjeta <strong>"Mail respuesta negativa de leads"</strong>.</span></div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>No asumir que "sí verbal" es suficiente — el proceso no comienza hasta tener el OK escrito. El cierre no es el final del proceso comercial — es el inicio de la relación de programa. La experiencia del primer mes define la renovación.</span></div>
+</div>
+</div>
+</body>
+</html>
