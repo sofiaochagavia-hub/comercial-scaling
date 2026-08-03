@@ -530,6 +530,10 @@ body.nav-on .app-bar { display: block; }
 #v-guiones .regla-oro .ro-chips{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 #v-guiones .regla-oro .ro-chip{ font-size: 11.5px; font-weight: 600; background: rgba(255,255,255,.16);
   border-radius: 20px; padding: 3px 10px; }
+#v-guiones .ir-msg{ display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; font-size: 12px;
+  font-weight: 600; color: #fff; background: #1B4F8A; border: none; border-radius: 8px; padding: 7px 12px;
+  cursor: pointer; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+#v-guiones .ir-msg:active{ transform: scale(.97); }
 #v-guiones .container{ padding: 1.5rem 1rem; max-width: 680px; margin: 0 auto; }
 #v-guiones .header{ text-align: center; margin-bottom: 2rem; }
 #v-guiones .header h1{ font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
@@ -1579,7 +1583,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div>
 <div class="spaso-et">Paso 8 · cierre de la reunión</div>
 <div class="spaso-t">Si hay interés → esta reunión se transforma en diagnóstico</div>
-<div class="spaso-q">"Si te interesa que te hagamos una propuesta, necesitaría hacerte un par de preguntas más."</div><div class="spaso-alt"><b>Si vuelve a aparecer el precio:</b> se responde con el rango del paso 5 — nunca como cotización cerrada.</div><div class="spaso-nota">→ Si dice que sí, se pasa al diagnóstico <strong>ahí mismo</strong>, usando solo las preguntas que todavía no se respondieron en los pasos 3 a 6. No repetir lo ya conversado y no agendar una reunión aparte si se puede resolver en esta. El guion completo está en <strong>3 · Diagnóstico</strong>, y el cierre de la reunión (post-sell y fecha de propuesta) va al final de ese guion, no de este.</div>
+<div class="spaso-q">"Si te interesa que te hagamos una propuesta, necesitaría hacerte un par de preguntas más."</div><div class="spaso-alt"><b>Si vuelve a aparecer el precio:</b> se responde con el rango del paso 5 — nunca como cotización cerrada.</div><div class="spaso-nota">→ Si dice que sí, se pasa al diagnóstico <strong>ahí mismo</strong>, usando solo las preguntas que todavía no se respondieron en los pasos 3 a 6. No repetir lo ya conversado y no agendar una reunión aparte si se puede resolver en esta. El guion completo está en <strong>3 · Diagnóstico</strong>.</div>
 </div>
 </div>
 <div class="spaso salida">
@@ -1592,8 +1596,8 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>
 </div>
 </div>
-<div class="tip-box" style="background:#EAF6EE; border-color:#9CCBAE;"><i aria-hidden="true" class="ti ti-mail-check" style="color:#1E7A4C;"></i><span><strong>Post reunión · si terminó en diagnóstico:</strong> se manda <strong>solo el mail con las credenciales</strong> y la confirmación de la próxima reunión. No hace falta mandar testimonios: el prospecto ya avanzó. En Trello: <strong>"Leads con reunión de diagnóstico"</strong>.</span></div>
-<div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span><strong>Post reunión · si terminó sin diagnóstico o sin interés:</strong> ahí sí se manda el mail con credenciales <strong>+ links a testimonios</strong>, eligiendo casos de <strong>industrias o situaciones parecidas</strong> a las del prospecto — es lo que mantiene la puerta abierta. En Trello: sección <strong>"Leads con reunión"</strong> → tarjeta <strong>"Envío credenciales post reunión"</strong>.</span></div>
+<div class="tip-box" style="background:#EAF6EE; border-color:#9CCBAE; display:block;"><i aria-hidden="true" class="ti ti-mail-check" style="color:#1E7A4C;"></i> <span><strong>Post reunión · si siguió a diagnóstico:</strong> se manda <strong>solo el mail con las credenciales</strong> y la confirmación de la próxima reunión — sin testimonios, porque el prospecto ya avanzó. El texto listo para copiar está en <strong>3 · Material seguimiento</strong>, tipo de lead <strong>"Leads con reunión de diagnóstico"</strong>.</span><br/><button class="ir-msg" data-go="seguimiento" data-seg="leads-diagnostico" type="button">Abrir ese mensaje <i aria-hidden="true" class="ti ti-arrow-right"></i></button></div>
+<div class="tip-box" style="background:#F6F1FC; border-color:#C3AEE0; display:block;"><i aria-hidden="true" class="ti ti-mail-forward" style="color:#5E3FA8;"></i> <span><strong>Post reunión · si quedó sin diagnóstico o sin interés:</strong> ahí sí se manda el mail de seguimiento con credenciales <strong>+ links a testimonios</strong>, eligiendo casos de <strong>industrias o situaciones parecidas</strong> a las del prospecto — es lo que mantiene la puerta abierta. El texto está en <strong>3 · Material seguimiento</strong>, tipo de lead <strong>"Leads con reunión"</strong>.</span><br/><button class="ir-msg" data-go="seguimiento" data-seg="leads-con-reunion" type="button">Abrir ese mensaje <i aria-hidden="true" class="ti ti-arrow-right"></i></button></div>
 </div>
 <div class="stage-panel" id="s2">
 <div class="stage-header">
@@ -3730,7 +3734,20 @@ window.addEventListener('hashchange', desdeHash);
 document.addEventListener('click', function (e) {
   if (!e.target.closest) return;
   var t = e.target.closest('[data-go]');
-  if (t) { e.preventDefault(); go(t.dataset.go); return; }
+  if (t) {
+    e.preventDefault();
+    go(t.dataset.go);
+    var seg = t.dataset.seg;
+    if (seg) {
+      var radio = document.getElementById('segradio-' + seg);
+      if (radio) radio.checked = true;
+      setTimeout(function () {
+        var panel = document.getElementById('segpanel-' + seg);
+        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+    }
+    return;
+  }
   var sc = e.target.closest('[data-scroll]');
   if (sc) {
     e.preventDefault();
