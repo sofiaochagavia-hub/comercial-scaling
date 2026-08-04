@@ -294,6 +294,16 @@ body.nav-on .app-bar { display: block; }
 #v-estrategia .back-link{ display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: #1B4F8A;
   text-decoration: none; margin-bottom: 14px; font-weight: 500; }
 #v-estrategia .back-link:hover{ text-decoration: underline; }
+#v-estrategia .reunion .channel-head{ background: #0C447C; }
+#v-estrategia .hhh-name{ display: inline-flex; align-items: center; gap: 6px; background: #0C447C; color: #fff;
+  font-size: 12px; font-weight: 700; border-radius: 20px; padding: 4px 12px; letter-spacing: .02em; }
+#v-estrategia .orden-canales{ display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 16px;
+  font-size: 11.5px; font-weight: 600; }
+#v-estrategia .orden-canales .oc{ background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 20px; padding: 5px 11px; color: var(--color-text-primary); }
+#v-estrategia .orden-canales .flecha{ color: var(--color-text-secondary); font-size: 13px; }
+#v-estrategia .temp-escala{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0 14px; }
+#v-estrategia .temp-escala div{ text-align: center; font-size: 11px; font-weight: 600; padding: 7px 4px; border-radius: 8px; color: #fff; }
 #v-estrategia .nav-radio{ position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
 #v-estrategia .segment-panel{ display: none; }
 #v-estrategia .msg-card{ display: none; }
@@ -860,6 +870,10 @@ body.nav-on .app-bar { display: block; }
 #v-seguimiento .segment-sub{ font-size: 12.5px; color: var(--color-text-secondary); margin: 0 0 12px 0;
   padding: 8px 12px; background: #F5F6F9; border-left: 3px solid #1B4F8A; border-radius: 0 6px 6px 0; }
 #v-seguimiento .tipos-hint{ font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 10px; }
+#v-seguimiento .msg-asunto{ display: flex; align-items: center; gap: 7px; margin: 8px 10px 0; padding: 7px 11px;
+  background: #E6F1FB; border-radius: 7px; font-size: 12px; color: #0C447C; }
+#v-seguimiento .msg-asunto b{ font-weight: 700; }
+#v-seguimiento .msg-asunto span.et{ font-weight: 600; opacity: .8; }
 #v-seguimiento .nav-radio{ position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
 #v-seguimiento .segment-panel{ display: none; }
 #v-seguimiento .msg-card{ display: none; }
@@ -1080,7 +1094,7 @@ body.nav-on .app-bar { display: block; }
 <button aria-label="Volver al inicio" class="app-home" data-go="menu" type="button"><i aria-hidden="true" class="ti ti-home"></i></button>
 <nav class="app-tabs">
 <button class="app-tab" data-go="estrategia" data-v="estrategia" type="button">1. Estrategia</button>
-<button class="app-tab" data-go="guiones" data-v="guiones" type="button">2. Guiones</button>
+<button class="app-tab" data-go="guiones" data-v="guiones" type="button">2. Reuniones</button>
 <button class="app-tab" data-go="seguimiento" data-v="seguimiento" type="button">3. Seguimiento</button>
 </nav>
 </div>
@@ -1098,12 +1112,12 @@ body.nav-on .app-bar { display: block; }
 <div class="seccion">Proceso de venta</div>
 <button class="card" data-go="estrategia" type="button">
 <div class="card-top"><i aria-hidden="true" class="ti ti-target-arrow"></i><h2>1. Estrategia Comercial Scaling</h2></div>
-<p>A quién le vendemos y por dónde llegan los leads: cliente principal, el dolor real, el funnel y los puntos de interacción de cada canal.</p>
+<p>¿A quién? ¿Por dónde? — el cliente principal (Humble Hungry Harry) y los canales de interacción, de los más fríos a los más cercanos.</p>
 <span class="abrir">Abrir →</span>
 </button>
 <button class="card" data-go="guiones" type="button">
-<div class="card-top"><i aria-hidden="true" class="ti ti-list-check"></i><h2>2. Guiones por tipo de reunión</h2></div>
-<p>Qué hacer y qué no hacer en cada etapa del proceso comercial, con el guion de preguntas de la reunión de diagnóstico y la metodología Sandler.</p>
+<div class="card-top"><i aria-hidden="true" class="ti ti-list-check"></i><h2>2. Reuniones</h2></div>
+<p>El guion de cada tipo de reunión — pitch de asado, catch up, presentación, diagnóstico, propuesta, seguimiento y cierre — con la metodología Sandler.</p>
 <span class="abrir">Abrir →</span>
 </button>
 <button class="card" data-go="seguimiento" type="button">
@@ -1119,14 +1133,15 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="vista" id="v-estrategia"><div class="container">
 <div class="header">
 <h1>Estrategia Comercial · Scaling</h1>
-<p>Los puntos de interacción que usamos para generar y trabajar leads</p>
+<p>¿A quién? ¿Por dónde? — cliente principal y sus canales de interacción</p>
 </div>
 <div class="intro-box">
-    Antes de llegar a un pitch o una reunión (ver <strong>nuggets de venta</strong>), un lead pasa por alguno de estos canales. Cada uno cumple un rol distinto según qué tan fría o cálida es la relación con esa persona — desde atraer completos desconocidos hasta mantener el vínculo con alguien que ya conocemos.
+    Dos preguntas ordenan toda la prospección: <strong>¿a quién le vendemos?</strong> y <strong>¿por dónde llegamos a esa persona?</strong> Lo primero define el perfil que salimos a buscar; lo segundo, qué canal usar según qué tan fría o cálida está la relación.
   </div>
-<div class="section-title"><i aria-hidden="true" class="ti ti-target-arrow"></i> Cliente principal — a quién le vendemos</div>
+<div class="section-title"><i aria-hidden="true" class="ti ti-target-arrow"></i> ¿A quién? · Nuestro cliente principal</div>
 <div class="intro-box" style="margin-bottom: 12px;">
-  Al final, esto define <strong>a quién salimos a buscar activamente</strong>: el perfil que orienta la prospección en todos los canales (LinkedIn, eventos, webinars, referidos).
+  El cliente principal es el que tiene <strong>mayor probabilidad de cerrar un programa</strong>. Le decimos <span class="hhh-name">Humble Hungry Harry · HHH</span><br/><br/>
+  Es el perfil que orienta la prospección en todos los canales (LinkedIn, eventos, webinars, referidos): a quién salimos a buscar activamente.
 </div>
 <div class="persona-card">
 <div class="persona-left">
@@ -1150,7 +1165,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>
 </div>
 <div class="funnel-wrap">
-<svg viewbox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+<svg viewbox="0 0 616 340" xmlns="http://www.w3.org/2000/svg">
 <!-- Layer D -->
 <polygon fill="#1B4F8A" points="40,4 560,4 530,84 70,84" stroke="#ffffff" stroke-width="3"></polygon>
 <!-- Layer C -->
@@ -1195,31 +1210,23 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
         </div>
 </foreignobject>
 </svg>
-<div class="funnel-caption">Así se va identificando un lead: partiendo de un dolor amplio (A) y filtrando hasta llegar al perfil exacto de la empresa que salimos a buscar (D).</div>
+<div class="funnel-caption">Por medio de las distintas interacciones se va clasificando el lead: partiendo de un <strong>dolor amplio (D)</strong> y filtrando hasta llegar al <strong>perfil exacto de cliente que salimos a buscar (A)</strong>: nuestro cliente principal.</div>
 </div>
-<div class="section-title"><i aria-hidden="true" class="ti ti-route"></i> Puntos de interacción</div>
-<div class="channel-card mail">
-<div class="channel-head">
-<div class="icon-wrap"><i aria-hidden="true" class="ti ti-mail"></i></div>
-<div class="name">Mail · Newsletter</div>
-<div class="temp">Tibio</div>
+<div class="section-title"><i aria-hidden="true" class="ti ti-route"></i> ¿Por dónde interactuamos con el cliente principal?</div>
+<div class="intro-box" style="margin-bottom: 10px;">
+  Depende de su <strong>temperatura</strong>: en qué punto del embudo está (D, C, B o A). Vamos de los canales más lejanos a los más cercanos — nadie pasa de un post de LinkedIn a una reunión sin escalones intermedios.
 </div>
-<div class="channel-body">
-<div class="desc">Canal de nutrición continua — mantiene a Scaling presente en el tiempo, sin necesidad de contacto directo.</div>
-<div class="msg-title">Qué enviamos</div>
-<div class="msg-pills">
-<span class="msg-pill">Tips</span>
-<span class="msg-pill">Invitación a webinar</span>
-<span class="msg-pill">Newsletter</span>
-<span class="msg-pill">Invitación a juntarse</span>
-</div>
-</div>
+<div class="temp-escala">
+<div style="background:#1B4F8A;">D · Frío</div>
+<div style="background:#1B4F8A; opacity:.85;">C · Tibio</div>
+<div style="background:#1B4F8A; opacity:.72;">B · Cálido</div>
+<div style="background:#1B4F8A; opacity:.6;">A · Cliente principal</div>
 </div>
 <div class="channel-card linkedin">
 <div class="channel-head">
 <div class="icon-wrap"><i aria-hidden="true" class="ti ti-brand-linkedin"></i></div>
 <div class="name">LinkedIn</div>
-<div class="temp">Tibio</div>
+<div class="temp">D · Frío</div>
 </div>
 <div class="channel-body">
 <div class="desc">Combina alcance de contenido con mensajes uno a uno — sirve tanto para atraer como para mantener el vínculo.</div>
@@ -1232,26 +1239,11 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>
 </div>
 </div>
-<div class="channel-card whatsapp">
-<div class="channel-head">
-<div class="icon-wrap"><i aria-hidden="true" class="ti ti-brand-whatsapp"></i></div>
-<div class="name">WhatsApp personal</div>
-<div class="temp">Cálido</div>
-</div>
-<div class="channel-body">
-<div class="desc">Se usa solo cuando ya existe una relación cercana — es el canal más directo y de mayor confianza. Cuando se necesita un seguimiento más formal, se trabaja en paralelo por mail.</div>
-<div class="msg-title">Cuándo se usa</div>
-<div class="msg-pills">
-<span class="msg-pill">Hay relación previa</span>
-<span class="msg-pill">Seguimiento formal en paralelo por mail</span>
-</div>
-</div>
-</div>
 <div class="channel-card web">
 <div class="channel-head">
 <div class="icon-wrap"><i aria-hidden="true" class="ti ti-world"></i></div>
 <div class="name">Página web</div>
-<div class="temp">Frío / Tibio</div>
+<div class="temp">D · Frío</div>
 </div>
 <div class="channel-body">
 <div class="desc">Canal inbound: si alguien descarga los Growth Tools desde la web, se activa un seguimiento — es una señal de interés espontáneo.</div>
@@ -1261,26 +1253,11 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>
 </div>
 </div>
-<div class="channel-card webinar">
-<div class="channel-head">
-<div class="icon-wrap"><i aria-hidden="true" class="ti ti-video"></i></div>
-<div class="name">Webinar</div>
-<div class="temp">Frío</div>
-</div>
-<div class="channel-body">
-<div class="desc">Nuestra principal forma de atraer e interactuar con desconocidos — quien se registra e interactúa pasa a ser un lead nuevo dentro del funnel.</div>
-<div class="msg-title">Rol</div>
-<div class="msg-pills">
-<span class="msg-pill">Atracción de desconocidos</span>
-<span class="msg-pill">Primer punto de interacción</span>
-</div>
-</div>
-</div>
 <div class="channel-card eventos">
 <div class="channel-head">
 <div class="icon-wrap"><i aria-hidden="true" class="ti ti-calendar-event"></i></div>
 <div class="name">Eventos (universidades, empresas)</div>
-<div class="temp">Frío</div>
+<div class="temp">D · Frío</div>
 </div>
 <div class="channel-body">
 <div class="desc">Asistir a eventos de universidades, encuentros empresariales, ferias y charlas donde puede haber gerentes generales o dueños de empresa target — presencia física para generar contactos nuevos y buscar el "asado".</div>
@@ -1291,9 +1268,81 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>
 </div>
 </div>
+<div class="channel-card mail">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-mail"></i></div>
+<div class="name">Mail · Newsletter</div>
+<div class="temp">C · Tibio</div>
+</div>
+<div class="channel-body">
+<div class="desc">Canal de nutrición continua — mantiene a Scaling presente en el tiempo, sin necesidad de contacto directo.</div>
+<div class="msg-title">Qué enviamos</div>
+<div class="msg-pills">
+<span class="msg-pill">Tips</span>
+<span class="msg-pill">Invitación a webinar</span>
+<span class="msg-pill">Newsletter</span>
+<span class="msg-pill">Invitación a juntarse</span>
+</div>
+</div>
+</div>
+<div class="channel-card webinar">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-video"></i></div>
+<div class="name">Webinar</div>
+<div class="temp">C · Tibio</div>
+</div>
+<div class="channel-body">
+<div class="desc">Nuestra principal forma de atraer e interactuar con desconocidos — quien se registra e interactúa pasa a ser un lead nuevo dentro del funnel.</div>
+<div class="msg-title">Rol</div>
+<div class="msg-pills">
+<span class="msg-pill">Atracción de desconocidos</span>
+<span class="msg-pill">Primer punto de interacción</span>
+</div>
+</div>
+</div>
+<div class="channel-card whatsapp">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-brand-whatsapp"></i></div>
+<div class="name">WhatsApp personal</div>
+<div class="temp">B · Cálido</div>
+</div>
+<div class="channel-body">
+<div class="desc">Se usa solo cuando ya existe una relación cercana — es el canal más directo y de mayor confianza. Cuando se necesita un seguimiento más formal, se trabaja en paralelo por mail.</div>
+<div class="msg-title">Cuándo se usa</div>
+<div class="msg-pills">
+<span class="msg-pill">Hay relación previa</span>
+<span class="msg-pill">Seguimiento formal en paralelo por mail</span>
+</div>
+</div>
+</div>
+<div class="channel-card reunion">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-users"></i></div>
+<div class="name">Reunión</div>
+<div class="temp">A · Cliente principal</div>
+</div>
+<div class="channel-body">
+<div class="desc">El punto de llegada de todos los canales anteriores. Acá ya no se atrae ni se nutre: se escucha el dolor y se ve si hay fit. Es el único canal donde se puede vender.</div>
+<div class="msg-title">Qué pasa acá</div>
+<div class="msg-pills">
+<span class="msg-pill">Pitch de asado o catch up</span>
+<span class="msg-pill">Reunión de presentación</span>
+<span class="msg-pill">Diagnóstico</span>
+<span class="msg-pill">Presentación de propuesta</span>
+</div>
+</div>
+</div>
+<div class="msg-title" style="margin-top:6px;">El orden, de más frío a menos frío</div>
+<div class="orden-canales">
+<span class="oc">LinkedIn</span><span class="oc">Página web</span><span class="oc">Eventos</span>
+<span class="flecha">→</span><span class="oc">Mail · Newsletter</span>
+<span class="flecha">→</span><span class="oc">Webinar</span>
+<span class="flecha">→</span><span class="oc">WhatsApp personal</span>
+<span class="flecha">→</span><span class="oc" style="background:#0C447C; color:#fff; border-color:#0C447C;">Reunión</span>
+</div>
 <div class="tip-box">
 <i aria-hidden="true" class="ti ti-bulb"></i>
-<span><strong>Cómo elegir el canal:</strong> mientras más fría la relación, más se apoya en contenido o presencia (webinar, eventos, web, newsletter). Mientras más cálida, más directo y personal (WhatsApp). LinkedIn y mail funcionan en cualquier punto intermedio, y suelen combinarse entre sí.</span>
+<span><strong>Cómo elegir el canal:</strong> mientras más fría la relación (D), más se apoya en contenido o presencia. A medida que sube la temperatura se pasa a canales más directos y personales, hasta llegar a la reunión (A). No saltarse escalones: el canal tiene que calzar con la temperatura real, no con las ganas de avanzar.</span>
 </div>
 <div class="footer-note">
     Este resumen cubre el "dónde" y "por dónde" llegan los leads: a quién le vendemos y por qué canal aparece. El "qué decir" en cada etapa está en <strong>Material seguimiento leads y cliente</strong>, y el guion de cada reunión en <strong>Guiones por tipo de reunión</strong>.
@@ -1302,7 +1351,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="vista" id="v-guiones"><div class="container">
 <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Nuggets de venta Scaling — qué hacer y qué no hacer en cada etapa del proceso comercial bajo metodología Sandler</h2>
 <div class="header">
-<h1>Guiones por tipo de reunión · Scaling</h1>
+<h1>Reuniones · Scaling</h1>
 <p>Qué hacer y qué no hacer en cada etapa del proceso comercial</p>
 </div>
 <div style="margin-bottom: 1.25rem; padding: 12px 16px; background: #FFF4E5; border: 1px solid #EF9F27; border-radius: var(--border-radius-lg); display: flex; gap: 10px; align-items: flex-start;">
@@ -1336,10 +1385,15 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 14px;">
 <div>
 <div style="font-size: 12px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; margin-bottom: 6px;">1. Te preguntan: "¿A qué te dedicas?"</div>
+<div style="font-size: 11px; font-weight: 700; color: #1B4F8A; letter-spacing: .04em; margin-bottom: 3px;">A · EN GRUPO GRANDE</div>
 <div style="font-size: 14px; color: var(--color-text-primary); line-height: 1.65; font-style: italic; border-left: 2px solid #1B4F8A; padding-left: 12px;">
-            "Trabajo en una consultora estratégica."
+            "Trabajo en una consultora de estrategia no tradicional."
           </div>
-<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">→ Respuesta corta. Pausa. Dejar que el otro pregunte más si le interesa.</div>
+<div style="font-size: 11px; font-weight: 700; color: #1B4F8A; letter-spacing: .04em; margin: 10px 0 3px;">B · UNO A UNO</div>
+<div style="font-size: 14px; color: var(--color-text-primary); line-height: 1.65; font-style: italic; border-left: 2px solid #1B4F8A; padding-left: 12px;">
+            "Trabajo en una consultora de estrategia no tradicional <strong>con fuerte foco en ejecución y resultados</strong>."
+          </div>
+<div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 8px;">→ En grupo grande la versión corta: deja espacio para que alguien pregunte. Uno a uno se puede dar el detalle, porque hay atención completa. En los dos casos: respuesta corta, pausa, y dejar que el otro pregunte más si le interesa.</div>
 </div>
 <div>
 <div style="font-size: 12px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; margin-bottom: 6px;">2. Si preguntan: "Cuéntame más… ¿qué es lo que hacen?"</div>
@@ -1517,7 +1571,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="ro-t">Regla de oro Sandler</div>
 <div class="ro-d">No presentes una solución hasta haber descubierto los cuatro:</div>
 <div class="ro-chips"><span class="ro-chip">✓ Dolor</span><span class="ro-chip">✓ Impacto</span><span class="ro-chip">✓ Presupuesto</span><span class="ro-chip">✓ Decisión</span></div>
-<div class="ro-d" style="margin-top:8px;">Es decir: los pasos 3, 4, 5 y 6 van <strong>antes</strong> del 7. No diagnostiques una solución antes de diagnosticar el dolor. El <strong>post-sell</strong> (paso 8 de Sandler) no va en esta reunión: va al final del diagnóstico.</div>
+<div class="ro-d" style="margin-top:8px;">Es decir: el dolor y su impacto (paso 3) van <strong>antes</strong> del pitch (paso 5). No diagnostiques una solución antes de diagnosticar el dolor. El <strong>post-sell</strong> (paso 8 de Sandler) no va en esta reunión: va al final del diagnóstico.</div>
 </div>
 </div><div class="sflow">
 <div class="sflow-head"><i aria-hidden="true" class="ti ti-route"></i> Guion de la reunión · en orden</div>
@@ -1533,49 +1587,49 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="spaso">
 <div class="spaso-n">2</div>
 <div>
-<div class="spaso-et">Paso 2 · Sandler</div>
-<div class="spaso-t">Up-front contract</div>
-<div class="spaso-q">"Antes de partir, ¿te parece si acordamos cómo va a ser esta conversación? Te voy a hacer algunas preguntas para entender bien tu situación. <strong>Si tiene sentido seguimos; si no, nos despedimos como amigos.</strong> ¿Te parece?"</div><div class="spaso-nota">→ Dejar explícito que un “no” es una salida válida. Eso baja la guardia y da permiso para preguntar en serio. Sin este acuerdo, las preguntas de los pasos 3 a 6 se sienten un interrogatorio.</div>
+<div class="spaso-et">Paso 2 · abrir la conversación</div>
+<div class="spaso-t">¿Qué sabe de nosotros y qué quiere escuchar?</div>
+<div class="spaso-q">"¿Leíste algo de lo que te mandé? ¿Qué sabes de nosotros?"</div><div class="spaso-q">"¿Qué te llamó la atención? ¿Qué te gustaría que te contemos?"</div><div class="spaso-nota">→ Sirve para dos cosas a la vez: saber desde qué nivel partir y abrir la puerta a que hable él. Casi siempre, al responder qué le llamó la atención, empieza a contar su situación — y ahí ya estamos en el paso 3.</div>
 </div>
 </div>
 <div class="spaso">
 <div class="spaso-n">3</div>
 <div>
-<div class="spaso-et">Paso 3 · Sandler</div>
-<div class="spaso-t">Pain — encontrar el dolor</div>
-<div class="spaso-q">"¿Qué está impidiendo que la empresa alcance los resultados que busca?"</div><div class="spaso-alt"><b>Si no se le ocurre nada:</b> "Si pensaras en los próximos 12 meses, ¿qué te gustaría que fuera distinto?" — abre por el lado del deseo en vez del problema, y suele destrabar la conversación.</div><div class="spaso-nota">→ Escuchar sin interrumpir y repreguntar “¿y qué más?” hasta que deje de aparecer material nuevo. Anotar las palabras exactas que usa: son las que se van a repetir en el paso 7.</div>
+<div class="spaso-et">Paso 3 · Sandler: Pain</div>
+<div class="spaso-t">Si empieza a hablar del dolor, profundizar ahí</div>
+<div class="spaso-q">"¿Qué es lo que te gustaría resolver?"</div><div class="spaso-q">"¿Y cómo esto te impacta en lo financiero o en tu tiempo?"</div><div class="spaso-alt"><b>Si no se le ocurre nada:</b> "Si pensaras en los próximos 12 meses, ¿qué te gustaría que fuera distinto?" — abre por el lado del deseo en vez del problema y suele destrabar la conversación.</div><div class="spaso-nota">→ No pasar al pitch mientras siga hablando. Repreguntar “¿y qué más?” y dejar silencios. Anotar las <strong>palabras exactas</strong> que usa: son las que se repiten después en el pitch.</div>
 </div>
 </div>
 <div class="spaso">
 <div class="spaso-n">4</div>
 <div>
-<div class="spaso-et">Paso 4 · Sandler</div>
-<div class="spaso-t">Pain profundo — ponerle número</div>
-<div class="spaso-q">"¿Qué impacto tiene eso en EBITDA, caja o tiempo del equipo directivo?"</div><div class="spaso-nota">→ Acá el dolor se transforma en cifra o en consecuencia concreta. Sin eso no hay urgencia, y sin urgencia no hay decisión — por buena que sea la propuesta.</div>
+<div class="spaso-et">Paso 4 · cuando se calla</div>
+<div class="spaso-t">Up-front contract</div>
+<div class="spaso-q">"¿Hasta qué hora tenemos?"</div><div class="spaso-alt"><b>Si no profundiza y pide que le contemos primero lo que hacemos:</b> igual hay que tener claridad de qué está buscando antes de hablar. Una pregunta basta — "¿qué te gustaría que resolviéramos?" — y después el up-front contract. Nunca el pitch a ciegas.</div><div class="spaso-nota">→ Va <strong>justo antes del pitch</strong>, cuando ya terminó de contar. Acota el tiempo, ordena lo que viene y deja implícito que si no tiene sentido, nos despedimos como amigos.</div>
 </div>
 </div>
 <div class="spaso">
 <div class="spaso-n">5</div>
 <div>
-<div class="spaso-et">Paso 5 · Sandler</div>
-<div class="spaso-t">Budget</div>
-<div class="spaso-q">"¿Existe disposición a invertir para resolverlo?"</div><div class="spaso-alt"><b>Si pregunta por precio:</b> "Los programas están en un rango de entre 5 y 10 millones en promedio para un programa de ese tipo — pero siempre se adapta según el tamaño del equipo y el objetivo."</div><div class="spaso-nota">→ Primero se pregunta por la disposición, no por el monto. El rango se menciona solo como referencia y nunca como cotización cerrada: siempre se adapta al tamaño del equipo y al objetivo.</div>
+<div class="spaso-et">Paso 5 · Sandler: Fulfillment</div>
+<div class="spaso-t">El pitch, adaptado a lo que escuchaste</div>
+<div class="spaso-q">"Perfecto, buenísimo. Te cuento lo que hacemos… Implementamos un método de gestión ágil que busca alinear al equipo, empoderarlo y generar accountability. Lo más importante es que <strong>implementamos hábitos concretos</strong>, porque queremos que los cambios permanezcan. El foco siempre es que eso se traduzca en <strong>resultados financieros</strong>, no solo en mejorar la dinámica del equipo."</div><div class="spaso-q">"Para darte una noción, el programa dura entre 6 y 12 meses — instalar hábitos toma tiempo, y si queremos cambios sostenibles en los equipos, necesitamos ese tiempo."</div><div class="spaso-nota">→ Conectar cada frase con las palabras que él usó en el paso 3. Si no mencionó un dolor, no se presenta la solución para ese dolor. La duración se dice como noción, nunca como número fijo.</div>
 </div>
 </div>
 <div class="spaso">
 <div class="spaso-n">6</div>
 <div>
-<div class="spaso-et">Paso 6 · Sandler</div>
-<div class="spaso-t">Decision</div>
-<div class="spaso-q">"¿Quiénes participan en la decisión? ¿Cómo han tomado decisiones parecidas antes?"</div><div class="spaso-nota">→ Si aparece alguien que no está en la reunión, hay que incorporarlo <strong>antes</strong> de presentar la propuesta. Una propuesta presentada a quien no decide es una propuesta muerta.</div>
+<div class="spaso-et">Paso 6 · Sandler: Budget</div>
+<div class="spaso-t">Disposición a invertir</div>
+<div class="spaso-q">"¿Existe disposición a invertir para resolverlo?"</div><div class="spaso-alt"><b>Si pregunta por precio:</b> "Los programas están en un rango de entre 5 y 10 millones en promedio para un programa de ese tipo — pero siempre se adapta según el tamaño del equipo y el objetivo."</div><div class="spaso-nota">→ Primero la disposición, después el monto. El rango se menciona solo como referencia, nunca como cotización cerrada.</div>
 </div>
 </div>
 <div class="spaso">
 <div class="spaso-n">7</div>
 <div>
-<div class="spaso-et">Paso 7 · Sandler</div>
-<div class="spaso-t">Fulfillment — recién acá se presenta</div>
-<div class="spaso-q">"Perfecto, buenísimo. Te cuento lo que hacemos… Implementamos un método de gestión ágil que busca alinear al equipo, empoderarlo y generar accountability. Lo más importante es que <strong>implementamos hábitos concretos</strong>, porque queremos que los cambios permanezcan. El foco siempre es que eso se traduzca en <strong>resultados financieros</strong>, no solo en mejorar la dinámica del equipo."</div><div class="spaso-q">"Para darte una noción, el programa dura entre 6 y 12 meses — instalar hábitos toma tiempo, y si queremos cambios sostenibles en los equipos, necesitamos ese tiempo."</div><div class="spaso-nota">→ Conectar cada frase con las <strong>palabras exactas</strong> que usó en los pasos 3 y 4. Si no mencionó un dolor, no se presenta la solución para ese dolor. La duración se dice como noción, nunca como número fijo.</div>
+<div class="spaso-et">Paso 7 · Sandler: Decision</div>
+<div class="spaso-t">Quién decide — solo si hace falta</div>
+<div class="spaso-q">"¿Quiénes participan en la decisión? ¿Cómo han tomado decisiones parecidas antes?"</div><div class="spaso-alt"><b>Si es gerente general Y dueño:</b> no hace falta preguntarlo — ya está frente a quien decide.<br/><b>Sí preguntarlo si:</b> hay más gente involucrada en la decisión, no es el dueño, o el directorio está muy metido. Si aparece alguien que no está en la reunión, hay que incorporarlo antes de presentar la propuesta.</div><div class="spaso-nota">→ <strong>No siempre se hace.</strong> Depende de cuánto poder de decisión tenga el lead.</div>
 </div>
 </div>
 <div class="spaso">
@@ -1583,7 +1637,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div>
 <div class="spaso-et">Paso 8 · cierre de la reunión</div>
 <div class="spaso-t">Si hay interés → esta reunión se transforma en diagnóstico</div>
-<div class="spaso-q">"Si te interesa que te hagamos una propuesta, necesitaría hacerte un par de preguntas más."</div><div class="spaso-alt"><b>Si vuelve a aparecer el precio:</b> se responde con el rango del paso 5 — nunca como cotización cerrada.</div><div class="spaso-nota">→ Si dice que sí, se pasa al diagnóstico <strong>ahí mismo</strong>, usando solo las preguntas que todavía no se respondieron en los pasos 3 a 6. No repetir lo ya conversado y no agendar una reunión aparte si se puede resolver en esta. El guion completo está en <strong>3 · Diagnóstico</strong>.</div>
+<div class="spaso-q">"Si te interesa que te hagamos una propuesta, necesitaría hacerte un par de preguntas más."</div><div class="spaso-alt"><b>Si vuelve a aparecer el precio:</b> se responde con el rango del paso 6 — nunca como cotización cerrada.</div><div class="spaso-nota">→ Si dice que sí, se pasa al diagnóstico <strong>ahí mismo</strong>, usando solo las preguntas que todavía no se respondieron en los pasos 3, 6 y 7. No repetir lo ya conversado y no agendar una reunión aparte si se puede resolver en esta. El guion completo está en <strong>3 · Diagnóstico</strong>.</div>
 </div>
 </div>
 <div class="spaso salida">
@@ -1591,7 +1645,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div>
 <div class="spaso-et">Salida alternativa</div>
 <div class="spaso-t">Si no hay interés en profundizar</div>
-<div class="spaso-q">"No hay problema, quedamos en contacto. De todas formas te mando las credenciales — y si sientes que a algún amigo tuyo o proveedor le puede servir, cuéntame."</div><div class="spaso-nota">→ Es el “nos despedimos como amigos” del paso 2. Cerrar con cordialidad y sin presionar, dejando abierta la posibilidad de referidos. Cumplir esa promesa es lo que después genera recomendaciones.</div>
+<div class="spaso-q">"No hay problema, quedamos en contacto. De todas formas te mando las credenciales — y si sientes que a algún amigo tuyo o proveedor le puede servir, cuéntame."</div><div class="spaso-nota">→ Es el “nos despedimos como amigos” implícito en el up-front contract. Cerrar con cordialidad y sin presionar, dejando abierta la posibilidad de referidos. Cumplir esa promesa es lo que después genera recomendaciones.</div>
 </div>
 </div>
 </div>
@@ -2908,6 +2962,7 @@ Saludos y que tengas una excelente semana,</textarea>
 <div class="msg-card" id="msgcard-leads-con-reunion-0">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">1. Envío de credenciales y testimonios</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante — justo después de la reunión (café o formal), antes de la propuesta. Se comparten credenciales y testimonios para reforzar confianza mientras avanza el proceso.</div>
+<div class="msg-asunto"><i aria-hidden="true" class="ti ti-mail"></i><span class="et">Asunto del mail:</span> <b>Scaling</b></div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="16">Estimado/a [Nombre],
 Gracias por la reunión de hoy y por tu interés en nuestro programa Scaling.
 
@@ -2964,6 +3019,7 @@ Por el contrario, si tuvieras interés, agradeceré que me indiques cómo te gus
 <div class="msg-card" id="msgcard-leads-diagnostico-0">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">Envío de credenciales y testimonios</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: al día siguiente de la reunión de diagnóstico, cuando ya hay próxima reunión agendada. Corto y directo: agradecer, dejar credenciales y testimonios a mano, y confirmar día y hora.</div>
+<div class="msg-asunto"><i aria-hidden="true" class="ti ti-mail"></i><span class="et">Asunto del mail:</span> <b>Scaling</b></div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="15">Estimado/a [Nombre],
 Gracias por la reunión de ayer y por tu interés en el programa Scaling (https://scaling.cl/).
 
@@ -3414,19 +3470,19 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <button class="ref-copy-btn" disabled="" id="refCopyBtn" onclick="copyRefs()">Copiar seleccionados</button>
 </div>
 <div class="ref-list">
-<div class="ref-group-title">Servicios y TI<span class="ref-group-count">10</span></div>
+<div class="ref-group-title">Servicios<span class="ref-group-count">13</span></div>
 <label class="ref-row">
-<input data-line="Santiago Fernández, CEO de www.seidor.cl, +56 9 78065552" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Santiago Fernández, CEO de www.seidor.cl, +56 9 78065552" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Santiago Fernández</span>
 <span class="ref-meta">CEO · www.seidor.cl · +56 9 78065552</span>
 <button class="ref-mini-copy" data-line="Santiago Fernández, CEO de www.seidor.cl, +56 9 78065552" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Carlos Villa, CEO de buho.media, +57 317 6450185" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Carlos Villa, CEO de buho.media, +57 317 6450185" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Carlos Villa</span>
 <span class="ref-meta">CEO · buho.media · +57 317 6450185</span>
 <button class="ref-mini-copy" data-line="Carlos Villa, CEO de buho.media, +57 317 6450185" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Cristóbal Solminihac, CEO de www.autofact.cl, +569 84122515" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Cristóbal Solminihac, CEO de www.autofact.cl, +569 84122515" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Cristóbal Solminihac</span>
 <span class="ref-meta">CEO · www.autofact.cl · +569 84122515</span>
 <button class="ref-mini-copy" data-line="Cristóbal Solminihac, CEO de www.autofact.cl, +569 84122515" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
@@ -3436,99 +3492,42 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <span class="ref-meta">Falta contacto — completar nombre, cargo y teléfono</span>
 </label>
 <label class="ref-row">
-<input data-line="Martín Kozak, Country Manager de www.intersystems.cl, +569 79694224" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Martín Kozak, Country Manager de www.intersystems.cl, +569 79694224" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Martín Kozak</span>
 <span class="ref-meta">Country Manager · www.intersystems.cl · +569 79694224</span>
 <button class="ref-mini-copy" data-line="Martín Kozak, Country Manager de www.intersystems.cl, +569 79694224" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="David Cabrera, CEO de www.wisecx.com, +54 9 3533 5808 64" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="David Cabrera, CEO de www.wisecx.com, +54 9 3533 5808 64" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">David Cabrera</span>
 <span class="ref-meta">CEO · www.wisecx.com · +54 9 3533 5808 64</span>
 <button class="ref-mini-copy" data-line="David Cabrera, CEO de www.wisecx.com, +54 9 3533 5808 64" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Raimundo Mujica, GG de www.dataqu.cl, +56 9 88181447" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Raimundo Mujica, GG de www.dataqu.cl, +56 9 88181447" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Raimundo Mujica</span>
 <span class="ref-meta">GG · www.dataqu.cl · +56 9 88181447</span>
 <button class="ref-mini-copy" data-line="Raimundo Mujica, GG de www.dataqu.cl, +56 9 88181447" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Alfonso Vergara, GG de Videocorp · www.videocorp.cl, +56 976968812" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Alfonso Vergara, GG de Videocorp · www.videocorp.cl, +56 976968812" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Alfonso Vergara</span>
 <span class="ref-meta">GG · Videocorp · www.videocorp.cl · +56 976968812</span>
 <button class="ref-mini-copy" data-line="Alfonso Vergara, GG de Videocorp · www.videocorp.cl, +56 976968812" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Patricio Labatut, GG de www.globalpartners.cl, +56 9 98203982" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Patricio Labatut, GG de www.globalpartners.cl, +56 9 98203982" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Patricio Labatut</span>
 <span class="ref-meta">GG · www.globalpartners.cl · +56 9 98203982</span>
 <button class="ref-mini-copy" data-line="Patricio Labatut, GG de www.globalpartners.cl, +56 9 98203982" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Camilia Parker, General Manager de andesgroup.org, —" data-group="Servicios y TI" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Camilia Parker, General Manager de andesgroup.org, —" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Camilia Parker</span>
 <span class="ref-meta">General Manager · andesgroup.org · —</span>
 <button class="ref-mini-copy" data-line="Camilia Parker, General Manager de andesgroup.org, —" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<div class="ref-group-title">Industria y Consumo<span class="ref-group-count">10</span></div>
 <label class="ref-row">
-<input data-line="Pedro Pablo Vicente, CEO de www.cleaner.cl, +569 65190317" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Pedro Pablo Vicente</span>
-<span class="ref-meta">CEO · www.cleaner.cl · +569 65190317</span>
-<button class="ref-mini-copy" data-line="Pedro Pablo Vicente, CEO de www.cleaner.cl, +569 65190317" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<input data-line="Alfonso Ardizzoni, CEO de www.qualitasenergy.com, +56 9 9803 7337" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Alfonso Ardizzoni</span>
+<span class="ref-meta">CEO · www.qualitasenergy.com · +56 9 9803 7337</span>
+<button class="ref-mini-copy" data-line="Alfonso Ardizzoni, CEO de www.qualitasenergy.com, +56 9 9803 7337" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="José Manuel Aguirre, GG de www.lafetechocolat.com, +56 9 75882485" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">José Manuel Aguirre</span>
-<span class="ref-meta">GG · www.lafetechocolat.com · +56 9 75882485</span>
-<button class="ref-mini-copy" data-line="José Manuel Aguirre, GG de www.lafetechocolat.com, +56 9 75882485" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Diego Olivos, Gerente General de www.olivos.cl, +56 9 7213 6225" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Diego Olivos</span>
-<span class="ref-meta">Gerente General · www.olivos.cl · +56 9 7213 6225</span>
-<button class="ref-mini-copy" data-line="Diego Olivos, Gerente General de www.olivos.cl, +56 9 7213 6225" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="José Miguel Rubio, CEO de www.multicompany.cl, +569 92387011" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">José Miguel Rubio</span>
-<span class="ref-meta">CEO · www.multicompany.cl · +569 92387011</span>
-<button class="ref-mini-copy" data-line="José Miguel Rubio, CEO de www.multicompany.cl, +569 92387011" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Gustavo Apablaza, GG de www.multicompany.cl, +56 9 4787 8048" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Gustavo Apablaza</span>
-<span class="ref-meta">GG · www.multicompany.cl · +56 9 4787 8048</span>
-<button class="ref-mini-copy" data-line="Gustavo Apablaza, GG de www.multicompany.cl, +56 9 4787 8048" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Diego Aguilar, Presidente de www.fahneu.cl, +569 95378699" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Diego Aguilar</span>
-<span class="ref-meta">Presidente · www.fahneu.cl · +569 95378699</span>
-<button class="ref-mini-copy" data-line="Diego Aguilar, Presidente de www.fahneu.cl, +569 95378699" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Juan Luis Rodríguez, GG de pinturashewstone.com, +56 9 4206 7478" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Juan Luis Rodríguez</span>
-<span class="ref-meta">GG · pinturashewstone.com · +56 9 4206 7478</span>
-<button class="ref-mini-copy" data-line="Juan Luis Rodríguez, GG de pinturashewstone.com, +56 9 4206 7478" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Carina Pastore, CEO de quimicarhenium.cl, +56 9 95997278" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Carina Pastore</span>
-<span class="ref-meta">CEO · quimicarhenium.cl · +56 9 95997278</span>
-<button class="ref-mini-copy" data-line="Carina Pastore, CEO de quimicarhenium.cl, +56 9 95997278" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Cristian Westermeyer, GG de rebisa.cl, +56 9 9879 1273" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Cristian Westermeyer</span>
-<span class="ref-meta">GG · rebisa.cl · +56 9 9879 1273</span>
-<button class="ref-mini-copy" data-line="Cristian Westermeyer, GG de rebisa.cl, +56 9 9879 1273" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Cristián San Martín, CEO de www.cmanzano.cl, +56 9 95052894" data-group="Industria y Consumo" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Cristián San Martín</span>
-<span class="ref-meta">CEO · www.cmanzano.cl · +56 9 95052894</span>
-<button class="ref-mini-copy" data-line="Cristián San Martín, CEO de www.cmanzano.cl, +56 9 95052894" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<div class="ref-group-title">Industria y Servicios<span class="ref-group-count">4</span></div>
-<label class="ref-row">
-<input data-line="Raúl Silva, CEO de www.quipasur.cl, +569 98188322" data-group="Industria y Servicios" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Raúl Silva</span>
-<span class="ref-meta">CEO · www.quipasur.cl · +569 98188322</span>
-<button class="ref-mini-copy" data-line="Raúl Silva, CEO de www.quipasur.cl, +569 98188322" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Alex Strodthoff, GG de empresasagrotop.cl, +56 9 5802 1005" data-group="Industria y Servicios" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Alex Strodthoff</span>
-<span class="ref-meta">GG · empresasagrotop.cl · +56 9 5802 1005</span>
-<button class="ref-mini-copy" data-line="Alex Strodthoff, GG de empresasagrotop.cl, +56 9 5802 1005" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Pablo Barañao, GG de www.mejores-practicas.com, +56 9 62083659" data-group="Industria y Servicios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Pablo Barañao, GG de www.mejores-practicas.com, +56 9 62083659" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Pablo Barañao</span>
 <span class="ref-meta">GG · www.mejores-practicas.com · +56 9 62083659</span>
 <button class="ref-mini-copy" data-line="Pablo Barañao, GG de www.mejores-practicas.com, +56 9 62083659" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
@@ -3537,12 +3536,42 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <span class="ref-name">Talent Pro Latam</span>
 <span class="ref-meta">Falta contacto — completar nombre, cargo y teléfono</span>
 </label>
-<div class="ref-group-title">Construcción e Inmobiliaria<span class="ref-group-count">4</span></div>
+<div class="ref-group-title">Construcción e Inmobiliaria<span class="ref-group-count">10</span></div>
+<label class="ref-row">
+<input data-line="Cristián San Martín, CEO de www.cmanzano.cl, +56 9 95052894" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Cristián San Martín</span>
+<span class="ref-meta">CEO · www.cmanzano.cl · +56 9 95052894</span>
+<button class="ref-mini-copy" data-line="Cristián San Martín, CEO de www.cmanzano.cl, +56 9 95052894" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Felipe Lechuga, CEO de www.lemaco.cl, +56 9 98252911" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Felipe Lechuga</span>
+<span class="ref-meta">CEO · www.lemaco.cl · +56 9 98252911</span>
+<button class="ref-mini-copy" data-line="Felipe Lechuga, CEO de www.lemaco.cl, +56 9 98252911" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Diego Aguilar, Presidente de www.fahneu.cl, +569 95378699" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Diego Aguilar</span>
+<span class="ref-meta">Presidente · www.fahneu.cl · +569 95378699</span>
+<button class="ref-mini-copy" data-line="Diego Aguilar, Presidente de www.fahneu.cl, +569 95378699" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="José Miguel Rubio, CEO de www.multicompany.cl, +569 92387011" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">José Miguel Rubio</span>
+<span class="ref-meta">CEO · www.multicompany.cl · +569 92387011</span>
+<button class="ref-mini-copy" data-line="José Miguel Rubio, CEO de www.multicompany.cl, +569 92387011" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Gustavo Apablaza, GG de www.multicompany.cl, +56 9 4787 8048" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Gustavo Apablaza</span>
+<span class="ref-meta">GG · www.multicompany.cl · +56 9 4787 8048</span>
+<button class="ref-mini-copy" data-line="Gustavo Apablaza, GG de www.multicompany.cl, +56 9 4787 8048" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
 <input data-line="Sebastián Meza, CEO / Director de www.inarco.cl, +569 77655675" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Sebastián Meza</span>
 <span class="ref-meta">CEO / Director · www.inarco.cl · +569 77655675</span>
 <button class="ref-mini-copy" data-line="Sebastián Meza, CEO / Director de www.inarco.cl, +569 77655675" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Leonardo Pérez, CEO de www.demetra.cl, +569 76143908" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Leonardo Pérez</span>
+<span class="ref-meta">CEO · www.demetra.cl · +569 76143908</span>
+<button class="ref-mini-copy" data-line="Leonardo Pérez, CEO de www.demetra.cl, +569 76143908" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
 <input data-line="Juan Pablo Luco, CEO de www.propamat.cl, +569 90994221" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Juan Pablo Luco</span>
@@ -3554,35 +3583,59 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <span class="ref-meta">Gerente · Tecnofast · tecnofast.cl · +569 9489 9682</span>
 <button class="ref-mini-copy" data-line="José Tomás Errázuriz, Gerente de Tecnofast · tecnofast.cl, +569 9489 9682" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Felipe Lechuga, CEO de www.lemaco.cl, +56 9 98252911" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Felipe Lechuga</span>
-<span class="ref-meta">CEO · www.lemaco.cl · +56 9 98252911</span>
-<button class="ref-mini-copy" data-line="Felipe Lechuga, CEO de www.lemaco.cl, +56 9 98252911" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<div class="ref-group-title">Agro y Alimentos<span class="ref-group-count">2</span></div>
-<label class="ref-row">
-<input data-line="Leonardo Pérez, CEO de www.demetra.cl, +569 76143908" data-group="Agro y Alimentos" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Leonardo Pérez</span>
-<span class="ref-meta">CEO · www.demetra.cl · +569 76143908</span>
-<button class="ref-mini-copy" data-line="Leonardo Pérez, CEO de www.demetra.cl, +569 76143908" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Marcelo Manzano, CEO de www.paumar.cl, +56 9 62087186" data-group="Agro y Alimentos" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Marcelo Manzano, CEO de www.paumar.cl, +56 9 62087186" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Marcelo Manzano</span>
 <span class="ref-meta">CEO · www.paumar.cl · +56 9 62087186</span>
 <button class="ref-mini-copy" data-line="Marcelo Manzano, CEO de www.paumar.cl, +56 9 62087186" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<div class="ref-group-title">Energía y Recursos<span class="ref-group-count">1</span></div>
+<div class="ref-group-title">Industria<span class="ref-group-count">8</span></div>
 <label class="ref-row">
-<input data-line="Alfonso Ardizzoni, CEO de www.qualitasenergy.com, +56 9 9803 7337" data-group="Energía y Recursos" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Alfonso Ardizzoni</span>
-<span class="ref-meta">CEO · www.qualitasenergy.com · +56 9 9803 7337</span>
-<button class="ref-mini-copy" data-line="Alfonso Ardizzoni, CEO de www.qualitasenergy.com, +56 9 9803 7337" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<div class="ref-group-title">Instituciones y Gremios<span class="ref-group-count">2</span></div>
+<input data-line="Pedro Pablo Vicente, CEO de www.cleaner.cl, +569 65190317" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Pedro Pablo Vicente</span>
+<span class="ref-meta">CEO · www.cleaner.cl · +569 65190317</span>
+<button class="ref-mini-copy" data-line="Pedro Pablo Vicente, CEO de www.cleaner.cl, +569 65190317" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Antonio Minte, GG de CORMA · corma.cl, +56 9 9837 4613" data-group="Instituciones y Gremios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="José Manuel Aguirre, GG de www.lafetechocolat.com, +56 9 75882485" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">José Manuel Aguirre</span>
+<span class="ref-meta">GG · www.lafetechocolat.com · +56 9 75882485</span>
+<button class="ref-mini-copy" data-line="José Manuel Aguirre, GG de www.lafetechocolat.com, +56 9 75882485" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Diego Olivos, Gerente General de www.olivos.cl, +56 9 7213 6225" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Diego Olivos</span>
+<span class="ref-meta">Gerente General · www.olivos.cl · +56 9 7213 6225</span>
+<button class="ref-mini-copy" data-line="Diego Olivos, Gerente General de www.olivos.cl, +56 9 7213 6225" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Juan Luis Rodríguez, GG de pinturashewstone.com, +56 9 4206 7478" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Juan Luis Rodríguez</span>
+<span class="ref-meta">GG · pinturashewstone.com · +56 9 4206 7478</span>
+<button class="ref-mini-copy" data-line="Juan Luis Rodríguez, GG de pinturashewstone.com, +56 9 4206 7478" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Carina Pastore, CEO de quimicarhenium.cl, +56 9 95997278" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Carina Pastore</span>
+<span class="ref-meta">CEO · quimicarhenium.cl · +56 9 95997278</span>
+<button class="ref-mini-copy" data-line="Carina Pastore, CEO de quimicarhenium.cl, +56 9 95997278" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Cristian Westermeyer, GG de rebisa.cl, +56 9 9879 1273" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Cristian Westermeyer</span>
+<span class="ref-meta">GG · rebisa.cl · +56 9 9879 1273</span>
+<button class="ref-mini-copy" data-line="Cristian Westermeyer, GG de rebisa.cl, +56 9 9879 1273" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Raúl Silva, CEO de www.quipasur.cl, +569 98188322" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Raúl Silva</span>
+<span class="ref-meta">CEO · www.quipasur.cl · +569 98188322</span>
+<button class="ref-mini-copy" data-line="Raúl Silva, CEO de www.quipasur.cl, +569 98188322" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Alex Strodthoff, GG de empresasagrotop.cl, +56 9 5802 1005" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Alex Strodthoff</span>
+<span class="ref-meta">GG · empresasagrotop.cl · +56 9 5802 1005</span>
+<button class="ref-mini-copy" data-line="Alex Strodthoff, GG de empresasagrotop.cl, +56 9 5802 1005" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<div class="ref-group-title">Gremios/ONG<span class="ref-group-count">2</span></div>
+<label class="ref-row">
+<input data-line="Antonio Minte, GG de CORMA · corma.cl, +56 9 9837 4613" data-group="Gremios/ONG" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Antonio Minte</span>
 <span class="ref-meta">GG · CORMA · corma.cl · +56 9 9837 4613</span>
 <button class="ref-mini-copy" data-line="Antonio Minte, GG de CORMA · corma.cl, +56 9 9837 4613" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Juan José Obach, Director Ejecutivo de www.horizontalchile.cl, +56 968487905" data-group="Instituciones y Gremios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Juan José Obach, Director Ejecutivo de www.horizontalchile.cl, +56 968487905" data-group="Gremios/ONG" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Juan José Obach</span>
 <span class="ref-meta">Director Ejecutivo · www.horizontalchile.cl · +56 968487905</span>
 <button class="ref-mini-copy" data-line="Juan José Obach, Director Ejecutivo de www.horizontalchile.cl, +56 968487905" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
@@ -3699,7 +3752,7 @@ var VISTAS = ['menu','estrategia','guiones','seguimiento'];
 var TITULOS = {
   menu: 'Material Comercial · Scaling',
   estrategia: 'Estrategia Comercial · Scaling',
-  guiones: 'Guiones por tipo de reunión · Scaling',
+  guiones: 'Reuniones · Scaling',
   seguimiento: 'Material seguimiento leads y cliente · Scaling'
 };
 function pintar(v) {
