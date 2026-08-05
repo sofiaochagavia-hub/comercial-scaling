@@ -118,12 +118,13 @@ body.nav-on .app-bar { display: block; }
   font-size: 12px; color: var(--color-text-primary); background: var(--color-background-secondary);
   border: 0.5px solid var(--color-border-tertiary); border-radius: 20px; padding: 4px 11px;
 }
-#v-estrategia .mail .channel-head{ background: #1B4F8A; }
-#v-estrategia .linkedin .channel-head{ background: #0A5A9C; }
-#v-estrategia .whatsapp .channel-head{ background: #2E9E5B; }
-#v-estrategia .web .channel-head{ background: #167A72; }
-#v-estrategia .webinar .channel-head{ background: #6B4FA0; }
-#v-estrategia .eventos .channel-head{ background: #B8722E; }
+#v-estrategia .linkedin .channel-head{ background: #0A3766; }
+#v-estrategia .web .channel-head{ background: #12599B; }
+#v-estrategia .eventos .channel-head{ background: #1E82B8; }
+#v-estrategia .mail .channel-head{ background: #9C6B0E; }
+#v-estrategia .webinar .channel-head{ background: #C07A16; }
+#v-estrategia .whatsapp .channel-head{ background: #D2601F; }
+#v-estrategia .reunion .channel-head{ background: #B4271F; }
 #v-estrategia .persona-card{
   border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary);
   overflow: hidden; margin-bottom: 14px; display: flex; flex-wrap: wrap;
@@ -294,16 +295,18 @@ body.nav-on .app-bar { display: block; }
 #v-estrategia .back-link{ display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: #1B4F8A;
   text-decoration: none; margin-bottom: 14px; font-weight: 500; }
 #v-estrategia .back-link:hover{ text-decoration: underline; }
-#v-estrategia .reunion .channel-head{ background: #0C447C; }
 #v-estrategia .hhh-name{ display: inline-flex; align-items: center; gap: 6px; background: #0C447C; color: #fff;
   font-size: 12px; font-weight: 700; border-radius: 20px; padding: 4px 12px; letter-spacing: .02em; }
 #v-estrategia .orden-canales{ display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 16px;
   font-size: 11.5px; font-weight: 600; }
-#v-estrategia .orden-canales .oc{ background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary);
-  border-radius: 20px; padding: 5px 11px; color: var(--color-text-primary); }
+#v-estrategia .orden-canales .oc{ border: none; border-radius: 20px; padding: 5px 11px; color: #fff; }
 #v-estrategia .orden-canales .flecha{ color: var(--color-text-secondary); font-size: 13px; }
 #v-estrategia .temp-escala{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0 14px; }
 #v-estrategia .temp-escala div{ text-align: center; font-size: 11px; font-weight: 600; padding: 7px 4px; border-radius: 8px; color: #fff; }
+#v-estrategia .temp-barra{ display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font-size: 10.5px;
+  font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .04em; }
+#v-estrategia .temp-barra .barra{ flex: 1; height: 7px; border-radius: 20px;
+  background: linear-gradient(90deg, #0A3766 0%, #12599B 18%, #1E82B8 33%, #9C6B0E 55%, #C07A16 70%, #D2601F 85%, #B4271F 100%); }
 #v-estrategia .nav-radio{ position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
 #v-estrategia .segment-panel{ display: none; }
 #v-estrategia .msg-card{ display: none; }
@@ -1217,11 +1220,12 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
   Depende de su <strong>temperatura</strong>: en qué punto del embudo está (D, C, B o A). Vamos de los canales más lejanos a los más cercanos — nadie pasa de un post de LinkedIn a una reunión sin escalones intermedios.
 </div>
 <div class="temp-escala">
-<div style="background:#1B4F8A;">D · Frío</div>
-<div style="background:#1B4F8A; opacity:.85;">C · Tibio</div>
-<div style="background:#1B4F8A; opacity:.72;">B · Cálido</div>
-<div style="background:#1B4F8A; opacity:.6;">A · Cliente principal</div>
+<div style="background:#0A3766;">D · Frío</div>
+<div style="background:#C07A16;">C · Tibio</div>
+<div style="background:#D2601F;">B · Cálido</div>
+<div style="background:#B4271F;">A · Cliente principal</div>
 </div>
+<div class="temp-barra"><span>Más lejano</span><div class="barra"></div><span>Más cercano</span></div>
 <div class="channel-card linkedin">
 <div class="channel-head">
 <div class="icon-wrap"><i aria-hidden="true" class="ti ti-brand-linkedin"></i></div>
@@ -1232,6 +1236,9 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="desc">Combina alcance de contenido con mensajes uno a uno — sirve tanto para atraer como para mantener el vínculo.</div>
 <div class="msg-title">Qué enviamos</div>
 <div class="msg-pills">
+<span class="msg-pill">Posteos</span>
+<span class="msg-pill">Artículos</span>
+<span class="msg-pill">Interacción con las publicaciones de los leads</span>
 <span class="msg-pill">Mensajes personales</span>
 <span class="msg-pill">Newsletter</span>
 <span class="msg-pill">Invitación a webinar</span>
@@ -1334,11 +1341,13 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>
 <div class="msg-title" style="margin-top:6px;">El orden, de más frío a menos frío</div>
 <div class="orden-canales">
-<span class="oc">LinkedIn</span><span class="oc">Página web</span><span class="oc">Eventos</span>
-<span class="flecha">→</span><span class="oc">Mail · Newsletter</span>
-<span class="flecha">→</span><span class="oc">Webinar</span>
-<span class="flecha">→</span><span class="oc">WhatsApp personal</span>
-<span class="flecha">→</span><span class="oc" style="background:#0C447C; color:#fff; border-color:#0C447C;">Reunión</span>
+<span class="oc" style="background:#0A3766;">LinkedIn</span>
+<span class="oc" style="background:#12599B;">Página web</span>
+<span class="oc" style="background:#1E82B8;">Eventos</span>
+<span class="flecha">→</span><span class="oc" style="background:#9C6B0E;">Mail · Newsletter</span>
+<span class="flecha">→</span><span class="oc" style="background:#C07A16;">Webinar</span>
+<span class="flecha">→</span><span class="oc" style="background:#D2601F;">WhatsApp personal</span>
+<span class="flecha">→</span><span class="oc" style="background:#B4271F;">Reunión</span>
 </div>
 <div class="tip-box">
 <i aria-hidden="true" class="ti ti-bulb"></i>
@@ -1351,7 +1360,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="vista" id="v-guiones"><div class="container">
 <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Nuggets de venta Scaling — qué hacer y qué no hacer en cada etapa del proceso comercial bajo metodología Sandler</h2>
 <div class="header">
-<h1>Reuniones · Scaling</h1>
+<h1>Guiones según tipo de reunión · Scaling</h1>
 <p>Qué hacer y qué no hacer en cada etapa del proceso comercial</p>
 </div>
 <div style="margin-bottom: 1.25rem; padding: 12px 16px; background: #FFF4E5; border: 1px solid #EF9F27; border-radius: var(--border-radius-lg); display: flex; gap: 10px; align-items: flex-start;">
@@ -1403,12 +1412,11 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">→ Este es el pitch de asado: breve, sin profundizar en método ni precio.</div>
 </div>
 <div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; padding-top: 4px; border-top: 0.5px dashed var(--color-border-tertiary);">
-<strong>Si hay interés genuino:</strong> profundizar un poco ahí mismo — esto ya es "pitch de presentación", sigue siendo informal. Preguntar qué están buscando, qué les gustaría mejorar. Acá sí se puede hablar de precio y duración del programa si surge naturalmente. Si el interés se sostiene → "¿Tendría sentido juntarnos 30 minutos para ver si aplica a tu contexto?" (ahí pasa a la reunión de presentación).<br/><br/>
+<strong>Si hay interés genuino:</strong> profundizar un poco ahí mismo — esto ya es "pitch de presentación", sigue siendo informal. Preguntar qué están buscando, qué les gustaría mejorar. Acá sí se puede hablar de precio y duración del programa si surge naturalmente. Si el interés se sostiene → "¿Tendría sentido juntarnos 30 minutos para ver si aplica a tu contexto?" (ahí pasa a la reunión de presentación). Y si ya se conversó en profundidad y el interés sigue firme, cerrar preguntando derecho: <strong>"¿Te gustaría que te hiciéramos una propuesta?"</strong><br/><br/>
 <strong>Si no hay interés:</strong> soltar sin presionar — "Tiene todo el sentido, no siempre es el momento."
         </div>
 </div>
 </div>
-<div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Herramienta de apoyo en Trello: tarjeta <strong>"Pitch de asado"</strong>.</span></div>
 <div class="tip-box"><i aria-hidden="true" class="ti ti-arrows-shuffle"></i><span><strong>Flexibilidad de etapas:</strong> el pitch de asado puede convertirse en "pitch de presentación" ahí mismo. Si se da con profundidad y fluye natural, se puede pasar directo a la reunión de diagnóstico, saltándose la reunión de presentación. Incluso la reunión de presentación completa puede darse dentro del mismo pitch de asado si el contexto lo permite — no es necesario seguir las etapas de forma rígida. <strong>Eso sí:</strong> precio y duración no se hablan en el pitch de asado (todavía no sabemos si hay interés). Una vez que hay interés y se está profundizando — ya sea en el pitch de presentación o en la reunión de presentación — sí se puede hablar de ambos si surge naturalmente.</span></div>
 <div class="columns">
 <div class="col-card">
@@ -3469,176 +3477,260 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <span class="ref-count"><b id="refCount">0</b> seleccionados</span>
 <button class="ref-copy-btn" disabled="" id="refCopyBtn" onclick="copyRefs()">Copiar seleccionados</button>
 </div>
+<div class="pending-box"><i aria-hidden="true" class="ti ti-clock-pause"></i><span><strong>Faltan 18 contactos.</strong> Las empresas en gris están en la base pero todavía sin nombre de GG, web ni teléfono, así que no se pueden usar como referencia. Pásale los datos a Sofía y se activan.</span></div>
 <div class="ref-list">
-<div class="ref-group-title">Servicios<span class="ref-group-count">13</span></div>
-<label class="ref-row">
-<input data-line="Santiago Fernández, CEO de www.seidor.cl, +56 9 78065552" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Santiago Fernández</span>
-<span class="ref-meta">CEO · www.seidor.cl · +56 9 78065552</span>
-<button class="ref-mini-copy" data-line="Santiago Fernández, CEO de www.seidor.cl, +56 9 78065552" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Carlos Villa, CEO de buho.media, +57 317 6450185" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Carlos Villa</span>
-<span class="ref-meta">CEO · buho.media · +57 317 6450185</span>
-<button class="ref-mini-copy" data-line="Carlos Villa, CEO de buho.media, +57 317 6450185" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Cristóbal Solminihac, CEO de www.autofact.cl, +569 84122515" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Cristóbal Solminihac</span>
-<span class="ref-meta">CEO · www.autofact.cl · +569 84122515</span>
-<button class="ref-mini-copy" data-line="Cristóbal Solminihac, CEO de www.autofact.cl, +569 84122515" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<div class="ref-group-title">TI y Software<span class="ref-group-count">2 de 5 con contacto</span></div>
 <label class="ref-row sin-datos">
 <input disabled="disabled" type="checkbox"/>
-<span class="ref-name">GPS Chile</span>
-<span class="ref-meta">Falta contacto — completar nombre, cargo y teléfono</span>
+<span class="ref-name">Seidor (Export / España)</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
 </label>
 <label class="ref-row">
-<input data-line="Martín Kozak, Country Manager de www.intersystems.cl, +569 79694224" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Santiago Fernández, CEO de Seidor Chile · www.seidor.cl, +56 9 78065552" data-group="TI y Software" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Santiago Fernández</span>
+<span class="ref-meta">CEO · Seidor Chile · www.seidor.cl · +56 9 78065552</span>
+<button class="ref-mini-copy" data-line="Santiago Fernández, CEO de Seidor Chile · www.seidor.cl, +56 9 78065552" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Martín Kozak, Country Manager de InterSystems Chile · www.intersystems.cl, +569 79694224" data-group="TI y Software" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Martín Kozak</span>
-<span class="ref-meta">Country Manager · www.intersystems.cl · +569 79694224</span>
-<button class="ref-mini-copy" data-line="Martín Kozak, Country Manager de www.intersystems.cl, +569 79694224" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">Country Manager · InterSystems Chile · www.intersystems.cl · +569 79694224</span>
+<button class="ref-mini-copy" data-line="Martín Kozak, Country Manager de InterSystems Chile · www.intersystems.cl, +569 79694224" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Asesorías en Soluciones de Software y Computación S.A.</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Inovabiz</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<div class="ref-group-title">Otros servicios<span class="ref-group-count">8 de 10 con contacto</span></div>
 <label class="ref-row">
-<input data-line="David Cabrera, CEO de www.wisecx.com, +54 9 3533 5808 64" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Carlos Villa, CEO de Buho Media · buho.media, +57 317 6450185" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Carlos Villa</span>
+<span class="ref-meta">CEO · Buho Media · buho.media · +57 317 6450185</span>
+<button class="ref-mini-copy" data-line="Carlos Villa, CEO de Buho Media · buho.media, +57 317 6450185" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Cristóbal Solminihac, CEO de Autofact · www.autofact.cl, +569 84122515" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Cristóbal Solminihac</span>
+<span class="ref-meta">CEO · Autofact · www.autofact.cl · +569 84122515</span>
+<button class="ref-mini-copy" data-line="Cristóbal Solminihac, CEO de Autofact · www.autofact.cl, +569 84122515" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="David Cabrera, CEO de Wise · www.wisecx.com, +54 9 3533 5808 64" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">David Cabrera</span>
-<span class="ref-meta">CEO · www.wisecx.com · +54 9 3533 5808 64</span>
-<button class="ref-mini-copy" data-line="David Cabrera, CEO de www.wisecx.com, +54 9 3533 5808 64" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">CEO · Wise · www.wisecx.com · +54 9 3533 5808 64</span>
+<button class="ref-mini-copy" data-line="David Cabrera, CEO de Wise · www.wisecx.com, +54 9 3533 5808 64" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Raimundo Mujica, GG de www.dataqu.cl, +56 9 88181447" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Raimundo Mujica, GG de Dataqu · www.dataqu.cl, +56 9 88181447" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Raimundo Mujica</span>
-<span class="ref-meta">GG · www.dataqu.cl · +56 9 88181447</span>
-<button class="ref-mini-copy" data-line="Raimundo Mujica, GG de www.dataqu.cl, +56 9 88181447" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">GG · Dataqu · www.dataqu.cl · +56 9 88181447</span>
+<button class="ref-mini-copy" data-line="Raimundo Mujica, GG de Dataqu · www.dataqu.cl, +56 9 88181447" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Alfonso Vergara, GG de Videocorp · www.videocorp.cl, +56 976968812" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Alfonso Vergara, GG de Videocorp · www.videocorp.cl, +56 976968812" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Alfonso Vergara</span>
 <span class="ref-meta">GG · Videocorp · www.videocorp.cl · +56 976968812</span>
 <button class="ref-mini-copy" data-line="Alfonso Vergara, GG de Videocorp · www.videocorp.cl, +56 976968812" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Patricio Labatut, GG de www.globalpartners.cl, +56 9 98203982" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Patricio Labatut, GG de Global Partners · www.globalpartners.cl, +56 9 98203982" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Patricio Labatut</span>
-<span class="ref-meta">GG · www.globalpartners.cl · +56 9 98203982</span>
-<button class="ref-mini-copy" data-line="Patricio Labatut, GG de www.globalpartners.cl, +56 9 98203982" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">GG · Global Partners · www.globalpartners.cl · +56 9 98203982</span>
+<button class="ref-mini-copy" data-line="Patricio Labatut, GG de Global Partners · www.globalpartners.cl, +56 9 98203982" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Camilia Parker, General Manager de andesgroup.org, —" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Camilia Parker</span>
-<span class="ref-meta">General Manager · andesgroup.org · —</span>
-<button class="ref-mini-copy" data-line="Camilia Parker, General Manager de andesgroup.org, —" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Alfonso Ardizzoni, CEO de www.qualitasenergy.com, +56 9 9803 7337" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Alfonso Ardizzoni</span>
-<span class="ref-meta">CEO · www.qualitasenergy.com · +56 9 9803 7337</span>
-<button class="ref-mini-copy" data-line="Alfonso Ardizzoni, CEO de www.qualitasenergy.com, +56 9 9803 7337" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Pablo Barañao, GG de www.mejores-practicas.com, +56 9 62083659" data-group="Servicios" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Pablo Barañao, GG de Mejores Prácticas · www.mejores-practicas.com, +56 9 62083659" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Pablo Barañao</span>
-<span class="ref-meta">GG · www.mejores-practicas.com · +56 9 62083659</span>
-<button class="ref-mini-copy" data-line="Pablo Barañao, GG de www.mejores-practicas.com, +56 9 62083659" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">GG · Mejores Prácticas · www.mejores-practicas.com · +56 9 62083659</span>
+<button class="ref-mini-copy" data-line="Pablo Barañao, GG de Mejores Prácticas · www.mejores-practicas.com, +56 9 62083659" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row sin-datos">
 <input disabled="disabled" type="checkbox"/>
 <span class="ref-name">Talent Pro Latam</span>
-<span class="ref-meta">Falta contacto — completar nombre, cargo y teléfono</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
 </label>
-<div class="ref-group-title">Construcción e Inmobiliaria<span class="ref-group-count">10</span></div>
 <label class="ref-row">
-<input data-line="Cristián San Martín, CEO de www.cmanzano.cl, +56 9 95052894" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Cristián San Martín</span>
-<span class="ref-meta">CEO · www.cmanzano.cl · +56 9 95052894</span>
-<button class="ref-mini-copy" data-line="Cristián San Martín, CEO de www.cmanzano.cl, +56 9 95052894" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<input data-line="Camilia Parker, General Manager de Andes Group · andesgroup.org, —" data-group="Otros servicios" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Camilia Parker</span>
+<span class="ref-meta">General Manager · Andes Group · andesgroup.org · —</span>
+<button class="ref-mini-copy" data-line="Camilia Parker, General Manager de Andes Group · andesgroup.org, —" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">GPS Chile</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<div class="ref-group-title">Químico e Industrial<span class="ref-group-count">8 de 11 con contacto</span></div>
 <label class="ref-row">
-<input data-line="Felipe Lechuga, CEO de www.lemaco.cl, +56 9 98252911" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Felipe Lechuga</span>
-<span class="ref-meta">CEO · www.lemaco.cl · +56 9 98252911</span>
-<button class="ref-mini-copy" data-line="Felipe Lechuga, CEO de www.lemaco.cl, +56 9 98252911" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Diego Aguilar, Presidente de www.fahneu.cl, +569 95378699" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Diego Aguilar</span>
-<span class="ref-meta">Presidente · www.fahneu.cl · +569 95378699</span>
-<button class="ref-mini-copy" data-line="Diego Aguilar, Presidente de www.fahneu.cl, +569 95378699" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="José Miguel Rubio, CEO de www.multicompany.cl, +569 92387011" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">José Miguel Rubio</span>
-<span class="ref-meta">CEO · www.multicompany.cl · +569 92387011</span>
-<button class="ref-mini-copy" data-line="José Miguel Rubio, CEO de www.multicompany.cl, +569 92387011" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Gustavo Apablaza, GG de www.multicompany.cl, +56 9 4787 8048" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Gustavo Apablaza</span>
-<span class="ref-meta">GG · www.multicompany.cl · +56 9 4787 8048</span>
-<button class="ref-mini-copy" data-line="Gustavo Apablaza, GG de www.multicompany.cl, +56 9 4787 8048" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Sebastián Meza, CEO / Director de www.inarco.cl, +569 77655675" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Sebastián Meza</span>
-<span class="ref-meta">CEO / Director · www.inarco.cl · +569 77655675</span>
-<button class="ref-mini-copy" data-line="Sebastián Meza, CEO / Director de www.inarco.cl, +569 77655675" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Leonardo Pérez, CEO de www.demetra.cl, +569 76143908" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Leonardo Pérez</span>
-<span class="ref-meta">CEO · www.demetra.cl · +569 76143908</span>
-<button class="ref-mini-copy" data-line="Leonardo Pérez, CEO de www.demetra.cl, +569 76143908" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Juan Pablo Luco, CEO de www.propamat.cl, +569 90994221" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Juan Pablo Luco</span>
-<span class="ref-meta">CEO · www.propamat.cl · +569 90994221</span>
-<button class="ref-mini-copy" data-line="Juan Pablo Luco, CEO de www.propamat.cl, +569 90994221" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="José Tomás Errázuriz, Gerente de Tecnofast · tecnofast.cl, +569 9489 9682" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">José Tomás Errázuriz</span>
-<span class="ref-meta">Gerente · Tecnofast · tecnofast.cl · +569 9489 9682</span>
-<button class="ref-mini-copy" data-line="José Tomás Errázuriz, Gerente de Tecnofast · tecnofast.cl, +569 9489 9682" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Marcelo Manzano, CEO de www.paumar.cl, +56 9 62087186" data-group="Construcción e Inmobiliaria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Marcelo Manzano</span>
-<span class="ref-meta">CEO · www.paumar.cl · +56 9 62087186</span>
-<button class="ref-mini-copy" data-line="Marcelo Manzano, CEO de www.paumar.cl, +56 9 62087186" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<div class="ref-group-title">Industria<span class="ref-group-count">8</span></div>
-<label class="ref-row">
-<input data-line="Pedro Pablo Vicente, CEO de www.cleaner.cl, +569 65190317" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Pedro Pablo Vicente</span>
-<span class="ref-meta">CEO · www.cleaner.cl · +569 65190317</span>
-<button class="ref-mini-copy" data-line="Pedro Pablo Vicente, CEO de www.cleaner.cl, +569 65190317" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="José Manuel Aguirre, GG de www.lafetechocolat.com, +56 9 75882485" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">José Manuel Aguirre</span>
-<span class="ref-meta">GG · www.lafetechocolat.com · +56 9 75882485</span>
-<button class="ref-mini-copy" data-line="José Manuel Aguirre, GG de www.lafetechocolat.com, +56 9 75882485" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Diego Olivos, Gerente General de www.olivos.cl, +56 9 7213 6225" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Diego Olivos</span>
-<span class="ref-meta">Gerente General · www.olivos.cl · +56 9 7213 6225</span>
-<button class="ref-mini-copy" data-line="Diego Olivos, Gerente General de www.olivos.cl, +56 9 7213 6225" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Juan Luis Rodríguez, GG de pinturashewstone.com, +56 9 4206 7478" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
-<span class="ref-name">Juan Luis Rodríguez</span>
-<span class="ref-meta">GG · pinturashewstone.com · +56 9 4206 7478</span>
-<button class="ref-mini-copy" data-line="Juan Luis Rodríguez, GG de pinturashewstone.com, +56 9 4206 7478" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<label class="ref-row">
-<input data-line="Carina Pastore, CEO de quimicarhenium.cl, +56 9 95997278" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Carina Pastore, CEO de Química Rhenium · quimicarhenium.cl, +56 9 95997278" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Carina Pastore</span>
-<span class="ref-meta">CEO · quimicarhenium.cl · +56 9 95997278</span>
-<button class="ref-mini-copy" data-line="Carina Pastore, CEO de quimicarhenium.cl, +56 9 95997278" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">CEO · Química Rhenium · quimicarhenium.cl · +56 9 95997278</span>
+<button class="ref-mini-copy" data-line="Carina Pastore, CEO de Química Rhenium · quimicarhenium.cl, +56 9 95997278" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Cristian Westermeyer, GG de rebisa.cl, +56 9 9879 1273" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Cristian Westermeyer, GG de Rebisa · rebisa.cl, +56 9 9879 1273" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Cristian Westermeyer</span>
-<span class="ref-meta">GG · rebisa.cl · +56 9 9879 1273</span>
-<button class="ref-mini-copy" data-line="Cristian Westermeyer, GG de rebisa.cl, +56 9 9879 1273" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">GG · Rebisa · rebisa.cl · +56 9 9879 1273</span>
+<button class="ref-mini-copy" data-line="Cristian Westermeyer, GG de Rebisa · rebisa.cl, +56 9 9879 1273" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Raúl Silva, CEO de www.quipasur.cl, +569 98188322" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Pedro Pablo Vicente, CEO de Industrias Cleaner Chile · www.cleaner.cl, +569 65190317" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Pedro Pablo Vicente</span>
+<span class="ref-meta">CEO · Industrias Cleaner Chile · www.cleaner.cl · +569 65190317</span>
+<button class="ref-mini-copy" data-line="Pedro Pablo Vicente, CEO de Industrias Cleaner Chile · www.cleaner.cl, +569 65190317" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Industria de Plásticos Serplas S.A.</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Bracker y Compañía</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Citrex Chile</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row">
+<input data-line="Juan Luis Rodríguez, GG de Química Hewstone S.A. · pinturashewstone.com, +56 9 4206 7478" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Juan Luis Rodríguez</span>
+<span class="ref-meta">GG · Química Hewstone S.A. · pinturashewstone.com · +56 9 4206 7478</span>
+<button class="ref-mini-copy" data-line="Juan Luis Rodríguez, GG de Química Hewstone S.A. · pinturashewstone.com, +56 9 4206 7478" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="José Manuel Aguirre, GG de La Fete · www.lafetechocolat.com, +56 9 75882485" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">José Manuel Aguirre</span>
+<span class="ref-meta">GG · La Fete · www.lafetechocolat.com · +56 9 75882485</span>
+<button class="ref-mini-copy" data-line="José Manuel Aguirre, GG de La Fete · www.lafetechocolat.com, +56 9 75882485" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Raúl Silva, CEO de Quipasur · www.quipasur.cl, +569 98188322" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Raúl Silva</span>
-<span class="ref-meta">CEO · www.quipasur.cl · +569 98188322</span>
-<button class="ref-mini-copy" data-line="Raúl Silva, CEO de www.quipasur.cl, +569 98188322" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">CEO · Quipasur · www.quipasur.cl · +569 98188322</span>
+<button class="ref-mini-copy" data-line="Raúl Silva, CEO de Quipasur · www.quipasur.cl, +569 98188322" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Alex Strodthoff, GG de empresasagrotop.cl, +56 9 5802 1005" data-group="Industria" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Alfonso Ardizzoni, CEO de Qualitas Energy · www.qualitasenergy.com, +56 9 9803 7337" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Alfonso Ardizzoni</span>
+<span class="ref-meta">CEO · Qualitas Energy · www.qualitasenergy.com · +56 9 9803 7337</span>
+<button class="ref-mini-copy" data-line="Alfonso Ardizzoni, CEO de Qualitas Energy · www.qualitasenergy.com, +56 9 9803 7337" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Alex Strodthoff, GG de Agrotop · empresasagrotop.cl, +56 9 5802 1005" data-group="Químico e Industrial" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Alex Strodthoff</span>
-<span class="ref-meta">GG · empresasagrotop.cl · +56 9 5802 1005</span>
-<button class="ref-mini-copy" data-line="Alex Strodthoff, GG de empresasagrotop.cl, +56 9 5802 1005" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
-<div class="ref-group-title">Gremios/ONG<span class="ref-group-count">2</span></div>
+<span class="ref-meta">GG · Agrotop · empresasagrotop.cl · +56 9 5802 1005</span>
+<button class="ref-mini-copy" data-line="Alex Strodthoff, GG de Agrotop · empresasagrotop.cl, +56 9 5802 1005" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<div class="ref-group-title">Construcción / Ingeniería / Inmobiliario<span class="ref-group-count">11 de 15 con contacto</span></div>
 <label class="ref-row">
-<input data-line="Antonio Minte, GG de CORMA · corma.cl, +56 9 9837 4613" data-group="Gremios/ONG" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Cristián San Martín, CEO de Constructora Manzano y Asociados · www.cmanzano.cl, +56 9 95052894" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Cristián San Martín</span>
+<span class="ref-meta">CEO · Constructora Manzano y Asociados · www.cmanzano.cl · +56 9 95052894</span>
+<button class="ref-mini-copy" data-line="Cristián San Martín, CEO de Constructora Manzano y Asociados · www.cmanzano.cl, +56 9 95052894" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Juan Pablo Luco, CEO de Ingeniería, Proyectos y Montajes Propamat · www.propamat.cl, +569 90994221" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Juan Pablo Luco</span>
+<span class="ref-meta">CEO · Ingeniería, Proyectos y Montajes Propamat · www.propamat.cl · +569 90994221</span>
+<button class="ref-mini-copy" data-line="Juan Pablo Luco, CEO de Ingeniería, Proyectos y Montajes Propamat · www.propamat.cl, +569 90994221" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Skava Asset Integrity</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Skava Consulting</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Flesan</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row">
+<input data-line="José Tomás Errázuriz, Gerente de Tecno Fast · tecnofast.cl, +569 9489 9682" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">José Tomás Errázuriz</span>
+<span class="ref-meta">Gerente · Tecno Fast · tecnofast.cl · +569 9489 9682</span>
+<button class="ref-mini-copy" data-line="José Tomás Errázuriz, Gerente de Tecno Fast · tecnofast.cl, +569 9489 9682" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Leonardo Pérez, CEO de Demetra · www.demetra.cl, +569 76143908" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Leonardo Pérez</span>
+<span class="ref-meta">CEO · Demetra · www.demetra.cl · +569 76143908</span>
+<button class="ref-mini-copy" data-line="Leonardo Pérez, CEO de Demetra · www.demetra.cl, +569 76143908" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Felipe Lechuga, CEO de Lemaco · www.lemaco.cl, +56 9 98252911" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Felipe Lechuga</span>
+<span class="ref-meta">CEO · Lemaco · www.lemaco.cl · +56 9 98252911</span>
+<button class="ref-mini-copy" data-line="Felipe Lechuga, CEO de Lemaco · www.lemaco.cl, +56 9 98252911" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Diego Aguilar, Presidente de Fahneu · www.fahneu.cl, +569 95378699" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Diego Aguilar</span>
+<span class="ref-meta">Presidente · Fahneu · www.fahneu.cl · +569 95378699</span>
+<button class="ref-mini-copy" data-line="Diego Aguilar, Presidente de Fahneu · www.fahneu.cl, +569 95378699" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="José Miguel Rubio, CEO de Multicompany · www.multicompany.cl, +569 92387011" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">José Miguel Rubio</span>
+<span class="ref-meta">CEO · Multicompany · www.multicompany.cl · +569 92387011</span>
+<button class="ref-mini-copy" data-line="José Miguel Rubio, CEO de Multicompany · www.multicompany.cl, +569 92387011" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Gustavo Apablaza, GG de Multicompany · www.multicompany.cl, +56 9 4787 8048" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Gustavo Apablaza</span>
+<span class="ref-meta">GG · Multicompany · www.multicompany.cl · +56 9 4787 8048</span>
+<button class="ref-mini-copy" data-line="Gustavo Apablaza, GG de Multicompany · www.multicompany.cl, +56 9 4787 8048" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Sebastián Meza, CEO / Director de Inarco · www.inarco.cl, +569 77655675" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Sebastián Meza</span>
+<span class="ref-meta">CEO / Director · Inarco · www.inarco.cl · +569 77655675</span>
+<button class="ref-mini-copy" data-line="Sebastián Meza, CEO / Director de Inarco · www.inarco.cl, +569 77655675" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Ecasa</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row">
+<input data-line="Marcelo Manzano, CEO de Paumar · www.paumar.cl, +56 9 62087186" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Marcelo Manzano</span>
+<span class="ref-meta">CEO · Paumar · www.paumar.cl · +56 9 62087186</span>
+<button class="ref-mini-copy" data-line="Marcelo Manzano, CEO de Paumar · www.paumar.cl, +56 9 62087186" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<label class="ref-row">
+<input data-line="Diego Olivos, Gerente General de Olivos · www.olivos.cl, +56 9 7213 6225" data-group="Construcción / Ingeniería / Inmobiliario" onchange="refUpdate()" type="checkbox"/>
+<span class="ref-name">Diego Olivos</span>
+<span class="ref-meta">Gerente General · Olivos · www.olivos.cl · +56 9 7213 6225</span>
+<button class="ref-mini-copy" data-line="Diego Olivos, Gerente General de Olivos · www.olivos.cl, +56 9 7213 6225" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<div class="ref-group-title">Ferias y Eventos<span class="ref-group-count">0 de 4 con contacto</span></div>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Fisa S.A.</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">GL Events Exhibitions Chile</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Be Fun</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Centro de Convenciones Santiago S.A.</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<div class="ref-group-title">Logística y Transporte<span class="ref-group-count">0 de 2 con contacto</span></div>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">Andes Logistics de Chile</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<label class="ref-row sin-datos">
+<input disabled="disabled" type="checkbox"/>
+<span class="ref-name">John O Ryan Surveyors</span>
+<span class="ref-meta">Falta el contacto — nombre del GG, cargo, web y teléfono</span>
+</label>
+<div class="ref-group-title">Gremios / ONG<span class="ref-group-count">2 de 2 con contacto</span></div>
+<label class="ref-row">
+<input data-line="Antonio Minte, GG de CORMA · corma.cl, +56 9 9837 4613" data-group="Gremios / ONG" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Antonio Minte</span>
 <span class="ref-meta">GG · CORMA · corma.cl · +56 9 9837 4613</span>
 <button class="ref-mini-copy" data-line="Antonio Minte, GG de CORMA · corma.cl, +56 9 9837 4613" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 <label class="ref-row">
-<input data-line="Juan José Obach, Director Ejecutivo de www.horizontalchile.cl, +56 968487905" data-group="Gremios/ONG" onchange="refUpdate()" type="checkbox"/>
+<input data-line="Juan José Obach, Director Ejecutivo de Horizontal · www.horizontalchile.cl, +56 968487905" data-group="Gremios / ONG" onchange="refUpdate()" type="checkbox"/>
 <span class="ref-name">Juan José Obach</span>
-<span class="ref-meta">Director Ejecutivo · www.horizontalchile.cl · +56 968487905</span>
-<button class="ref-mini-copy" data-line="Juan José Obach, Director Ejecutivo de www.horizontalchile.cl, +56 968487905" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
+<span class="ref-meta">Director Ejecutivo · Horizontal · www.horizontalchile.cl · +56 968487905</span>
+<button class="ref-mini-copy" data-line="Juan José Obach, Director Ejecutivo de Horizontal · www.horizontalchile.cl, +56 968487905" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 </div>
 <div class="footer-note">
     Todos los mensajes salen de guiones Sandler. Si un mensaje te funciona mejor con un ajuste, avísale a Sofía para actualizarlo aquí y que lo use todo el equipo.
@@ -3752,7 +3844,7 @@ var VISTAS = ['menu','estrategia','guiones','seguimiento'];
 var TITULOS = {
   menu: 'Material Comercial · Scaling',
   estrategia: 'Estrategia Comercial · Scaling',
-  guiones: 'Reuniones · Scaling',
+  guiones: 'Guiones según tipo de reunión · Scaling',
   seguimiento: 'Material seguimiento leads y cliente · Scaling'
 };
 function pintar(v) {
