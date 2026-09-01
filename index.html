@@ -1123,6 +1123,12 @@ body.nav-on .app-bar { display: block; }
 #v-seguimiento .container:has(#msgradio-leads-conocido-6:checked) label[for="msgradio-leads-conocido-6"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
 #v-seguimiento #msgradio-leads-conocido-7:checked ~ #msgcard-leads-conocido-7{ display: block; }
 #v-seguimiento .container:has(#msgradio-leads-conocido-7:checked) label[for="msgradio-leads-conocido-7"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #tipradio-0:checked ~ #tipcard-0{ display: block; }
+#v-seguimiento .container:has(#tipradio-0:checked) label[for="tipradio-0"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #tipradio-1:checked ~ #tipcard-1{ display: block; }
+#v-seguimiento .container:has(#tipradio-1:checked) label[for="tipradio-1"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #tipradio-2:checked ~ #tipcard-2{ display: block; }
+#v-seguimiento .container:has(#tipradio-2:checked) label[for="tipradio-2"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
 </style>
 </head>
 <body>
@@ -2098,6 +2104,71 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="intro-box">
     Cada persona del pipeline está en una etapa distinta y por eso recibe un mensaje distinto. Aquí están los mensajes ya redactados por etapa, más la base de clientes que sirve como referencia al mandar una propuesta.
   </div>
+
+<!--TIPOS-INI--><div class="section-title"><i aria-hidden="true" class="ti ti-mail-star"></i> Tipos de mensaje · los tres mails estándar</div>
+<div class="intro-box" style="margin-bottom: 14px;">Estos tres mails son <strong>transversales</strong>: se usan igual sea cual sea el tipo de lead, cambiando solo los datos entre corchetes. Están también en su segmento correspondiente más abajo — acá están juntos para tenerlos a mano.</div>
+<input checked="checked" class="nav-radio" id="tipradio-0" name="tipnav" type="radio"/><input class="nav-radio" id="tipradio-1" name="tipnav" type="radio"/><input class="nav-radio" id="tipradio-2" name="tipnav" type="radio"/>
+<div class="interaction-nav"><label class="int-btn" for="tipradio-0">1. Invitación a juntarse</label><label class="int-btn" for="tipradio-1">2. Envío de credenciales</label><label class="int-btn" for="tipradio-2">3. Envío de propuesta</label></div>
+<div class="msg-card" id="tipcard-0">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">1. Invitación a juntarse</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Corto y directo. Lo único que cambia es la <strong>línea de vínculo</strong>: el motivo real por el que le escribes hoy (lo felicitas por algo, lo viste en un evento o publicación, le agradeces algo). Sin esa línea el mensaje se lee como plantilla y baja la tasa de respuesta. Sirve por mail, LinkedIn o WhatsApp.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre], ¿cómo estás?
+
+[Vínculo: felicitaciones por… / te vi en… / gracias por…]
+
+Si te interesa ver cómo podríamos apoyarte a escalar [empresa], feliz de agendar un café.
+
+Si no es el momento, ningún problema, seguimos en contacto.
+
+Saludos y buena semana,</textarea>
+</div>
+<div class="msg-card" id="tipcard-1">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">2. Envío de credenciales</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Mail tipo para mandar credenciales y testimonios. Asunto: <strong>Scaling</strong>. Elegir testimonios de industrias o situaciones parecidas a las del prospecto. Original en <strong>Leads con reunión → Envío de credenciales y testimonios</strong>.</div>
+<div class="msg-asunto"><i aria-hidden="true" class="ti ti-mail"></i><span class="et">Asunto del mail:</span> <b>Scaling</b></div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="16">Estimado/a [Nombre],
+Gracias por la reunión de hoy y por tu interés en nuestro programa Scaling.
+
+Estamos entusiasmados con la posibilidad de trabajar contigo y con tu equipo para llevar a [empresa] al siguiente nivel.
+
+Como referencia adjunto nuestras credenciales, que incluyen casos de éxito y testimonios de clientes. Si quieres verlos directamente, te dejo el link a algunos de ellos:
+- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
+- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
+- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
+
+Puedes encontrar más testimonios en: https://scaling.cl/nos-recomiendan/
+
+Como te comentamos, incorporaremos tu visión a nuestra propuesta de trabajo.
+
+Saludos y que tengas una buena semana,</textarea>
+</div>
+<div class="msg-card" id="tipcard-2">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">3. Envío de propuesta</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Mail tipo para mandar la propuesta después de presentarla en reunión. Nunca se envía sin haberla presentado antes. Original en <strong>Leads con propuesta → Presentación de propuesta</strong>.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="23">Hola [Nombre],
+Gracias por la reunión de hoy y por tu tiempo e interés en nuestro programa Scaling.
+
+Estamos muy entusiasmados en trabajar contigo y con tu equipo para llevar a [empresa] al siguiente nivel.
+
+Adjunto la propuesta que revisamos. Tal como te señalamos en la reunión, queremos ser una inversión altamente rentable para [empresa].
+
+Para ayudarte en la decisión te damos garantías tales como cancelación sin compromiso en cualquier momento del programa y devolución del dinero si no estás conforme durante el primer mes de trabajo.
+
+Como referencia adjunto 3 clientes que te pueden comentar de su experiencia con nosotros:
+- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
+- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
+- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
+
+Si quisieras contactar a otro cliente, agradeceré que nos lo hagas saber.
+
+Puedes encontrar más testimonios en: https://scaling.cl/nos-recomiendan/
+
+Cuenta con nosotros si hubiera algo más que podamos hacer para ayudarte a avanzar.
+
+Nos vemos el [día],
+Saludos y que tengas una excelente semana,</textarea>
+</div>
+<!--TIPOS-FIN-->
 <div class="section-title"><i aria-hidden="true" class="ti ti-messages"></i> Mensajes por tipo de lead y etapa</div>
 <div class="intro-box" style="margin-bottom: 16px;">
 <strong>1)</strong> Elige el tipo de lead · <strong>2)</strong> elige la etapa o interacción · <strong>3)</strong> copia el mensaje y reemplaza lo que está en <span class="ph" style="color:#AD7E1F; font-weight:600;">[corchetes]</span>. Todos salen de guiones Sandler: no se explica el método ni se vende antes de escuchar el dolor. Si no sabes en qué tipo cae la persona, mira <a data-scroll="tipos-de-lead" href="javascript:void(0)" style="color:#1B4F8A; font-weight:600;">qué representa cada tipo</a> al final.
@@ -3238,7 +3309,7 @@ Saludos,</textarea>
 <div class="segment-panel" id="segpanel-leads-desconocidos"><input checked="checked" class="nav-radio" id="msgradio-leads-desconocidos-0" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-1" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-2" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-3" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-4" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-5" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-6" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-7" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-8" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-9" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-10" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-11" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-12" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-13" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-14" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-15" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-16" name="msgnav-leads-desconocidos" type="radio"/><input class="nav-radio" id="msgradio-leads-desconocidos-17" name="msgnav-leads-desconocidos" type="radio"/>
 <div class="segment-sub">— transversal, frío. Orden sugerido: LinkedIn (viaje completo) → otros orígenes → seguimiento o cierre</div>
 <div class="paso-label"><b>2</b> Etapa o interacción</div>
-<div class="interaction-nav"><label class="int-btn" for="msgradio-leads-desconocidos-0">1. Invitar a conectar</label><label class="int-btn" for="msgradio-leads-desconocidos-1">2. Mensaje post-conexión · nuevo lead</label><label class="int-btn" for="msgradio-leads-desconocidos-2">2b. Mensaje post-conexión · ya es conocido</label><label class="int-btn" for="msgradio-leads-desconocidos-3">2c. Mensaje post-conexión · influencer o director</label><label class="int-btn" for="msgradio-leads-desconocidos-4">3. Touch a un contacto ya existente</label><label class="int-btn" for="msgradio-leads-desconocidos-5">3b. Touch con invitación a webinar</label><label class="int-btn" for="msgradio-leads-desconocidos-6">4. Touch de aniversario de empresa</label><label class="int-btn" for="msgradio-leads-desconocidos-7">5. Respuesta — si contesta y es lead</label><label class="int-btn" for="msgradio-leads-desconocidos-8">5b. Respuesta — si contesta y no es lead</label><label class="int-btn" for="msgradio-leads-desconocidos-9">6. Respuesta — si quiere juntarse</label><label class="int-btn" for="msgradio-leads-desconocidos-10">7. Descarga de Growth Tools (web)</label><label class="int-btn" for="msgradio-leads-desconocidos-11">8. Invitación a webinar</label><label class="int-btn" for="msgradio-leads-desconocidos-12">9. Contacto por web / Scaling Up Coaches Int'l · agendamiento</label><label class="int-btn" for="msgradio-leads-desconocidos-13">10. Envío de credenciales (post primera reunión)</label><label class="int-btn" for="msgradio-leads-desconocidos-14">11. Seguimiento · lead que escribió y desapareció</label><label class="int-btn" for="msgradio-leads-desconocidos-15">11b. Cierre · lead que no respondió al seguimiento</label><label class="int-btn" for="msgradio-leads-desconocidos-16">11c. Cierre · lead que respondió y declinó</label><label class="int-btn" for="msgradio-leads-desconocidos-17">12. Reconexión con contacto antiguo</label></div>
+<div class="interaction-nav"><label class="int-btn" for="msgradio-leads-desconocidos-0">1. Invitar a conectar</label><label class="int-btn" for="msgradio-leads-desconocidos-1">2. Mensaje post-conexión · nuevo lead</label><label class="int-btn" for="msgradio-leads-desconocidos-2">2b. Mensaje post-conexión · ya es conocido</label><label class="int-btn" for="msgradio-leads-desconocidos-3">2c. Mensaje post-conexión · influencer o director</label><label class="int-btn" for="msgradio-leads-desconocidos-7">3. Si responde y es lead</label><label class="int-btn" for="msgradio-leads-desconocidos-8">3b. Si responde y no es lead</label><label class="int-btn" for="msgradio-leads-desconocidos-9">3c. Si responde y quiere juntarse</label><label class="int-btn" for="msgradio-leads-desconocidos-4">4. Touch a un contacto ya existente</label><label class="int-btn" for="msgradio-leads-desconocidos-5">4b. Touch con invitación a webinar</label><label class="int-btn" for="msgradio-leads-desconocidos-6">4c. Touch de aniversario de empresa</label><label class="int-btn" for="msgradio-leads-desconocidos-10">5. Descarga de Growth Tools (web)</label><label class="int-btn" for="msgradio-leads-desconocidos-11">6. Invitación a webinar</label><label class="int-btn" for="msgradio-leads-desconocidos-12">7. Contacto por web / Scaling Up Coaches Int'l · agendamiento</label><label class="int-btn" for="msgradio-leads-desconocidos-13">8. Envío de credenciales (post primera reunión)</label><label class="int-btn" for="msgradio-leads-desconocidos-14">9. Seguimiento · lead que escribió y desapareció</label><label class="int-btn" for="msgradio-leads-desconocidos-15">9b. Cierre · lead que no respondió al seguimiento</label><label class="int-btn" for="msgradio-leads-desconocidos-16">9c. Cierre · lead que respondió y declinó</label><label class="int-btn" for="msgradio-leads-desconocidos-17">10. Reconexión con contacto antiguo</label></div>
 <div class="msg-card" id="msgcard-leads-desconocidos-0">
 <div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">1. Invitar a conectar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: primer contacto con un gerente general/dueño de empresa target. La invitación a conectar se manda SIN mensaje — LinkedIn permite conectar sin nota, y así se siente menos invasivo.</div>
@@ -3288,7 +3359,7 @@ Basta que me confirmes con un "Sí" y tu email para que te inscriba.
 
 ¡Saludos y que cierres una buena semana!</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-4">
-<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">3. Touch a un contacto ya existente</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">4. Touch a un contacto ya existente</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante — ha pasado tiempo (semanas o meses) desde que son contactos en LinkedIn, sin haber avanzado más. Se pide el mail directo, sin mandar link.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre],
 Espero que estés bien.
@@ -3301,7 +3372,7 @@ Solo necesitaría tu mail.
 
 ¡Saludos y buena semana!</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-5">
-<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">3b. Touch con invitación a webinar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">4b. Touch con invitación a webinar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: misma situación que el anterior — alternativa cuando hay un webinar próximo que sirve de excusa natural para retomar contacto.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="9">Hola [Nombre],
 Espero que estés bien.
@@ -3312,7 +3383,7 @@ Solo necesitaría tu mail.
 
 ¡Saludos y buena semana!</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-6">
-<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">4. Touch de aniversario de empresa</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">4c. Touch de aniversario de empresa</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante real y puntual — la empresa del lead cumple años. Se pide el mail directo, sin mandar link.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
 
@@ -3324,7 +3395,7 @@ Solo necesitaría tu mail.
 
 ¡Saludos y buena semana!</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-7">
-<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">5. Respuesta — si contesta y es lead</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">3. Si responde y es lead</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante — el contacto respondió con su mail y, por lo que se sabe de su empresa, sí califica como lead.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="8">Agregado, espero que sea de tu utilidad.
 
@@ -3334,13 +3405,13 @@ Si no es el momento, ningún problema, seguimos en contacto.
 
 Saludos y buena semana,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-8">
-<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">5b. Respuesta — si contesta y no es lead</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">3b. Si responde y no es lead</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante — respondió con su mail pero no encaja con el perfil de cliente. Se cierra con cordialidad, sin pedir nada más.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="4">Agregado, espero que sea de tu utilidad.
 
 Saludos y buena semana.</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-9">
-<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">6. Respuesta — si quiere juntarse</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">3c. Si responde y quiere juntarse</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante — el lead responde con interés en agendar un café directamente.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="6">¡Buenísimo!
 
@@ -3348,7 +3419,7 @@ Mándame tu número y coordinamos.
 
 Saludos,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-10">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">7. Descarga de Growth Tools (web)</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">5. Descarga de Growth Tools (web)</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante automático — alguien descargó las Growth Tools desde la web. Es una señal de interés espontáneo, se responde rápido.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="14">Hola [Nombre],
 
@@ -3364,7 +3435,7 @@ Quedamos en contacto.
 
 Saludos y feliz tarde,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-11">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">8. Invitación a webinar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">6. Invitación a webinar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: para audiencia fría en general — es el canal principal para atraer desconocidos. Personalizar el tema según el ciclo actual.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="12">Hola [Nombre],
 
@@ -3378,7 +3449,7 @@ Si te interesa, te dejo el link: [link inscripción]
 
 ¡Saludos y buena semana!</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-12">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">9. Contacto por web / Scaling Up Coaches Int'l · agendamiento</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">7. Contacto por web / Scaling Up Coaches Int'l · agendamiento</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: alguien escribió directo por la página web o llegó referido por la red internacional de Scaling Up Coaches. Copiar siempre a quien coordina agenda.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="18">Estimado/a [Nombre],
 
@@ -3398,7 +3469,7 @@ Si tuvieras cualquier duda, también nos puedes escribir por este medio.
 
 Saludos,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-13">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">10. Envío de credenciales (post primera reunión)</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">8. Envío de credenciales (post primera reunión)</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: gatillante — justo después de la primera reunión con un lead que llegó frío. Elegir 2-3 testimonios de industria similar a la del lead — ver la base completa de clientes/exclientes de referencia más abajo en esta guía.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="20">Estimado/a [Nombre],
 Gracias por la reunión de hoy y por tu interés en nuestro programa Scaling.
@@ -3420,7 +3491,7 @@ Mientras, haremos seguimiento por medio de Matías.
 
 Saludos y que tengas un excelente fin de semana,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-14">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">11. Seguimiento · lead que escribió y desapareció</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">9. Seguimiento · lead que escribió y desapareció</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: hubo una conversación inicial (agendó, mostró interés) pero luego no respondió más. Retomar antes de pasar al cierre.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="12">Buenos días [Nombre],
 
@@ -3434,7 +3505,7 @@ Te escribo para darle seguimiento a nuestra conversación sobre el programa Scal
 
 Saludos y que tengas un excelente día,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-15">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">11b. Cierre · lead que no respondió al seguimiento</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">9b. Cierre · lead que no respondió al seguimiento</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: después del seguimiento anterior, sigue sin haber respuesta. Se cierra el proceso con cordialidad, dejando la puerta abierta.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="14">Hola [Nombre],
 
@@ -3450,7 +3521,7 @@ En caso contrario, ¿cómo hacemos para retomar nuestra conversación?
 
 Saludos y que tengas una excelente semana,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-16">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">11c. Cierre · lead que respondió y declinó</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">9c. Cierre · lead que respondió y declinó</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: el lead sí respondió, pero para decir que no por ahora ('chuteó'). Se cierra con calidez, sin insistir, dejando material de valor.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="12">Estimado/a [Nombre],
 
@@ -3464,7 +3535,7 @@ En caso de que tengas disponibilidad o prefieras más adelante, estaremos encant
 
 Saludos y feliz tarde,</textarea>
 </div><div class="msg-card" id="msgcard-leads-desconocidos-17">
-<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">12. Reconexión con contacto antiguo</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">10. Reconexión con contacto antiguo</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
 <div class="msg-card-note">Cuándo usarlo: hubo contacto hace mucho tiempo (meses o años) sobre un interés puntual, y se retoma con un gancho relevante para hoy.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="14">Hola [Nombre],
 
