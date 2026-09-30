@@ -588,6 +588,31 @@ body.nav-on .app-bar { display: block; }
   padding: 7px 10px; font-size: 12px; }
 @media (max-width: 620px){#v-guiones .sfila{ flex-direction: column; gap: 10px; }
 #v-guiones .sfila-img{ flex: none; max-width: 100%; width: 100%; }}
+#v-guiones #stageradio-7:checked ~ #s6{ display: block; }
+#v-guiones .container:has(#stageradio-7:checked) label[for="stageradio-7"]{ background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+#v-guiones .rfase{ display: flex; gap: 12px; padding: 13px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+#v-guiones .rfase:last-child{ border-bottom: none; }
+#v-guiones .rfase-n{ flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: #1E7A4C; color: #fff;
+  font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+#v-guiones .rfase-t{ font-size: 13.5px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px; }
+#v-guiones .rfase-q{ font-size: 12.5px; color: #2C3142; line-height: 1.6; font-style: italic;
+  border-left: 3px solid #A8D5BC; padding-left: 10px; margin: 6px 0; }
+#v-guiones .rfase-n2{ font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 6px; }
+#v-guiones .rfase-alt{ font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin: 7px 0 0;
+  background: #FFF8E8; border-radius: 6px; padding: 8px 10px; }
+#v-guiones .rfase-alt b{ color: #8A6D3B; }
+#v-guiones .regla-renov{ display: flex; gap: 10px; align-items: flex-start; background: #1E7A4C; color: #fff;
+  border-radius: var(--border-radius-lg); padding: 13px 16px; margin-bottom: 12px; }
+#v-guiones .regla-renov i{ font-size: 18px; flex-shrink: 0; margin-top: 1px; color: #FFD166; }
+#v-guiones .regla-renov .rr-t{ font-size: 12.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 3px; }
+#v-guiones .regla-renov .rr-d{ font-size: 12.5px; line-height: 1.55; color: #DCEFE3; }
+#v-guiones .prep-box{ background: #F5F6F9; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg);
+  padding: 13px 16px; margin-bottom: 12px; }
+#v-guiones .prep-box .pb-t{ font-size: 12.5px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 6px; }
+#v-guiones .prep-box .pb-t i{ color: #1E7A4C; font-size: 15px; }
+#v-guiones .prep-box ul{ margin: 4px 0 0 16px; padding: 0; }
+#v-guiones .prep-box li{ font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 4px; }
 #v-guiones .container{ padding: 1.5rem 1rem; max-width: 680px; margin: 0 auto; }
 #v-guiones .header{ text-align: center; margin-bottom: 2rem; }
 #v-guiones .header h1{ font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
@@ -1123,12 +1148,103 @@ body.nav-on .app-bar { display: block; }
 #v-seguimiento .container:has(#msgradio-leads-conocido-6:checked) label[for="msgradio-leads-conocido-6"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
 #v-seguimiento #msgradio-leads-conocido-7:checked ~ #msgcard-leads-conocido-7{ display: block; }
 #v-seguimiento .container:has(#msgradio-leads-conocido-7:checked) label[for="msgradio-leads-conocido-7"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
-#v-seguimiento #tipradio-0:checked ~ #tipcard-0{ display: block; }
-#v-seguimiento .container:has(#tipradio-0:checked) label[for="tipradio-0"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
-#v-seguimiento #tipradio-1:checked ~ #tipcard-1{ display: block; }
-#v-seguimiento .container:has(#tipradio-1:checked) label[for="tipradio-1"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
-#v-seguimiento #tipradio-2:checked ~ #tipcard-2{ display: block; }
-#v-seguimiento .container:has(#tipradio-2:checked) label[for="tipradio-2"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #vradio-0:checked ~ #vcard-0{ display: block; }
+#v-seguimiento .container:has(#vradio-0:checked) label[for="vradio-0"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #vradio-1:checked ~ #vcard-1{ display: block; }
+#v-seguimiento .container:has(#vradio-1:checked) label[for="vradio-1"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #vradio-2:checked ~ #vcard-2{ display: block; }
+#v-seguimiento .container:has(#vradio-2:checked) label[for="vradio-2"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #vradio-3:checked ~ #vcard-3{ display: block; }
+#v-seguimiento .container:has(#vradio-3:checked) label[for="vradio-3"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #vradio-4:checked ~ #vcard-4{ display: block; }
+#v-seguimiento .container:has(#vradio-4:checked) label[for="vradio-4"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #vradio-5:checked ~ #vcard-5{ display: block; }
+#v-seguimiento .container:has(#vradio-5:checked) label[for="vradio-5"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-0:checked ~ #rcard-0{ display: block; }
+#v-seguimiento .container:has(#rradio-0:checked) label[for="rradio-0"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-1:checked ~ #rcard-1{ display: block; }
+#v-seguimiento .container:has(#rradio-1:checked) label[for="rradio-1"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-2:checked ~ #rcard-2{ display: block; }
+#v-seguimiento .container:has(#rradio-2:checked) label[for="rradio-2"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-3:checked ~ #rcard-3{ display: block; }
+#v-seguimiento .container:has(#rradio-3:checked) label[for="rradio-3"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-4:checked ~ #rcard-4{ display: block; }
+#v-seguimiento .container:has(#rradio-4:checked) label[for="rradio-4"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-5:checked ~ #rcard-5{ display: block; }
+#v-seguimiento .container:has(#rradio-5:checked) label[for="rradio-5"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-6:checked ~ #rcard-6{ display: block; }
+#v-seguimiento .container:has(#rradio-6:checked) label[for="rradio-6"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-7:checked ~ #rcard-7{ display: block; }
+#v-seguimiento .container:has(#rradio-7:checked) label[for="rradio-7"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-8:checked ~ #rcard-8{ display: block; }
+#v-seguimiento .container:has(#rradio-8:checked) label[for="rradio-8"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-9:checked ~ #rcard-9{ display: block; }
+#v-seguimiento .container:has(#rradio-9:checked) label[for="rradio-9"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-10:checked ~ #rcard-10{ display: block; }
+#v-seguimiento .container:has(#rradio-10:checked) label[for="rradio-10"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento #rradio-11:checked ~ #rcard-11{ display: block; }
+#v-seguimiento .container:has(#rradio-11:checked) label[for="rradio-11"]{ background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
+#v-seguimiento .tipo-sub{ font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.55; margin: 0 0 10px 2px; }
+#v-seguimiento #ldradio-0:checked ~ #ldcard-0{ display: block; }
+#v-seguimiento .container:has(#ldradio-0:checked) label[for="ldradio-0"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#ldradio-0:checked) label[for="ldradio-0"] .vp-n,#v-seguimiento .container:has(#ldradio-0:checked) label[for="ldradio-0"] .vp-t,#v-seguimiento .container:has(#ldradio-0:checked) label[for="ldradio-0"] .vp-d{ color:#fff; }
+#v-seguimiento #ldradio-1:checked ~ #ldcard-1{ display: block; }
+#v-seguimiento .container:has(#ldradio-1:checked) label[for="ldradio-1"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#ldradio-1:checked) label[for="ldradio-1"] .vp-n,#v-seguimiento .container:has(#ldradio-1:checked) label[for="ldradio-1"] .vp-t,#v-seguimiento .container:has(#ldradio-1:checked) label[for="ldradio-1"] .vp-d{ color:#fff; }
+#v-seguimiento #ldradio-2:checked ~ #ldcard-2{ display: block; }
+#v-seguimiento .container:has(#ldradio-2:checked) label[for="ldradio-2"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#ldradio-2:checked) label[for="ldradio-2"] .vp-n,#v-seguimiento .container:has(#ldradio-2:checked) label[for="ldradio-2"] .vp-t,#v-seguimiento .container:has(#ldradio-2:checked) label[for="ldradio-2"] .vp-d{ color:#fff; }
+#v-seguimiento #ldradio-3:checked ~ #ldcard-3{ display: block; }
+#v-seguimiento .container:has(#ldradio-3:checked) label[for="ldradio-3"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#ldradio-3:checked) label[for="ldradio-3"] .vp-n,#v-seguimiento .container:has(#ldradio-3:checked) label[for="ldradio-3"] .vp-t,#v-seguimiento .container:has(#ldradio-3:checked) label[for="ldradio-3"] .vp-d{ color:#fff; }
+#v-seguimiento #ldradio-4:checked ~ #ldcard-4{ display: block; }
+#v-seguimiento .container:has(#ldradio-4:checked) label[for="ldradio-4"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#ldradio-4:checked) label[for="ldradio-4"] .vp-n,#v-seguimiento .container:has(#ldradio-4:checked) label[for="ldradio-4"] .vp-t,#v-seguimiento .container:has(#ldradio-4:checked) label[for="ldradio-4"] .vp-d{ color:#fff; }
+#v-seguimiento #ldradio-5:checked ~ #ldcard-5{ display: block; }
+#v-seguimiento .container:has(#ldradio-5:checked) label[for="ldradio-5"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#ldradio-5:checked) label[for="ldradio-5"] .vp-n,#v-seguimiento .container:has(#ldradio-5:checked) label[for="ldradio-5"] .vp-t,#v-seguimiento .container:has(#ldradio-5:checked) label[for="ldradio-5"] .vp-d{ color:#fff; }
+#v-seguimiento #ldradio-6:checked ~ #ldcard-6{ display: block; }
+#v-seguimiento .container:has(#ldradio-6:checked) label[for="ldradio-6"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#ldradio-6:checked) label[for="ldradio-6"] .vp-n,#v-seguimiento .container:has(#ldradio-6:checked) label[for="ldradio-6"] .vp-t,#v-seguimiento .container:has(#ldradio-6:checked) label[for="ldradio-6"] .vp-d{ color:#fff; }
+#v-seguimiento #lcradio-0:checked ~ #lccard-0{ display: block; }
+#v-seguimiento .container:has(#lcradio-0:checked) label[for="lcradio-0"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#lcradio-0:checked) label[for="lcradio-0"] .vp-n,#v-seguimiento .container:has(#lcradio-0:checked) label[for="lcradio-0"] .vp-t,#v-seguimiento .container:has(#lcradio-0:checked) label[for="lcradio-0"] .vp-d{ color:#fff; }
+#v-seguimiento #lcradio-1:checked ~ #lccard-1{ display: block; }
+#v-seguimiento .container:has(#lcradio-1:checked) label[for="lcradio-1"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#lcradio-1:checked) label[for="lcradio-1"] .vp-n,#v-seguimiento .container:has(#lcradio-1:checked) label[for="lcradio-1"] .vp-t,#v-seguimiento .container:has(#lcradio-1:checked) label[for="lcradio-1"] .vp-d{ color:#fff; }
+#v-seguimiento #lcradio-2:checked ~ #lccard-2{ display: block; }
+#v-seguimiento .container:has(#lcradio-2:checked) label[for="lcradio-2"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#lcradio-2:checked) label[for="lcradio-2"] .vp-n,#v-seguimiento .container:has(#lcradio-2:checked) label[for="lcradio-2"] .vp-t,#v-seguimiento .container:has(#lcradio-2:checked) label[for="lcradio-2"] .vp-d{ color:#fff; }
+#v-seguimiento #lcradio-3:checked ~ #lccard-3{ display: block; }
+#v-seguimiento .container:has(#lcradio-3:checked) label[for="lcradio-3"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#lcradio-3:checked) label[for="lcradio-3"] .vp-n,#v-seguimiento .container:has(#lcradio-3:checked) label[for="lcradio-3"] .vp-t,#v-seguimiento .container:has(#lcradio-3:checked) label[for="lcradio-3"] .vp-d{ color:#fff; }
+#v-seguimiento #lcradio-4:checked ~ #lccard-4{ display: block; }
+#v-seguimiento .container:has(#lcradio-4:checked) label[for="lcradio-4"]{ background:#0A3766; border-color:#0A3766; }
+#v-seguimiento .container:has(#lcradio-4:checked) label[for="lcradio-4"] .vp-n,#v-seguimiento .container:has(#lcradio-4:checked) label[for="lcradio-4"] .vp-t,#v-seguimiento .container:has(#lcradio-4:checked) label[for="lcradio-4"] .vp-d{ color:#fff; }
+#v-seguimiento .viaje-box{ border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg);
+  overflow: hidden; margin-bottom: 16px; background: var(--color-background-primary); }
+#v-seguimiento .viaje-head{ padding: 11px 15px; font-size: 13.5px; font-weight: 700; color: #fff; background: #0A3766; }
+#v-seguimiento .viaje-sub{ padding: 10px 15px 0; font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.55; }
+#v-seguimiento .viaje-flow{ display: flex; gap: 8px; overflow-x: auto; padding: 12px 15px; -webkit-overflow-scrolling: touch; }
+#v-seguimiento .viaje-paso{ flex: 0 0 168px; border: 1px solid #D5D9E2; border-radius: 10px; padding: 10px 11px;
+  background: #fff; cursor: pointer; box-shadow: 0 1px 2px rgba(16,24,40,.06);
+  transition: border-color .13s, background .13s, box-shadow .13s; -webkit-tap-highlight-color: transparent; }
+#v-seguimiento .viaje-paso:active{ transform: scale(.98); }
+#v-seguimiento .vp-n{ display: inline-block; font-size: 11px; font-weight: 700; color: #0A3766; background: #E6F1FB;
+  border-radius: 20px; padding: 1px 8px; margin-bottom: 5px; }
+#v-seguimiento .vp-t{ display: block; font-size: 12.5px; font-weight: 700; color: var(--color-text-primary); line-height: 1.3; margin-bottom: 3px; }
+#v-seguimiento .vp-d{ display: block; font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.45; }
+#v-seguimiento .viaje-box .msg-card{ margin: 0 15px 12px; }
+#v-seguimiento .idx{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 20px; }
+#v-seguimiento .idx a{ display: block; text-decoration: none; border: 1px solid #D5D9E2; border-radius: 11px;
+  padding: 11px 12px; background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,.07);
+  -webkit-tap-highlight-color: transparent; transition: border-color .13s, box-shadow .13s, transform .08s; }
+#v-seguimiento .idx a:active{ transform: scale(.98); }
+@media (hover: hover){#v-seguimiento .idx a:hover{ border-color: #1B4F8A; box-shadow: 0 2px 6px rgba(27,79,138,.14); }}
+#v-seguimiento .idx .ix-t{ display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700;
+  color: var(--color-text-primary); margin-bottom: 2px; }
+#v-seguimiento .idx .ix-t i{ color: #1B4F8A; font-size: 15px; }
+#v-seguimiento .idx .ix-d{ font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -1416,7 +1532,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <strong>Regla de oro Sandler — aplica en TODAS las etapas:</strong> nunca presentar la solución, hablar del método o dar el pitch sin antes haber escuchado e identificado el dolor real del prospecto. Primero se escucha, después se presenta.
     </div>
 </div>
-<input class="nav-radio" id="stageradio-6" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-5" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-4" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-3" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-2" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-1" name="stagenav" type="radio"/><input checked="checked" class="nav-radio" id="stageradio-0" name="stagenav" type="radio"/><div class="stage-nav">
+<input class="nav-radio" id="stageradio-6" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-7" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-5" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-4" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-3" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-2" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-1" name="stagenav" type="radio"/><input checked="checked" class="nav-radio" id="stageradio-0" name="stagenav" type="radio"/><div class="stage-nav">
 <label class="stage-btn" for="stageradio-0"><span class="num">1</span>Pitch de asado</label>
 <label class="stage-btn" for="stageradio-1"><span class="num">1B</span>Catch Up</label>
 <label class="stage-btn" for="stageradio-2"><span class="num">2</span>Reunión presentación</label>
@@ -1424,6 +1540,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <label class="stage-btn" for="stageradio-4"><span class="num">4</span>Propuesta</label>
 <label class="stage-btn" for="stageradio-5"><span class="num">5</span>Seguimiento</label>
 <label class="stage-btn" for="stageradio-6"><span class="num">6</span>Cierre</label>
+<label class="stage-btn" for="stageradio-7"><span class="num">7</span>Renovación</label>
 </div>
 <div class="stage-panel" id="s0">
 <div class="stage-header">
@@ -2095,7 +2212,119 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 <div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Si se cierra como <strong>cliente</strong>: usar en Trello la sección "Clientes" → tarjeta <strong>"Mail de bienvenida a Scaling"</strong>.<br/>Si se cierra como <strong>expediente</strong> (perdido): usar en Trello la sección "Leads con propuesta" → tarjeta <strong>"Mail respuesta negativa de leads"</strong>.</span></div>
 <div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>No asumir que "sí verbal" es suficiente — el proceso no comienza hasta tener el OK escrito. El cierre no es el final del proceso comercial — es el inicio de la relación de programa. La experiencia del primer mes define la renovación.</span></div>
 </div>
-</div></div>
+</div>
+<!--RENOV-INI--><div class="stage-panel" id="s6">
+<div class="stage-header">
+<span class="tag">Etapa 7</span>
+<h2>Renovación</h2>
+<p class="objetivo">Que el programa continúe <strong>sin que se note el corte</strong>. La mejor renovación es una conversación dentro de una sesión de coaching, cerrada en palabras, que permite seguir facturando como si nada. Todo lo que se parezca a una nueva venta trabaja en contra.</p>
+<div class="sandler-tag"><span>Sandler:</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-refresh"></i> Fulfillment continuo</span><span class="sandler-step"><i aria-hidden="true" class="ti ti-file-description"></i> Up-front contract</span></div>
+<div style="margin-top: 8px; font-size: 12px; color: #0C447C; background: #E6F1FB; display: inline-block; padding: 4px 10px; border-radius: 20px;"><strong>Cierre de la etapa:</strong> acuerdo verbal de continuidad, con precio e intervenciones definidos, sin que se corte la facturación.</div>
+</div>
+<div class="regla-renov">
+<i aria-hidden="true" class="ti ti-alarm"></i>
+<div>
+<div class="rr-t">La regla que ordena todo</div>
+<div class="rr-d">Gestionar la renovación <strong>1 a 2 meses antes</strong> del cierre del acuerdo. No es para apurar al cliente: es para que <strong>no caiga la facturación</strong>. Si se deja para el final, el mes siguiente se trabaja sin saber si hay programa — o directamente no se factura.</div>
+</div>
+</div><div class="prep-box">
+<div class="pb-t"><i aria-hidden="true" class="ti ti-clipboard-check"></i> Lo mínimo que el coach debe llevar preparado</div>
+<ul>
+<li><strong>Lo que se prometió versus lo que se hizo.</strong> «Dijimos 4 sesiones trimestrales, hicimos 5. Dijimos 20 sesiones de coaching, hicimos 34. Cumplimos un 40% más de lo comprometido.»</li>
+<li><strong>El precio y las intervenciones</strong> con que se va a proponer seguir.</li>
+<li><strong>Una alternativa más barata</strong> ya pensada, eliminando intervenciones.</li>
+</ul>
+</div>
+<div class="tip-box" style="background:#FFF4E5; border-color:#EF9F27;"><i aria-hidden="true" class="ti ti-eye-off" style="color:#854F0B;"></i><span><strong>El recuento se tiene, no se muestra.</strong> No se pone sobre la mesa de entrada: eso convierte una conversación en una rendición de cuentas. Se saca <strong>solo si aparecen dudas</strong>. Cuando se usa, además le sirve al gerente general para venderlo internamente: «hicieron un 40% más de lo que habían comprometido».</span></div>
+<div class="sflow">
+<div class="sflow-head"><i aria-hidden="true" class="ti ti-route"></i> La conversación &middot; en orden</div>
+<div class="sflow-body">
+<div class="rfase">
+<div class="rfase-n">1</div>
+<div>
+<div class="rfase-t">Abrir el tema — dentro de una sesión de coaching</div>
+<div class="rfase-q">"Faltan dos meses para el cierre de nuestro acuerdo de trabajo y quiero saber qué estás pensando para el próximo año."</div><div class="rfase-n2">→ Se abre <strong>dentro de una sesión de coaching</strong>, sin alargar la conversación. Si el tema pide más, se agenda una reunión aparte. En la práctica, casi siempre la respuesta es «esto es para siempre, seguimos».</div>
+</div>
+</div>
+<div class="rfase">
+<div class="rfase-n">2</div>
+<div>
+<div class="rfase-t">Bajar el peso de la decisión</div>
+<div class="rfase-q">"Esto es un proceso, una mejora continua que no termina. El tema es cuánto lo puedas aprovechar y qué es lo que más te interesa aprovechar."</div><div class="rfase-n2">→ Evita que la renovación se sienta como una decisión grande que hay que pensar mucho. No es un contrato nuevo: es la continuación de algo que ya está andando.</div>
+</div>
+</div>
+<div class="rfase">
+<div class="rfase-n">3</div>
+<div>
+<div class="rfase-t">La pregunta que abre el próximo año</div>
+<div class="rfase-q">"¿Qué te gustaría apuntar el próximo año?"</div><div class="rfase-alt"><b>Respuestas típicas:</b> «traspasar accountability a los equipos, que no dependa todo de mí» → evaluación de desempeño, liderazgo, bajar a los equipos que siguen. O «mi tema es la caja». O «el margen, estamos perdiendo». Sea cual sea: <em>«ok, eso es justamente lo que hacemos»</em>.</div><div class="rfase-n2">→ Escuchar y anotar. Lo que responda es el foco del próximo período y lo que después justifica las intervenciones.</div>
+</div>
+</div>
+<div class="rfase">
+<div class="rfase-n">4</div>
+<div>
+<div class="rfase-t">Las dos salidas — ofrecer la fácil primero</div>
+<div class="rfase-q">"Si te parece, sigamos igual: mismo precio, mismas intervenciones."</div><div class="rfase-q">"¿O prefieres que hagamos una reunión para planificar el próximo año?"</div><div class="rfase-n2">→ <strong>La mejor renovación es una conversación y seguir facturando como si nada.</strong> Si acepta la primera, se cierra ahí en palabras y no hay nada más que hacer. Solo si queda con dudas o quiere ajustar, se pasa a la fase 5.</div>
+</div>
+</div>
+<div class="rfase">
+<div class="rfase-n">5</div>
+<div>
+<div class="rfase-t">Si quiere ajustar — intervención por intervención</div>
+<div class="rfase-q">"Nosotros tenemos cuatro intervenciones. Sesiones trimestrales, ¿te interesa eso?" → casi siempre: «eso es lo fundamental».</div><div class="rfase-q">"Sesiones de coaching." → si dice que ya aporta menos: <em>«si quieres podemos distanciarlas, hagámoslas cada dos semanas y dejamos 40 en el año».</em></div><div class="rfase-q">"Acompañamiento de equipos." → acá suele aparecer el «no lo necesitamos».</div><div class="rfase-q">"Sacando la cuenta en horas equivalentes, es más o menos lo mismo que este año. ¿Te parece?"</div><div class="rfase-alt"><b>Ir preparado con dos versiones:</b> el precio y las intervenciones del año actual, y una <b>alternativa más barata</b> que sale de eliminar intervenciones. Que la conversación decida cuál, no una propuesta impresa.</div><div class="rfase-n2">→ Se va sumando en horas, no en plata. Al final se cierra <strong>en palabras</strong>, no con un documento.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-coin"></i><span><strong>Estrategia de precio:</strong> no subimos precios, trabajamos las horas. El precio por hora sube <strong>bajando las horas</strong>, no subiendo el monto. Subir el monto es un dolor para el cliente porque le cuesta explicarlo internamente.</span></div>
+<div class="section-title" style="margin-top:18px;"><i aria-hidden="true" class="ti ti-writing"></i> ¿Hace falta dejarlo por escrito?</div>
+<div class="columns">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Basta con lo verbal</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Cliente antiguo, con confianza y buenos resultados — se conversa y se sigue facturando</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Mismas condiciones, mismo precio, mismas intervenciones</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Hay clientes que mandan la orden de compra anual sin que medie un solo mail</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Forzar un mail donde no hace falta agrega fricción a algo que ya está resuelto</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont" style="color:#8A6D3B;"><i aria-hidden="true" class="ti ti-mail"></i> Sí o sí por escrito</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-mail" style="color:#8A6D3B;"></i><span>Cliente nuevo — primer o segundo año de relación</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-mail" style="color:#8A6D3B;"></i><span>Cambian las condiciones: nuevo acuerdo, otras intervenciones o sube el precio</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-mail" style="color:#8A6D3B;"></i><span>El cliente lo pide, o quedó algún ruido en la conversación</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-mail" style="color:#8A6D3B;"></i><span>Se está atrasando la facturación y hay que destrabarla</span></div>
+</div>
+</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-message-2"></i><span><strong>Si hay que escribirlo, corto:</strong> «Renovaremos el programa por otro período de 12 meses, con las mismas condiciones. Agradeceré me confirmes por este mail.» Nada de propuesta nueva.</span></div>
+<div class="tip-box" style="background:#FDF0F4; border-color:#B0335B;"><i aria-hidden="true" class="ti ti-alert-triangle" style="color:#B0335B;"></i><span><strong>Ojo con la confirmación de terceros.</strong> Ha pasado que un coach avisa «está renovado» y después resulta que no lo estaba. Antes de facturar, confirmar con quien tiene el dato de primera mano.</span></div><div class="columns">
+<div class="col-card">
+<div class="col-title do"><i aria-hidden="true" class="ti ti-circle-check"></i> Sí hacer</div>
+<div class="items">
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Abrir el tema 1 a 2 meses antes del cierre, sin excepción</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Llegar con el recuento de lo prometido versus lo hecho — y guardárselo</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Llegar con un precio, unas intervenciones y una versión más barata ya pensadas</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Ofrecer primero la opción fácil: seguir igual, mismo precio</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Cerrar en palabras dentro de la misma conversación</span></div>
+<div class="item do-item"><i aria-hidden="true" class="ti ti-circle-check"></i><span>Si no le aporta, celebrar la graduación: «me encanta que te gradúes, puedes seguir solo»</span></div>
+</div>
+</div>
+<div class="col-card">
+<div class="col-title dont"><i aria-hidden="true" class="ti ti-circle-x"></i> No hacer</div>
+<div class="items">
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No armar una propuesta nueva — es el error más caro y el que más alarga todo</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No abrir con «evaluemos el año» ni con una presentación formal</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No poner el recuento sobre la mesa de entrada: se usa solo si hay dudas</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No salir de la conversación sin acuerdo — eso es lo que después atrasa la facturación</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No subir el precio de frente: se ajusta por horas</span></div>
+<div class="item dont-item"><i aria-hidden="true" class="ti ti-circle-x"></i><span>No dejarlo para el último mes «porque igual va a renovar»</span></div>
+</div>
+</div>
+</div>
+<div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span><strong>Si el cliente no renueva, tampoco es una pérdida.</strong> «Si no te aporta, me encanta que te gradúes — puedes seguir solo, aunque requiere más disciplina.» Y hay clientes que renuevan justamente porque quedamos como recurso disponible: «tú no tienes tiempo, yo sí».</span></div>
+</div><!--RENOV-FIN--></div>
 <div class="vista" id="v-seguimiento"><div class="container">
 <div class="header">
 <h1>Material seguimiento leads y cliente</h1>
@@ -2105,14 +2334,18 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
     Cada persona del pipeline está en una etapa distinta y por eso recibe un mensaje distinto. Aquí están los mensajes ya redactados por etapa, más la base de clientes que sirve como referencia al mandar una propuesta.
   </div>
 
-<!--TIPOS-INI--><div class="section-title"><i aria-hidden="true" class="ti ti-mail-star"></i> Tipos de mensaje · los tres mails estándar</div>
-<div class="intro-box" style="margin-bottom: 14px;">Estos tres mails son <strong>transversales</strong>: se usan igual sea cual sea el tipo de lead, cambiando solo los datos entre corchetes. Están también en su segmento correspondiente más abajo — acá están juntos para tenerlos a mano.</div>
-<input checked="checked" class="nav-radio" id="tipradio-0" name="tipnav" type="radio"/><input class="nav-radio" id="tipradio-1" name="tipnav" type="radio"/><input class="nav-radio" id="tipradio-2" name="tipnav" type="radio"/>
-<div class="interaction-nav"><label class="int-btn" for="tipradio-0">1. Invitación a juntarse</label><label class="int-btn" for="tipradio-1">2. Envío de credenciales</label><label class="int-btn" for="tipradio-2">3. Envío de propuesta</label></div>
-<div class="msg-card" id="tipcard-0">
+
+<!--TIPOS-INI--><!--IDX-INI--><div class="idx"><a data-scroll="sec-tipos" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-mail-star"></i>Tipos de mensaje</span><span class="ix-d">Sirven para cualquier lead</span></a><a data-scroll="sec-canal" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-brand-linkedin"></i>Por canal</span><span class="ix-d">El viaje de LinkedIn, paso a paso</span></a><a data-scroll="sec-lead" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-users"></i>Por tipo de lead</span><span class="ix-d">De desconocido a excliente</span></a><a data-scroll="sec-base" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-address-book"></i>Base de referencia</span><span class="ix-d">Clientes para adjuntar</span></a></div><!--IDX-FIN-->
+<div class="section-title" id="sec-tipos"><i aria-hidden="true" class="ti ti-mail-star"></i> Tipos de mensaje &middot; sirven para cualquier lead</div>
+<div class="intro-box" style="margin-bottom: 14px;">Estos mensajes son <strong>transversales</strong>: se usan igual sea cual sea el tipo de lead, cambiando solo los datos entre corchetes. También están en su segmento más abajo; acá están juntos para tenerlos a mano.</div>
+<div class="paso-label"><b>A</b> El viaje comercial</div>
+<div class="tipo-sub">De la primera invitación hasta el cierre, cuando el proceso ya no avanza.</div>
+<input checked="checked" class="nav-radio" id="vradio-0" name="vnav" type="radio"/><input class="nav-radio" id="vradio-1" name="vnav" type="radio"/><input class="nav-radio" id="vradio-2" name="vnav" type="radio"/><input class="nav-radio" id="vradio-3" name="vnav" type="radio"/><input class="nav-radio" id="vradio-4" name="vnav" type="radio"/><input class="nav-radio" id="vradio-5" name="vnav" type="radio"/>
+<div class="interaction-nav"><label class="int-btn" for="vradio-0">1. Invitación a juntarse</label><label class="int-btn" for="vradio-1">2. Envío de credenciales</label><label class="int-btn" for="vradio-2">3. Envío de propuesta</label><label class="int-btn" for="vradio-3">4. Seguimiento de propuesta</label><label class="int-btn" for="vradio-4">5. Mail de cierre</label><label class="int-btn" for="vradio-5">6. WhatsApp de cierre</label></div>
+<div class="msg-card" id="vcard-0">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">1. Invitación a juntarse</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
-<div class="msg-card-note">Corto y directo. Lo único que cambia es la <strong>línea de vínculo</strong>: el motivo real por el que le escribes hoy (lo felicitas por algo, lo viste en un evento o publicación, le agradeces algo). Sin esa línea el mensaje se lee como plantilla y baja la tasa de respuesta. Sirve por mail, LinkedIn o WhatsApp.</div>
-<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre], ¿cómo estás?
+<div class="msg-card-note">Corto y directo. Lo unico que cambia es la <strong>línea de vínculo</strong>: el motivo real por el que le escribes hoy. Sin esa línea el mensaje se lee como plantilla y baja la tasa de respuesta. Sirve por mail, LinkedIn o WhatsApp.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre], ¿cómo estás?
 
 [Vínculo: felicitaciones por… / te vi en… / gracias por…]
 
@@ -2122,9 +2355,9 @@ Si no es el momento, ningún problema, seguimos en contacto.
 
 Saludos y buena semana,</textarea>
 </div>
-<div class="msg-card" id="tipcard-1">
+<div class="msg-card" id="vcard-1">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">2. Envío de credenciales</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
-<div class="msg-card-note">Mail tipo para mandar credenciales y testimonios. Asunto: <strong>Scaling</strong>. Elegir testimonios de industrias o situaciones parecidas a las del prospecto. Original en <strong>Leads con reunión → Envío de credenciales y testimonios</strong>.</div>
+<div class="msg-card-note">Asunto del mail: <strong>Scaling</strong>. Elegir testimonios de industrias o situaciones parecidas a las del prospecto. Original en <strong>Leads con reunión</strong>.</div>
 <div class="msg-asunto"><i aria-hidden="true" class="ti ti-mail"></i><span class="et">Asunto del mail:</span> <b>Scaling</b></div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="16">Estimado/a [Nombre],
 Gracias por la reunión de hoy y por tu interés en nuestro programa Scaling.
@@ -2142,9 +2375,9 @@ Como te comentamos, incorporaremos tu visión a nuestra propuesta de trabajo.
 
 Saludos y que tengas una buena semana,</textarea>
 </div>
-<div class="msg-card" id="tipcard-2">
+<div class="msg-card" id="vcard-2">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">3. Envío de propuesta</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
-<div class="msg-card-note">Mail tipo para mandar la propuesta después de presentarla en reunión. Nunca se envía sin haberla presentado antes. Original en <strong>Leads con propuesta → Presentación de propuesta</strong>.</div>
+<div class="msg-card-note">Va después de presentarla en reunión, nunca antes. Original en <strong>Leads con propuesta</strong>.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="23">Hola [Nombre],
 Gracias por la reunión de hoy y por tu tiempo e interés en nuestro programa Scaling.
 
@@ -2168,8 +2401,361 @@ Cuenta con nosotros si hubiera algo más que podamos hacer para ayudarte a avanz
 Nos vemos el [día],
 Saludos y que tengas una excelente semana,</textarea>
 </div>
+<div class="msg-card" id="vcard-3">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">4. Seguimiento de propuesta</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuando pasaron días sin respuesta y todavía hay proceso vivo. En <strong>Leads con propuesta</strong> hay más variantes según el motivo real de la demora.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre],
+¿Cómo estás? Espero que muy bien.
+
+Estamos entusiasmados con la posibilidad de trabajar contigo y tu equipo para llevar a [empresa] al siguiente nivel. Podemos ajustar el alcance, intensidad y precio del programa según lo que estimes de mayor impacto.
+
+Entendemos que una de las principales dudas al evaluar Scaling es si realmente impacta en los resultados. Te invito a revisar este testimonio: [nombre cliente, cargo — link testimonio 1 min], que comenta cómo el programa ayudó a alinear al equipo y enfocarse en lo que realmente mueve la aguja del negocio.
+
+Si te hace sentido, nos encantaría recibir tu feedback de la propuesta — ¿tienes disponibilidad esta semana?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="vcard-4">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">5. Mail de cierre</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuando el silencio ya se estiró. Pide una definición sin presionar y, de paso, pide feedback: eso es lo que hace que este mail valga incluso cuando la respuesta es no.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="12">Hola [Nombre],
+Espero que te encuentres bien.
+
+Como no hemos recibido noticias tuyas desde que hicimos la propuesta, asumimos que tienes otras prioridades en este momento.
+Agradeceré que confirmes el cierre de nuestro proceso con [empresa].
+Si así fuera, ¿podrías darme unos minutos para recibir tu feedback?
+
+En caso contrario, ¿cuál sería el siguiente paso de nuestro proceso?
+
+Saludos y que tengas una excelente semana,</textarea>
+</div>
+<div class="msg-card" id="vcard-5">
+<div class="msg-card-head"><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">6. WhatsApp de cierre</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">La versión corta del anterior. Cierra el proceso dejando la puerta abierta por el Newsletter y da una salida fácil para retomar si el diagnóstico estaba equivocado.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+¿Cómo estás?
+
+Dado que no hemos tenido respuesta tuya a nuestra propuesta, asumo que están priorizando otros temas.
+Quedamos en contacto por medio de nuestro Newsletter.
+
+Si me equivoco, avísame y retomamos nuestra conversación.
+Que tengas un feliz [feriado / fin de semana].</textarea>
+</div>
+<div class="paso-label"><b>B</b> Retomar contacto</div>
+<div class="tipo-sub">Para reactivar a alguien que se enfrió. La herramienta se elige por el dolor que le conoces, no por la que más te guste.</div>
+<input checked="checked" class="nav-radio" id="rradio-0" name="rnav" type="radio"/><input class="nav-radio" id="rradio-1" name="rnav" type="radio"/><input class="nav-radio" id="rradio-2" name="rnav" type="radio"/><input class="nav-radio" id="rradio-3" name="rnav" type="radio"/><input class="nav-radio" id="rradio-4" name="rnav" type="radio"/><input class="nav-radio" id="rradio-5" name="rnav" type="radio"/><input class="nav-radio" id="rradio-6" name="rnav" type="radio"/><input class="nav-radio" id="rradio-7" name="rnav" type="radio"/><input class="nav-radio" id="rradio-8" name="rnav" type="radio"/><input class="nav-radio" id="rradio-9" name="rnav" type="radio"/><input class="nav-radio" id="rradio-10" name="rnav" type="radio"/><input class="nav-radio" id="rradio-11" name="rnav" type="radio"/>
+<div class="interaction-nav"><label class="int-btn" for="rradio-0">1. Invitación a webinar</label><label class="int-btn" for="rradio-1">2. Invitación al Newsletter</label><label class="int-btn" for="rradio-2">3. Retomar · ya se interesó antes</label><label class="int-btn" for="rradio-3">4. Retomar · contacto antiguo</label><label class="int-btn" for="rradio-4">5. Problemas de caja</label><label class="int-btn" for="rradio-5">6. Margen que no crece</label><label class="int-btn" for="rradio-6">7. Equipo desalineado</label><label class="int-btn" for="rradio-7">8. Dudas del desempeño</label><label class="int-btn" for="rradio-8">9. Falta ritmo y foco</label><label class="int-btn" for="rradio-9">10. No ve dónde están las oportunidades</label><label class="int-btn" for="rradio-10">11. La caja frena el crecimiento</label><label class="int-btn" for="rradio-11">12. Falta confianza en el equipo</label></div>
+<div class="msg-card" id="rcard-0">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">1. Invitación a webinar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">El touch más liviano y el que menos quema el contacto: invita sin pedir nada a cambio. Sirve con cualquier tipo de lead.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="12">Hola [Nombre],
+
+El [fecha] realizaré un webinar de Scaling: [tema — ej. "¿Cómo escalar la caja de tu empresa?"]
+
+Conversaremos sobre:
+— [idea concreta 1, ej. "12 decisiones concretas para aumentar el efectivo disponible"]
+— [idea concreta 2, ej. "Las 7 palancas del efectivo que impactan la caja del negocio"]
+
+Si te interesa, te dejo el link: [link inscripción]
+
+¡Saludos y buena semana!</textarea>
+</div>
+<div class="msg-card" id="rcard-1">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">2. Invitación al Newsletter</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuando no hay webinar cerca. Mantiene la relación viva sin costo para el otro.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+Espero que estés bien.
+
+Te cuento que entré a trabajar en Scaling, donde apoyamos a gerentes generales a escalar sus negocios y equipos.
+
+Si te sirve, una vez al mes enviamos herramientas prácticas para gerentes generales enfocadas en mejorar resultados financieros y el desempeño del equipo.
+Solo necesitaría tu mail.
+
+¡Saludos y buena semana!</textarea>
+</div>
+<div class="msg-card" id="rcard-2">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">3. Retomar · ya se interesó antes</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Para alguien que en su momento evaluó un programa y no avanzó. Reconocer esa historia en la primera línea es lo que distingue este mail de un mensaje frío cualquiera.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="13">Hola [Nombre],
+¿Cómo estás?
+Hace unos años te interesaste en un programa Scaling Up para [empresa].
+
+Te cuento que desde entonces hemos seguido creciendo en coaches, experiencias de éxito y metodologías de impacto que ayudan a escalar negocios y equipos hacia resultados extraordinarios de EBITDA y caja.
+
+Por lo mismo es que te invito a volver a evaluar un programa para [empresa] que te ayude a escalar los resultados del negocio y disfrutar el camino.
+
+Si no es un buen momento o estás priorizando otros temas, no te preocupes y seguimos en contacto por medio de nuestro Newsletter.
+
+Saludos,</textarea>
+</div>
+<div class="msg-card" id="rcard-3">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="msg-card-title">4. Retomar · contacto antiguo</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Más cálido, para alguien con quien hubo relación personal. Trae una herramienta concreta como excusa para reabrir la conversación, no una invitación genérica.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="16">Hola [Nombre],
+¿Cómo estás? Tanto tiempo.
+Espero que tú y tu familia estén muy bien.
+
+Te cuento que ya cumplimos 8 años y más de 70 casos de éxito en Chile y otros países.
+
+En este tiempo hemos crecido como coaches y desarrollado nuevas herramientas para lograr resultados de EBITDA y caja.
+Una de ellas es un Modelo de Negocio que resuelve una duda común de las empresas: ¿cómo deleitar al cliente y, al mismo tiempo, generar un margen creciente?
+Si te interesa, avísame y te mando la Growth Tool.
+
+¿Te animas a evaluar una nueva etapa del programa Scaling (https://scaling.cl/)?
+Si no es el momento, no hay problema, seguimos en contacto por medio de nuestro Newsletter.
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-4">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">5. Problemas de caja</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>Cash Flow Story</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos el Cash Flow Story, que permite ver con claridad cuánta caja genera realmente la empresa y qué impacto tiene mover ciertas palancas del negocio.
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-5">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">6. Margen que no crece</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>Modelo de Negocio</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos el Modelo de Negocio en Canvas, que resuelve una duda común de las empresas: ¿cómo deleitar al cliente y, al mismo tiempo, generar un margen creciente?
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-6">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">7. Equipo desalineado</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>Plan Estratégico en 1 Página</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos el Plan Estratégico en Una Página. ¿Te cuesta alinear a tu equipo en torno a un plan claro?
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-7">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">8. Dudas del desempeño</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>Encuesta de Efectividad</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos la Encuesta de Efectividad de Equipo. ¿Quieres evaluar la efectividad de tu equipo y recibir un informe detallado con los resultados?
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-8">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">9. Falta ritmo y foco</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>10 Hábitos de Rockefeller</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos los 10 Hábitos de Rockefeller, que ayudan a alinear equipos, establecer ritmos claros de ejecución y crear un enfoque estratégico que impulsa resultados sostenibles.
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-9">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">10. No ve dónde están las oportunidades</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>Poder de Uno</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos el Poder de Uno: las 7 palancas del efectivo y la rentabilidad, para ver dónde están las oportunidades de tu empresa.
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-10">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">11. La caja frena el crecimiento</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>Ciclo de Conversión del Efectivo</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos el Ciclo de Conversión del Efectivo. ¿Tu flujo de caja limita el crecimiento de tu empresa?
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="rcard-11">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">12. Falta confianza en el equipo</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Herramienta: <strong>Ejercicio de Historia Personal</strong>. Se manda cuando <strong>ese</strong> es el dolor que le conoces. La herramienta es la excusa; el objetivo real es la reunión. Si el dolor no le calza, el mensaje pierde toda la fuerza.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+[Vínculo]
+
+Por si te sirve, tenemos el Ejercicio de Historia Personal, si quieres construir confianza en tu equipo.
+
+¿Te hace sentido que nos juntemos y te la presente?
+
+Un abrazo,</textarea>
+</div>
 <!--TIPOS-FIN-->
-<div class="section-title"><i aria-hidden="true" class="ti ti-messages"></i> Mensajes por tipo de lead y etapa</div>
+<!--CANAL-INI--><div class="section-title" id="sec-canal"><i aria-hidden="true" class="ti ti-brand-linkedin"></i> Viajes por canal &middot; LinkedIn</div>
+<div class="intro-box" style="margin-bottom: 14px;">La otra forma de llegar al mensaje: <strong>por dónde le vas a escribir</strong>, no por qué tipo de lead es. LinkedIn tiene dos viajes claros según si ya se conocen o no. Toca un paso y aparece el mensaje de ese paso.</div>
+<div class="viaje-box">
+<div class="viaje-head">Lead desconocido &middot; viaje completo</div>
+<div class="viaje-sub">Nunca han tenido contacto. El viaje parte por la conexión y avanza solo si él responde.</div>
+<input checked="checked" class="nav-radio" id="ldradio-0" name="ldnav" type="radio"/><input class="nav-radio" id="ldradio-1" name="ldnav" type="radio"/><input class="nav-radio" id="ldradio-2" name="ldnav" type="radio"/><input class="nav-radio" id="ldradio-3" name="ldnav" type="radio"/><input class="nav-radio" id="ldradio-4" name="ldnav" type="radio"/><input class="nav-radio" id="ldradio-5" name="ldnav" type="radio"/><input class="nav-radio" id="ldradio-6" name="ldnav" type="radio"/>
+<div class="viaje-flow"><label class="viaje-paso" for="ldradio-0"><span class="vp-n">1</span><span class="vp-t">Invitar a conectar</span><span class="vp-d">Sin mensaje largo. El objetivo es solo que acepte.</span></label><label class="viaje-paso" for="ldradio-1"><span class="vp-n">2</span><span class="vp-t">Mensaje post-conexión</span><span class="vp-d">Apenas acepta. Agradece y ofrece algo, no pide nada.</span></label><label class="viaje-paso" for="ldradio-2"><span class="vp-n">3</span><span class="vp-t">Si responde y es lead</span><span class="vp-d">Recién acá aparece la invitación al café.</span></label><label class="viaje-paso" for="ldradio-3"><span class="vp-n">3b</span><span class="vp-t">Si responde y no es lead</span><span class="vp-d">Se cierra corto y con cordialidad. No se insiste.</span></label><label class="viaje-paso" for="ldradio-4"><span class="vp-n">3c</span><span class="vp-t">Si responde y quiere juntarse</span><span class="vp-d">Pasa a WhatsApp y se coordina.</span></label><label class="viaje-paso" for="ldradio-5"><span class="vp-n">4</span><span class="vp-t">Invitación a webinar</span><span class="vp-d">Si no respondió o quedó frío: el touch que no quema el contacto.</span></label><label class="viaje-paso" for="ldradio-6"><span class="vp-n">5</span><span class="vp-t">Touch a contacto existente</span><span class="vp-d">Meses después, para volver a aparecer sin pedir nada.</span></label></div>
+<div class="msg-card" id="ldcard-0">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">1. Invitar a conectar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: primer contacto con un gerente general/dueño de empresa target. La invitación a conectar se manda SIN mensaje — LinkedIn permite conectar sin nota, y así se siente menos invasivo.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="4">(Se envía la invitación a conectar sin ningún mensaje adjunto.)</textarea>
+</div>
+<div class="msg-card" id="ldcard-1">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">2. Mensaje post-conexión</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: gatillante — este es el primer mensaje real que se envía, justo después de que acepta la invitación (la invitación en sí va sin texto). Se pide el mail directo, sin mandar link.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="9">Hola [Nombre],
+Gracias por aceptar mi invitación.
+
+Si te sirve, una vez al mes envío herramientas prácticas para gerentes generales enfocadas en mejorar resultados financieros y el desempeño del equipo.
+
+Solo necesitaría tu mail.
+
+¡Saludos y buena semana!</textarea>
+</div>
+<div class="msg-card" id="ldcard-2">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">3. Si responde y es lead</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: gatillante — el contacto respondió con su mail y, por lo que se sabe de su empresa, sí califica como lead.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="8">Agregado, espero que sea de tu utilidad.
+
+Y si te interesa ver cómo podríamos apoyarte a escalar [empresa], feliz de agendar un café.
+
+Si no es el momento, ningún problema, seguimos en contacto.
+
+Saludos y buena semana,</textarea>
+</div>
+<div class="msg-card" id="ldcard-3">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">3b. Si responde y no es lead</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: gatillante — respondió con su mail pero no encaja con el perfil de cliente. Se cierra con cordialidad, sin pedir nada más.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="4">Agregado, espero que sea de tu utilidad.
+
+Saludos y buena semana.</textarea>
+</div>
+<div class="msg-card" id="ldcard-4">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">3c. Si responde y quiere juntarse</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: gatillante — el lead responde con interés en agendar un café directamente.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="6">¡Buenísimo!
+
+Mándame tu número y coordinamos.
+
+Saludos,</textarea>
+</div>
+<div class="msg-card" id="ldcard-5">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">4. Invitación a webinar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: para audiencia fría en general — es el canal principal para atraer desconocidos. Personalizar el tema según el ciclo actual.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="12">Hola [Nombre],
+
+El [fecha] realizaré un webinar de Scaling: [tema — ej. "¿Cómo escalar la caja de tu empresa?"]
+
+Conversaremos sobre:
+— [idea concreta 1, ej. "12 decisiones concretas para aumentar el efectivo disponible"]
+— [idea concreta 2, ej. "Las 7 palancas del efectivo que impactan la caja del negocio"]
+
+Si te interesa, te dejo el link: [link inscripción]
+
+¡Saludos y buena semana!</textarea>
+</div>
+<div class="msg-card" id="ldcard-6">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">5. Touch a contacto existente</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: gatillante — ha pasado tiempo (semanas o meses) desde que son contactos en LinkedIn, sin haber avanzado más. Se pide el mail directo, sin mandar link.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre],
+Espero que estés bien.
+
+Ha pasado un tiempo desde que somos contacto.
+
+Si te sirve, una vez al mes envío herramientas prácticas para gerentes generales enfocadas en mejorar resultados financieros y el desempeño del equipo.
+
+Solo necesitaría tu mail.
+
+¡Saludos y buena semana!</textarea>
+</div>
+</div>
+<div class="viaje-box">
+<div class="viaje-head">Lead conocido &middot; viaje sin conexión previa</div>
+<div class="viaje-sub">Ya hay vínculo o ya están conectados: se salta el paso de invitar a conectar y se entra directo.</div>
+<input checked="checked" class="nav-radio" id="lcradio-0" name="lcnav" type="radio"/><input class="nav-radio" id="lcradio-1" name="lcnav" type="radio"/><input class="nav-radio" id="lcradio-2" name="lcnav" type="radio"/><input class="nav-radio" id="lcradio-3" name="lcnav" type="radio"/><input class="nav-radio" id="lcradio-4" name="lcnav" type="radio"/>
+<div class="viaje-flow"><label class="viaje-paso" for="lcradio-0"><span class="vp-n">1</span><span class="vp-t">Mensaje directo</span><span class="vp-d">Ya están conectados: se parte acá, no hay invitación a conectar.</span></label><label class="viaje-paso" for="lcradio-1"><span class="vp-n">2</span><span class="vp-t">Invitación a webinar</span><span class="vp-d">El camino indirecto: invita sin poner la relación en juego.</span></label><label class="viaje-paso" for="lcradio-2"><span class="vp-n">2b</span><span class="vp-t">Invitación al Newsletter</span><span class="vp-d">Cuando no hay webinar cerca.</span></label><label class="viaje-paso" for="lcradio-3"><span class="vp-n">3</span><span class="vp-t">Invitación a catch up</span><span class="vp-d">Cuando ya hubo señal de interés. Acá sí se pide la reunión.</span></label><label class="viaje-paso" for="lcradio-4"><span class="vp-n">4</span><span class="vp-t">Si quiere juntarse</span><span class="vp-d">Pasa a WhatsApp y se coordina.</span></label></div>
+<div class="msg-card" id="lccard-0">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">1. Mensaje directo</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: gatillante — acepta la conexión pero ya había algo de trato previo. Tono más cercano, va directo al café.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="14">Hola [Nombre],
+
+Gusto de saludarte y gracias por aceptar mi invitación a conectar.
+
+¿Cómo te ha ido? Espero que todo bien.
+
+¿Te animas a agendar un café?
+
+Si no es tu momento aún o no tienes tiempo, no hay problema — te invito a unirte al Newsletter de Scaling, donde compartimos contenido práctico para líderes como tú.
+
+Basta con que me digas "sí" y me compartas tu email.
+
+¡Un abrazo y que cierres bien la semana!</textarea>
+</div>
+<div class="msg-card" id="lccard-1">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">2. Invitación a webinar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: como alternativa más suave al café directo — se invita a algo de valor puntual en vez de pedir una reunión.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre], ¿cómo estás?
+
+Te cuento que entré a trabajar en Scaling, una empresa que ayuda a gerentes generales a escalar sus equipos y empresas.
+
+Si te sirve, el [fecha] haremos un webinar enfocado en [tema — ej. "gestión de caja en contextos difíciles"].
+
+Vamos a revisar [2-3 ideas concretas, ej. "las 7 palancas que mueven la liquidez y cómo anticipar quiebres antes de que aparezcan"].
+
+Ojalá sea de tu utilidad. Te dejo el link: [link]</textarea>
+</div>
+<div class="msg-card" id="lccard-2">
+<div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">2b. Invitación al Newsletter</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: cuando ni el café ni el webinar aplican todavía — es la puerta de entrada más liviana posible.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
+Espero que estés bien.
+
+Te cuento que entré a trabajar en Scaling, donde apoyamos a gerentes generales a escalar sus negocios y equipos.
+
+Si te sirve, una vez al mes enviamos herramientas prácticas para gerentes generales enfocadas en mejorar resultados financieros y el desempeño del equipo.
+Solo necesitaría tu mail.
+
+¡Saludos y buena semana!</textarea>
+</div>
+<div class="msg-card" id="lccard-3">
+<div class="msg-card-head"><span class="channel-badge wpp">WhatsApp</span><span class="channel-badge mail">Mail</span><span class="msg-card-title">3. Invitación a catch up</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: mensaje corto y liviano, casi un ping — para reabrir la puerta sin pedir nada todavía.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="9">Hola [Nombre],
+Espero que estés bien.
+
+[Poner algún vínculo puntual y real]
+
+¿Con tiempo para un catch up?
+
+Un abrazo,</textarea>
+</div>
+<div class="msg-card" id="lccard-4">
+<div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">4. Si quiere juntarse</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
+<div class="msg-card-note">Cuándo usarlo: gatillante — el lead responde con interés en agendar un café directamente.</div>
+<textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="6">¡Buenísimo!
+
+Mándame tu número y coordinamos.
+
+Saludos,</textarea>
+</div>
+</div>
+<!--CANAL-FIN-->
+<div class="section-title" id="sec-lead"><i aria-hidden="true" class="ti ti-messages"></i> Mensajes por tipo de lead y etapa</div>
 <div class="intro-box" style="margin-bottom: 16px;">
 <strong>1)</strong> Elige el tipo de lead · <strong>2)</strong> elige la etapa o interacción · <strong>3)</strong> copia el mensaje y reemplaza lo que está en <span class="ph" style="color:#AD7E1F; font-weight:600;">[corchetes]</span>. Todos salen de guiones Sandler: no se explica el método ni se vende antes de escuchar el dolor. Si no sabes en qué tipo cae la persona, mira <a data-scroll="tipos-de-lead" href="javascript:void(0)" style="color:#1B4F8A; font-weight:600;">qué representa cada tipo</a> al final.
   </div>
@@ -3694,7 +4280,7 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <tr><td class="name">8. Excliente</td><td class="desc">Alguien que ya fue cliente de Scaling — reactivar relación, nutrir con nuevas herramientas, pedir video testimonial y referidos.</td></tr>
 <tr><td class="name">Influencer</td><td class="desc">Personas con llegada o red de contactos relevante — colaboración, alianza y pedir referidos, no venta directa. No es una etapa del viaje: es un perfil aparte.</td></tr>
 </table>
-<div class="section-title"><i aria-hidden="true" class="ti ti-address-book"></i> Base de referencia: clientes y exclientes</div>
+<div class="section-title" id="sec-base"><i aria-hidden="true" class="ti ti-address-book"></i> Base de referencia: clientes y exclientes</div>
 <div class="pending-box" style="border-color:#B0335B; background:#FDF0F4; margin-bottom:8px;">
 <i aria-hidden="true" class="ti ti-lock"></i>
 <span><strong>Uso interno.</strong> Están agrupados por industria: elige 2-3 contactos de la misma industria del lead y copia — queda listo para pegar debajo de "Como referencia adjunto 3 clientes...". Confirma disponibilidad antes de darlos.</span>
@@ -4070,7 +4656,7 @@ var VISTAS = ['menu','estrategia','guiones','seguimiento'];
 var TITULOS = {
   menu: 'Material Comercial · Scaling',
   estrategia: 'Estrategia Comercial · Scaling',
-  guiones: 'Guiones según tipo de reunión · Scaling',
+  guiones: 'Reuniones · Scaling',
   seguimiento: 'Material seguimiento leads y cliente · Scaling'
 };
 function pintar(v) {
