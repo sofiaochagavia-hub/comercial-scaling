@@ -1294,6 +1294,11 @@ body.nav-on .app-bar { display: block; }
 #v-seguimiento .ir-guion:active{ transform: scale(.97); }
 #v-seguimiento .ga-nota{ font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.55; margin: 0 0 12px 2px; }
 #v-seguimiento .ga-nota b{ color: #0C447C; }
+#v-seguimiento .vi-et{ padding: 11px 15px 0; font-size: 10.5px; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; color: #5A6274; }
+#v-seguimiento .vi-et-fin{ padding-top: 13px; }
+#v-seguimiento .vp-fin{ border-color: #0A3766; background: #F2F7FC; }
+#v-seguimiento .vp-fin .vp-n{ background: #0A3766; color: #fff; }
 </style>
 </head>
 <body>
@@ -2411,17 +2416,20 @@ Saludos y buena semana,</textarea>
 <div class="ga-nota">↓ Si la relación está más fría, antes de pedir el café hay que construir el vínculo:</div>
 <div class="viaje-box">
 <div class="viaje-head" style="background:#0A3766;">Entrada indirecta &middot; relación fría</div>
-<div class="viaje-sub">Cuatro pasos antes de pedir nada. Cada uno entrega algo sin pedir a cambio, para que la invitación del paso 4 no llegue en frío.</div>
+<div class="viaje-sub">No es una secuencia obligatoria: <strong>son alternativas</strong>. Se usa la que calce con la persona — una, dos o las tres, en el orden que tenga sentido. Lo único que no cambia es la lógica: <strong>primero se entrega algo sin pedir nada a cambio</strong>, y recién cuando hay algo de confianza se pide el café.</div>
 <input checked="checked" class="nav-radio" id="viradio-0" name="vinav" type="radio"/><input class="nav-radio" id="viradio-1" name="vinav" type="radio"/><input class="nav-radio" id="viradio-2" name="vinav" type="radio"/><input class="nav-radio" id="viradio-3" name="vinav" type="radio"/>
-<div class="viaje-flow"><label class="viaje-paso" for="viradio-0"><span class="vp-n">1</span><span class="vp-t">Invitar a conectar</span><span class="vp-d">LinkedIn. Solo que acepte.</span></label><label class="viaje-paso" for="viradio-1"><span class="vp-n">2</span><span class="vp-t">Webinar o Newsletter</span><span class="vp-d">Aparecer con algo útil, sin pedir.</span></label><label class="viaje-paso" for="viradio-2"><span class="vp-n">3</span><span class="vp-t">Envío de herramienta</span><span class="vp-d">El regalo, elegido por su dolor.</span></label><label class="viaje-paso" for="viradio-3"><span class="vp-n">4</span><span class="vp-t">Invitación a juntarse</span><span class="vp-d">Recién acá se pide el café.</span></label></div>
+<div class="vi-et">Acercamientos &middot; elige el que calce</div>
+<div class="viaje-flow"><label class="viaje-paso" for="viradio-0"><span class="vp-n">A</span><span class="vp-t">Invitar a conectar</span><span class="vp-d">LinkedIn. Solo que acepte.</span></label><label class="viaje-paso" for="viradio-1"><span class="vp-n">B</span><span class="vp-t">Webinar o Newsletter</span><span class="vp-d">Aparecer con algo útil, sin pedir.</span></label><label class="viaje-paso" for="viradio-2"><span class="vp-n">C</span><span class="vp-t">Envío de herramienta</span><span class="vp-d">El regalo, elegido por su dolor.</span></label></div>
+<div class="vi-et vi-et-fin">Y cuando ya hay algo de confianza</div>
+<div class="viaje-flow"><label class="viaje-paso vp-fin" for="viradio-3"><span class="vp-n">&rarr;</span><span class="vp-t">Invitación a juntarse</span><span class="vp-d">Entra al viaje estándar de abajo.</span></label></div>
 <div class="msg-card" id="vicard-0">
 <div class="msg-card-head"><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">Invitar a conectar</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
-<div class="msg-card-note">Sin mensaje largo. El objetivo es solo que acepte la conexión.</div>
+<div class="msg-card-note"><strong>Acercamiento A.</strong> Sin mensaje largo: el objetivo es solo que acepte la conexión. Sirve cuando no hay ningún contacto previo y se necesita existir antes de escribir.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="4">(Se envía la invitación a conectar sin ningún mensaje adjunto.)</textarea>
 </div>
 <div class="msg-card" id="vicard-1">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">Invitación a webinar o Newsletter</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
-<div class="msg-card-note">El primer contenido, sin pedir nada a cambio. La versión del Newsletter está en <strong>Retomar contacto</strong>.</div>
+<div class="msg-card-note"><strong>Acercamiento B.</strong> Contenido, sin pedir nada a cambio. Sirve cuando todavía no sabes cuál es su dolor: la inscripción misma te lo dice. La versión del Newsletter está en <strong>Retomar contacto</strong>.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="12">Hola [Nombre],
 
 El [fecha] realizaré un webinar de Scaling: [tema — ej. "¿Cómo escalar la caja de tu empresa?"]
@@ -2436,7 +2444,7 @@ Si te interesa, te dejo el link: [link inscripción]
 </div>
 <div class="msg-card" id="vicard-2">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="msg-card-title">Envío de herramienta</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
-<div class="msg-card-note">El regalo. Se elige la herramienta según el dolor que le conoces — las 8 opciones están en <strong>Retomar contacto</strong>.</div>
+<div class="msg-card-note"><strong>Acercamiento C.</strong> El regalo. Sirve cuando <em>sí</em> sabes cuál es su dolor: la herramienta se elige por eso — las 8 opciones están en <strong>Retomar contacto</strong>.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="10">Hola [Nombre],
 [Vínculo]
 
@@ -2448,7 +2456,7 @@ Un abrazo,</textarea>
 </div>
 <div class="msg-card" id="vicard-3">
 <div class="msg-card-head"><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><span class="msg-card-title">Invitación a juntarse</span><button class="copy-btn" onclick="copyMsg(this)">Copiar</button></div>
-<div class="msg-card-note">Corto y directo. Lo único que cambia es la <strong>línea de vínculo</strong>: el motivo real por el que le escribes hoy. Sin esa línea el mensaje se lee como plantilla y baja la tasa de respuesta.</div>
+<div class="msg-card-note">Corto y directo. Va <strong>después</strong> de uno o más acercamientos, no antes. Lo único que cambia es la <strong>línea de vínculo</strong>: el motivo real por el que le escribes hoy, que acá suele ser el acercamiento que ya hiciste. Sin esa línea el mensaje se lee como plantilla y baja la tasa de respuesta.</div>
 <textarea class="msg-card-body" data-copy="" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre], ¿cómo estás?
 
 [Vínculo: felicitaciones por… / te vi en… / gracias por…]
