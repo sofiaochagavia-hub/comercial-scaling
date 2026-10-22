@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>Estrategia Comercial · Scaling</title>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" rel="stylesheet"/>
+<style>
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-text-primary: #1a1d29;
+  --color-text-secondary: #6b7189;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f6f9;
+  --color-border-secondary: #e2e4ea;
+  --color-border-tertiary: #e8eaef;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--color-background-primary); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.container { padding: 1.5rem 1rem; max-width: 720px; margin: 0 auto; }
+
+.header { text-align: center; margin-bottom: 1.75rem; }
+.header h1 { font-size: 21px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.header p { font-size: 13px; color: var(--color-text-secondary); }
+
+.intro-box {
+  margin-bottom: 1.75rem; padding: 14px 16px; background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg);
+  font-size: 13.5px; color: var(--color-text-primary); line-height: 1.6;
+}
+
+.section-title {
+  font-size: 12px; font-weight: 600; color: #0C447C; text-transform: uppercase;
+  letter-spacing: 0.04em; margin: 1.9rem 0 0.9rem 0; display: flex; align-items: center; gap: 6px;
+}
+.section-title i { font-size: 15px; }
+
+.channel-card {
+  border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary);
+  overflow: hidden; margin-bottom: 14px; background: var(--color-background-primary);
+  box-shadow: 0 1px 2px rgba(20,20,40,0.04);
+}
+.channel-head {
+  display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+  color: #fff;
+}
+.channel-head .icon-wrap {
+  width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.18);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.channel-head .icon-wrap i { font-size: 16px; color: #fff; }
+.channel-head .name { font-size: 15px; font-weight: 600; flex: 1; }
+.channel-head .temp {
+  font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 20px;
+  background: rgba(255,255,255,0.22); text-transform: uppercase; letter-spacing: 0.03em;
+}
+.channel-body { padding: 14px 16px; }
+.channel-body .desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 10px; }
+.channel-body .msg-title { font-size: 11.5px; font-weight: 600; color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 6px; }
+.msg-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.msg-pill {
+  font-size: 12px; color: var(--color-text-primary); background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary); border-radius: 20px; padding: 4px 11px;
+}
+
+.linkedin .channel-head { background: #0A3766; }
+.web .channel-head { background: #12599B; }
+.eventos .channel-head { background: #1E82B8; }
+.mail .channel-head { background: #9C6B0E; }
+.webinar .channel-head { background: #C07A16; }
+.whatsapp .channel-head { background: #D2601F; }
+.reunion .channel-head { background: #B4271F; }
+
+.persona-card {
+  border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary);
+  overflow: hidden; margin-bottom: 14px; display: flex; flex-wrap: wrap;
+}
+.persona-left {
+  flex: 1; min-width: 240px; background: var(--color-background-secondary); padding: 16px;
+}
+.persona-left .role { font-size: 15px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.persona-left .role i { font-size: 18px; color: #1B4F8A; }
+.persona-left ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.persona-left li { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.5; padding-left: 14px; position: relative; }
+.persona-left li::before { content: "•"; position: absolute; left: 0; color: #1B4F8A; }
+.persona-right {
+  flex: 1; min-width: 240px; background: #1E2761; color: #fff; padding: 16px;
+}
+.persona-right .insight-label { font-size: 10.5px; font-weight: 600; color: #A9C3EE; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+.persona-right .quote { font-size: 14px; font-style: italic; font-weight: 500; line-height: 1.5; margin-bottom: 12px; }
+.persona-right .pains { display: flex; flex-direction: column; gap: 6px; }
+.persona-right .pain-row { font-size: 12px; line-height: 1.5; }
+.persona-right .pain-row b { color: #D6A24C; }
+
+.funnel-wrap { margin: 6px 0 18px 0; }
+.funnel-wrap svg { width: 100%; height: auto; display: block; }
+.funnel-caption { font-size: 11.5px; color: var(--color-text-secondary); text-align: center; margin-top: 8px; line-height: 1.5; }
+
+.pending-box {
+  margin: 14px 0; padding: 12px 14px; background: #FFF4E5; border: 1px dashed #EF9F27;
+  border-radius: var(--border-radius-md); font-size: 12.5px; color: #854F0B; line-height: 1.55;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.pending-box i { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.segment-block { margin-bottom: 1.6rem; }
+.segment-block-title {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  font-size: 14px; font-weight: 600; color: var(--color-text-primary);
+}
+.segment-block-title .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.segment-block-title .count { font-size: 11px; font-weight: 400; color: var(--color-text-secondary); }
+
+.segment-nav-scroll { overflow-x: auto; margin: 0 -1rem 1.1rem -1rem; padding: 0 1rem 4px 1rem; -webkit-overflow-scrolling: touch; }
+.segment-nav { display: flex; gap: 8px; flex-wrap: nowrap; width: max-content; min-width: 100%; }
+.segment-nav-btn {
+  display: flex; align-items: center; gap: 7px; padding: 10px 14px; font-size: 13px; font-weight: 500;
+  border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md);
+  background: var(--color-background-primary); color: var(--color-text-primary); cursor: pointer;
+  transition: background 0.15s, border-color 0.15s; flex-shrink: 0; white-space: nowrap;
+  min-height: 40px; touch-action: manipulation; -webkit-tap-highlight-color: rgba(27,79,138,0.25);
+}
+.segment-nav-btn .seg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.segment-nav-btn:hover { background: var(--color-background-secondary); }
+.segment-nav-btn.active { background: #1B4F8A; color: #fff; border-color: #1B4F8A; }
+.segment-nav-btn.active .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+
+.segment-panel { }
+.segment-sub { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 12px; }
+
+.interaction-nav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.int-btn {
+  font-size: 12.5px; font-weight: 500; padding: 9px 14px; border-radius: 20px;
+  border: 0.5px solid var(--color-border-secondary); background: var(--color-background-secondary);
+  color: var(--color-text-secondary); cursor: pointer; transition: background 0.15s, color 0.15s;
+  min-height: 38px; touch-action: manipulation; -webkit-tap-highlight-color: rgba(12,68,124,0.25);
+}
+.int-btn:hover { background: #E6F1FB; color: #0C447C; }
+.int-btn.active { background: #0C447C; color: #fff; border-color: #0C447C; }
+
+.step-flow { display: flex; flex-direction: column; gap: 0; margin-bottom: 16px; }
+.step-block { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px dashed var(--color-border-secondary); }
+.step-block:last-child { border-bottom: none; }
+.step-num {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #0C447C; color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;
+}
+.step-block.branch .step-num { background: #B8722E; }
+.step-content { flex: 1; min-width: 0; }
+.step-title { font-size: 13.5px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 2px; }
+.step-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 8px; }
+.step-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.msg-card {
+  border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary);
+  margin-bottom: 10px; overflow: hidden; background: var(--color-background-primary);
+}
+.msg-card-head {
+  display: flex; align-items: center; gap: 8px; padding: 8px 10px;
+  background: var(--color-background-secondary); border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+.msg-card-title { font-size: 12.5px; font-weight: 600; color: var(--color-text-primary); flex: 1; }
+.msg-card-note { font-size: 11px; color: var(--color-text-secondary); padding: 8px 10px 0 10px; line-height: 1.5; }
+.channel-badge {
+  font-size: 10px; font-weight: 700; color: #fff; padding: 3px 8px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.03em; flex-shrink: 0;
+}
+.channel-badge.mail { background: #1B4F8A; }
+.channel-badge.wpp { background: #2E9E5B; }
+.channel-badge.linkedin { background: #0A5A9C; }
+.channel-badge.llamado { background: #B8542E; }
+.channel-badge.presencial { background: #6B4FA0; }
+.copy-btn {
+  font-size: 11px; font-weight: 600; color: #1B4F8A; background: #fff;
+  border: 0.5px solid #C9D6E8; border-radius: 6px; padding: 4px 10px; cursor: pointer;
+  flex-shrink: 0; transition: background 0.15s;
+}
+.copy-btn:hover { background: #E6F1FB; }
+.copy-btn.copied { background: #1E7A4C; color: #fff; border-color: #1E7A4C; }
+.msg-card-body {
+  display: block; width: 100%; box-sizing: border-box; border: none; resize: vertical;
+  padding: 12px 14px; font-size: 12.5px; color: var(--color-text-primary);
+  font-family: var(--font-sans); line-height: 1.6; white-space: pre-wrap; background: transparent;
+}
+.msg-card-body:focus { outline: 2px solid #AFC9EA; background: #FAFBFE; }
+
+.tip-box {
+  margin: 14px 0; padding: 12px 14px; background: #E6F1FB; border-radius: var(--border-radius-md);
+  font-size: 12.5px; color: #0C447C; line-height: 1.55; display: flex; gap: 8px; align-items: flex-start;
+}
+.tip-box i { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.trello-box {
+  margin: 14px 0; padding: 12px 14px; background: #F0EBFA; border: 0.5px solid #8B6FCE;
+  border-radius: var(--border-radius-md); font-size: 12.5px; color: #4A3572; line-height: 1.55;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.trello-box i { font-size: 16px; color: #5E3FA8; flex-shrink: 0; margin-top: 1px; }
+.trello-box strong { color: #3A2A66; }
+
+.segment-table { width: 100%; border-collapse: collapse; margin-bottom: 6px; }
+
+.ref-toolbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-bottom: 8px; padding: 8px 10px; background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md); position: sticky; top: 0; z-index: 2;
+}
+.ref-count { font-size: 12px; color: var(--color-text-secondary); }
+.ref-count b { color: #0C447C; }
+.ref-copy-btn {
+  font-size: 12px; font-weight: 600; color: #fff; background: #1B4F8A; border: none;
+  border-radius: 6px; padding: 6px 14px; cursor: pointer; flex-shrink: 0;
+}
+.ref-copy-btn:disabled { background: #B9C4D6; cursor: default; }
+.ref-copy-btn.copied { background: #1E7A4C; }
+.ref-list { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); overflow: hidden; margin-bottom: 1rem; }
+.ref-row {
+  display: flex; align-items: center; gap: 8px; padding: 6px 10px;
+  border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 12px; line-height: 1.35;
+}
+.ref-row:last-child { border-bottom: none; }
+.ref-row:nth-child(even) { background: #FAFBFE; }
+.ref-row input[type="checkbox"] { flex-shrink: 0; width: 14px; height: 14px; accent-color: #1B4F8A; cursor: pointer; }
+.ref-row .ref-name { font-weight: 600; color: var(--color-text-primary); flex-shrink: 0; min-width: 148px; }
+.ref-row .ref-meta { color: var(--color-text-secondary); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ref-mini-copy {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 6px; border: 0.5px solid var(--color-border-secondary);
+  background: #fff; color: #1B4F8A; font-size: 13px; cursor: pointer; line-height: 1;
+}
+.ref-mini-copy.copied { background: #1E7A4C; color: #fff; border-color: #1E7A4C; }
+.segment-table tr { border-bottom: 0.5px solid var(--color-border-tertiary); }
+.segment-table tr:last-child { border-bottom: none; }
+.segment-table td { padding: 10px 4px; vertical-align: top; font-size: 12.5px; }
+.segment-table td.name { font-weight: 600; color: var(--color-text-primary); white-space: nowrap; padding-right: 14px; }
+.segment-table td.desc { color: var(--color-text-secondary); line-height: 1.5; }
+
+.footer-note {
+  margin-top: 1.8rem; padding: 12px 14px; background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md); font-size: 12px; color: var(--color-text-secondary); line-height: 1.55;
+  text-align: center;
+}
+
+#segradio-leads-diagnostico:checked ~ #segpanel-leads-diagnostico { display: block; }
+.container:has(#segradio-leads-diagnostico:checked) label[for="segradio-leads-diagnostico"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-leads-diagnostico:checked) label[for="segradio-leads-diagnostico"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#msgradio-leads-diagnostico-0:checked ~ #msgcard-leads-diagnostico-0 { display: block; }
+.container:has(#msgradio-leads-diagnostico-0:checked) label[for="msgradio-leads-diagnostico-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+.ref-group-title { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: #0C447C; margin: 16px 0 6px; padding: 6px 10px; background: #E6F1FB; border-radius: 6px;
+  display: flex; align-items: center; justify-content: space-between; }
+.ref-group-title:first-child { margin-top: 0; }
+.ref-group-title .ref-group-count { font-weight: 500; color: #1B4F8A; letter-spacing: 0; text-transform: none; font-size: 11px; }
+.ref-row.sin-datos { opacity: .62; }
+.ref-row.sin-datos .ref-meta { font-style: italic; }
+.back-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: #1B4F8A;
+  text-decoration: none; margin-bottom: 14px; font-weight: 500; }
+.back-link:hover { text-decoration: underline; }
+.hhh-name { display: inline-flex; align-items: center; gap: 6px; background: #0C447C; color: #fff;
+  font-size: 12px; font-weight: 700; border-radius: 20px; padding: 4px 12px; letter-spacing: .02em; }
+.orden-canales { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 16px;
+  font-size: 11.5px; font-weight: 600; }
+.orden-canales .oc { border: none; border-radius: 20px; padding: 5px 11px; color: #fff; }
+.orden-canales .flecha { color: var(--color-text-secondary); font-size: 13px; }
+.temp-escala { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0 14px; }
+.temp-escala div { text-align: center; font-size: 11px; font-weight: 600; padding: 7px 4px; border-radius: 8px; color: #fff; }
+.temp-barra { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font-size: 10.5px;
+  font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .04em; }
+.temp-barra .barra { flex: 1; height: 7px; border-radius: 20px;
+  background: linear-gradient(90deg, #0A3766 0%, #12599B 18%, #1E82B8 33%, #9C6B0E 55%, #C07A16 70%, #D2601F 85%, #B4271F 100%); }
+</style>
+<style>
+.nav-radio { position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
+.segment-panel { display: none; }
+.msg-card { display: none; }
+#segradio-excliente:checked ~ #segpanel-excliente { display: block; }
+.container:has(#segradio-excliente:checked) label[for="segradio-excliente"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-excliente:checked) label[for="segradio-excliente"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#segradio-cliente:checked ~ #segpanel-cliente { display: block; }
+.container:has(#segradio-cliente:checked) label[for="segradio-cliente"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-cliente:checked) label[for="segradio-cliente"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#segradio-leads-con-propuesta:checked ~ #segpanel-leads-con-propuesta { display: block; }
+.container:has(#segradio-leads-con-propuesta:checked) label[for="segradio-leads-con-propuesta"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-leads-con-propuesta:checked) label[for="segradio-leads-con-propuesta"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#segradio-leads-referidos:checked ~ #segpanel-leads-referidos { display: block; }
+.container:has(#segradio-leads-referidos:checked) label[for="segradio-leads-referidos"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-leads-referidos:checked) label[for="segradio-leads-referidos"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#segradio-leads-con-reunion:checked ~ #segpanel-leads-con-reunion { display: block; }
+.container:has(#segradio-leads-con-reunion:checked) label[for="segradio-leads-con-reunion"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-leads-con-reunion:checked) label[for="segradio-leads-con-reunion"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#segradio-influencer:checked ~ #segpanel-influencer { display: block; }
+.container:has(#segradio-influencer:checked) label[for="segradio-influencer"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-influencer:checked) label[for="segradio-influencer"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#segradio-leads-desconocidos:checked ~ #segpanel-leads-desconocidos { display: block; }
+.container:has(#segradio-leads-desconocidos:checked) label[for="segradio-leads-desconocidos"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-leads-desconocidos:checked) label[for="segradio-leads-desconocidos"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#segradio-leads-conocido:checked ~ #segpanel-leads-conocido { display: block; }
+.container:has(#segradio-leads-conocido:checked) label[for="segradio-leads-conocido"] { background:#1B4F8A; color:#fff; border-color:#1B4F8A; }
+.container:has(#segradio-leads-conocido:checked) label[for="segradio-leads-conocido"] .seg-dot { outline: 2px solid rgba(255,255,255,0.5); }
+#msgradio-excliente-0:checked ~ #msgcard-excliente-0 { display: block; }
+.container:has(#msgradio-excliente-0:checked) label[for="msgradio-excliente-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-1:checked ~ #msgcard-excliente-1 { display: block; }
+.container:has(#msgradio-excliente-1:checked) label[for="msgradio-excliente-1"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-2:checked ~ #msgcard-excliente-2 { display: block; }
+.container:has(#msgradio-excliente-2:checked) label[for="msgradio-excliente-2"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-3:checked ~ #msgcard-excliente-3 { display: block; }
+.container:has(#msgradio-excliente-3:checked) label[for="msgradio-excliente-3"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-4:checked ~ #msgcard-excliente-4 { display: block; }
+.container:has(#msgradio-excliente-4:checked) label[for="msgradio-excliente-4"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-5:checked ~ #msgcard-excliente-5 { display: block; }
+.container:has(#msgradio-excliente-5:checked) label[for="msgradio-excliente-5"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-6:checked ~ #msgcard-excliente-6 { display: block; }
+.container:has(#msgradio-excliente-6:checked) label[for="msgradio-excliente-6"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-7:checked ~ #msgcard-excliente-7 { display: block; }
+.container:has(#msgradio-excliente-7:checked) label[for="msgradio-excliente-7"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-8:checked ~ #msgcard-excliente-8 { display: block; }
+.container:has(#msgradio-excliente-8:checked) label[for="msgradio-excliente-8"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-9:checked ~ #msgcard-excliente-9 { display: block; }
+.container:has(#msgradio-excliente-9:checked) label[for="msgradio-excliente-9"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-10:checked ~ #msgcard-excliente-10 { display: block; }
+.container:has(#msgradio-excliente-10:checked) label[for="msgradio-excliente-10"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-11:checked ~ #msgcard-excliente-11 { display: block; }
+.container:has(#msgradio-excliente-11:checked) label[for="msgradio-excliente-11"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-12:checked ~ #msgcard-excliente-12 { display: block; }
+.container:has(#msgradio-excliente-12:checked) label[for="msgradio-excliente-12"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-13:checked ~ #msgcard-excliente-13 { display: block; }
+.container:has(#msgradio-excliente-13:checked) label[for="msgradio-excliente-13"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-14:checked ~ #msgcard-excliente-14 { display: block; }
+.container:has(#msgradio-excliente-14:checked) label[for="msgradio-excliente-14"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-15:checked ~ #msgcard-excliente-15 { display: block; }
+.container:has(#msgradio-excliente-15:checked) label[for="msgradio-excliente-15"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-excliente-16:checked ~ #msgcard-excliente-16 { display: block; }
+.container:has(#msgradio-excliente-16:checked) label[for="msgradio-excliente-16"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-0:checked ~ #msgcard-cliente-0 { display: block; }
+.container:has(#msgradio-cliente-0:checked) label[for="msgradio-cliente-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-1:checked ~ #msgcard-cliente-1 { display: block; }
+.container:has(#msgradio-cliente-1:checked) label[for="msgradio-cliente-1"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-2:checked ~ #msgcard-cliente-2 { display: block; }
+.container:has(#msgradio-cliente-2:checked) label[for="msgradio-cliente-2"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-3:checked ~ #msgcard-cliente-3 { display: block; }
+.container:has(#msgradio-cliente-3:checked) label[for="msgradio-cliente-3"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-4:checked ~ #msgcard-cliente-4 { display: block; }
+.container:has(#msgradio-cliente-4:checked) label[for="msgradio-cliente-4"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-5:checked ~ #msgcard-cliente-5 { display: block; }
+.container:has(#msgradio-cliente-5:checked) label[for="msgradio-cliente-5"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-6:checked ~ #msgcard-cliente-6 { display: block; }
+.container:has(#msgradio-cliente-6:checked) label[for="msgradio-cliente-6"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-7:checked ~ #msgcard-cliente-7 { display: block; }
+.container:has(#msgradio-cliente-7:checked) label[for="msgradio-cliente-7"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-8:checked ~ #msgcard-cliente-8 { display: block; }
+.container:has(#msgradio-cliente-8:checked) label[for="msgradio-cliente-8"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-9:checked ~ #msgcard-cliente-9 { display: block; }
+.container:has(#msgradio-cliente-9:checked) label[for="msgradio-cliente-9"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-10:checked ~ #msgcard-cliente-10 { display: block; }
+.container:has(#msgradio-cliente-10:checked) label[for="msgradio-cliente-10"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-11:checked ~ #msgcard-cliente-11 { display: block; }
+.container:has(#msgradio-cliente-11:checked) label[for="msgradio-cliente-11"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-12:checked ~ #msgcard-cliente-12 { display: block; }
+.container:has(#msgradio-cliente-12:checked) label[for="msgradio-cliente-12"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-13:checked ~ #msgcard-cliente-13 { display: block; }
+.container:has(#msgradio-cliente-13:checked) label[for="msgradio-cliente-13"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-cliente-14:checked ~ #msgcard-cliente-14 { display: block; }
+.container:has(#msgradio-cliente-14:checked) label[for="msgradio-cliente-14"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-0:checked ~ #msgcard-leads-con-propuesta-0 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-0:checked) label[for="msgradio-leads-con-propuesta-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-1:checked ~ #msgcard-leads-con-propuesta-1 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-1:checked) label[for="msgradio-leads-con-propuesta-1"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-2:checked ~ #msgcard-leads-con-propuesta-2 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-2:checked) label[for="msgradio-leads-con-propuesta-2"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-3:checked ~ #msgcard-leads-con-propuesta-3 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-3:checked) label[for="msgradio-leads-con-propuesta-3"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-4:checked ~ #msgcard-leads-con-propuesta-4 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-4:checked) label[for="msgradio-leads-con-propuesta-4"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-5:checked ~ #msgcard-leads-con-propuesta-5 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-5:checked) label[for="msgradio-leads-con-propuesta-5"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-6:checked ~ #msgcard-leads-con-propuesta-6 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-6:checked) label[for="msgradio-leads-con-propuesta-6"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-7:checked ~ #msgcard-leads-con-propuesta-7 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-7:checked) label[for="msgradio-leads-con-propuesta-7"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-8:checked ~ #msgcard-leads-con-propuesta-8 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-8:checked) label[for="msgradio-leads-con-propuesta-8"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-9:checked ~ #msgcard-leads-con-propuesta-9 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-9:checked) label[for="msgradio-leads-con-propuesta-9"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-10:checked ~ #msgcard-leads-con-propuesta-10 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-10:checked) label[for="msgradio-leads-con-propuesta-10"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-11:checked ~ #msgcard-leads-con-propuesta-11 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-11:checked) label[for="msgradio-leads-con-propuesta-11"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-12:checked ~ #msgcard-leads-con-propuesta-12 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-12:checked) label[for="msgradio-leads-con-propuesta-12"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-13:checked ~ #msgcard-leads-con-propuesta-13 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-13:checked) label[for="msgradio-leads-con-propuesta-13"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-14:checked ~ #msgcard-leads-con-propuesta-14 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-14:checked) label[for="msgradio-leads-con-propuesta-14"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-15:checked ~ #msgcard-leads-con-propuesta-15 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-15:checked) label[for="msgradio-leads-con-propuesta-15"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-16:checked ~ #msgcard-leads-con-propuesta-16 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-16:checked) label[for="msgradio-leads-con-propuesta-16"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-17:checked ~ #msgcard-leads-con-propuesta-17 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-17:checked) label[for="msgradio-leads-con-propuesta-17"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-18:checked ~ #msgcard-leads-con-propuesta-18 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-18:checked) label[for="msgradio-leads-con-propuesta-18"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-19:checked ~ #msgcard-leads-con-propuesta-19 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-19:checked) label[for="msgradio-leads-con-propuesta-19"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-20:checked ~ #msgcard-leads-con-propuesta-20 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-20:checked) label[for="msgradio-leads-con-propuesta-20"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-21:checked ~ #msgcard-leads-con-propuesta-21 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-21:checked) label[for="msgradio-leads-con-propuesta-21"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-22:checked ~ #msgcard-leads-con-propuesta-22 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-22:checked) label[for="msgradio-leads-con-propuesta-22"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-23:checked ~ #msgcard-leads-con-propuesta-23 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-23:checked) label[for="msgradio-leads-con-propuesta-23"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-propuesta-24:checked ~ #msgcard-leads-con-propuesta-24 { display: block; }
+.container:has(#msgradio-leads-con-propuesta-24:checked) label[for="msgradio-leads-con-propuesta-24"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-referidos-0:checked ~ #msgcard-leads-referidos-0 { display: block; }
+.container:has(#msgradio-leads-referidos-0:checked) label[for="msgradio-leads-referidos-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-reunion-0:checked ~ #msgcard-leads-con-reunion-0 { display: block; }
+.container:has(#msgradio-leads-con-reunion-0:checked) label[for="msgradio-leads-con-reunion-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-reunion-1:checked ~ #msgcard-leads-con-reunion-1 { display: block; }
+.container:has(#msgradio-leads-con-reunion-1:checked) label[for="msgradio-leads-con-reunion-1"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-con-reunion-2:checked ~ #msgcard-leads-con-reunion-2 { display: block; }
+.container:has(#msgradio-leads-con-reunion-2:checked) label[for="msgradio-leads-con-reunion-2"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-influencer-0:checked ~ #msgcard-influencer-0 { display: block; }
+.container:has(#msgradio-influencer-0:checked) label[for="msgradio-influencer-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-influencer-1:checked ~ #msgcard-influencer-1 { display: block; }
+.container:has(#msgradio-influencer-1:checked) label[for="msgradio-influencer-1"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-0:checked ~ #msgcard-leads-desconocidos-0 { display: block; }
+.container:has(#msgradio-leads-desconocidos-0:checked) label[for="msgradio-leads-desconocidos-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-1:checked ~ #msgcard-leads-desconocidos-1 { display: block; }
+.container:has(#msgradio-leads-desconocidos-1:checked) label[for="msgradio-leads-desconocidos-1"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-2:checked ~ #msgcard-leads-desconocidos-2 { display: block; }
+.container:has(#msgradio-leads-desconocidos-2:checked) label[for="msgradio-leads-desconocidos-2"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-3:checked ~ #msgcard-leads-desconocidos-3 { display: block; }
+.container:has(#msgradio-leads-desconocidos-3:checked) label[for="msgradio-leads-desconocidos-3"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-4:checked ~ #msgcard-leads-desconocidos-4 { display: block; }
+.container:has(#msgradio-leads-desconocidos-4:checked) label[for="msgradio-leads-desconocidos-4"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-5:checked ~ #msgcard-leads-desconocidos-5 { display: block; }
+.container:has(#msgradio-leads-desconocidos-5:checked) label[for="msgradio-leads-desconocidos-5"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-6:checked ~ #msgcard-leads-desconocidos-6 { display: block; }
+.container:has(#msgradio-leads-desconocidos-6:checked) label[for="msgradio-leads-desconocidos-6"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-7:checked ~ #msgcard-leads-desconocidos-7 { display: block; }
+.container:has(#msgradio-leads-desconocidos-7:checked) label[for="msgradio-leads-desconocidos-7"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-8:checked ~ #msgcard-leads-desconocidos-8 { display: block; }
+.container:has(#msgradio-leads-desconocidos-8:checked) label[for="msgradio-leads-desconocidos-8"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-9:checked ~ #msgcard-leads-desconocidos-9 { display: block; }
+.container:has(#msgradio-leads-desconocidos-9:checked) label[for="msgradio-leads-desconocidos-9"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-10:checked ~ #msgcard-leads-desconocidos-10 { display: block; }
+.container:has(#msgradio-leads-desconocidos-10:checked) label[for="msgradio-leads-desconocidos-10"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-11:checked ~ #msgcard-leads-desconocidos-11 { display: block; }
+.container:has(#msgradio-leads-desconocidos-11:checked) label[for="msgradio-leads-desconocidos-11"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-12:checked ~ #msgcard-leads-desconocidos-12 { display: block; }
+.container:has(#msgradio-leads-desconocidos-12:checked) label[for="msgradio-leads-desconocidos-12"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-13:checked ~ #msgcard-leads-desconocidos-13 { display: block; }
+.container:has(#msgradio-leads-desconocidos-13:checked) label[for="msgradio-leads-desconocidos-13"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-14:checked ~ #msgcard-leads-desconocidos-14 { display: block; }
+.container:has(#msgradio-leads-desconocidos-14:checked) label[for="msgradio-leads-desconocidos-14"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-15:checked ~ #msgcard-leads-desconocidos-15 { display: block; }
+.container:has(#msgradio-leads-desconocidos-15:checked) label[for="msgradio-leads-desconocidos-15"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-16:checked ~ #msgcard-leads-desconocidos-16 { display: block; }
+.container:has(#msgradio-leads-desconocidos-16:checked) label[for="msgradio-leads-desconocidos-16"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-desconocidos-17:checked ~ #msgcard-leads-desconocidos-17 { display: block; }
+.container:has(#msgradio-leads-desconocidos-17:checked) label[for="msgradio-leads-desconocidos-17"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-0:checked ~ #msgcard-leads-conocido-0 { display: block; }
+.container:has(#msgradio-leads-conocido-0:checked) label[for="msgradio-leads-conocido-0"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-1:checked ~ #msgcard-leads-conocido-1 { display: block; }
+.container:has(#msgradio-leads-conocido-1:checked) label[for="msgradio-leads-conocido-1"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-2:checked ~ #msgcard-leads-conocido-2 { display: block; }
+.container:has(#msgradio-leads-conocido-2:checked) label[for="msgradio-leads-conocido-2"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-3:checked ~ #msgcard-leads-conocido-3 { display: block; }
+.container:has(#msgradio-leads-conocido-3:checked) label[for="msgradio-leads-conocido-3"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-4:checked ~ #msgcard-leads-conocido-4 { display: block; }
+.container:has(#msgradio-leads-conocido-4:checked) label[for="msgradio-leads-conocido-4"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-5:checked ~ #msgcard-leads-conocido-5 { display: block; }
+.container:has(#msgradio-leads-conocido-5:checked) label[for="msgradio-leads-conocido-5"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-6:checked ~ #msgcard-leads-conocido-6 { display: block; }
+.container:has(#msgradio-leads-conocido-6:checked) label[for="msgradio-leads-conocido-6"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+#msgradio-leads-conocido-7:checked ~ #msgcard-leads-conocido-7 { display: block; }
+.container:has(#msgradio-leads-conocido-7:checked) label[for="msgradio-leads-conocido-7"] { background:#0C447C; color:#fff; border-color:#0C447C; }
+</style></head>
+<body>
+<noscript>
+<div style="margin: 1rem; padding: 14px; background: #FDF0F0; border: 1px solid #E08787; border-radius: 8px; color: #6B2B2B; font-family: sans-serif; font-size: 14px;">
+<strong>Este documento necesita JavaScript activado para navegar entre secciones.</strong><br/>
+    Si lo estás viendo dentro de WhatsApp, Gmail u otra vista previa, ábrelo directamente en Chrome o Safari (botón "Abrir en el navegador" o "Compartir → Abrir con...").
+  </div>
+</noscript>
+<div class="container">
+<a class="back-link" href="../"><i aria-hidden="true" class="ti ti-arrow-left"></i> Volver al material comercial</a>
+<div class="header">
+<h1>Estrategia Comercial · Scaling</h1>
+<p>¿A quién? ¿Por dónde? — cliente principal y sus canales de interacción</p>
+</div>
+<div class="intro-box">
+    Dos preguntas ordenan toda la prospección: <strong>¿a quién le vendemos?</strong> y <strong>¿por dónde llegamos a esa persona?</strong> Lo primero define el perfil que salimos a buscar; lo segundo, qué canal usar según qué tan fría o cálida está la relación.
+  </div>
+<div class="section-title"><i aria-hidden="true" class="ti ti-target-arrow"></i> ¿A quién? · Nuestro cliente principal</div>
+<div class="intro-box" style="margin-bottom: 12px;">
+  El cliente principal es el que tiene <strong>mayor probabilidad de cerrar un programa</strong>. Le decimos <span class="hhh-name">Humble Hungry Harry · HHH</span><br/><br/>
+  Es el perfil que orienta la prospección en todos los canales (LinkedIn, eventos, webinars, referidos): a quién salimos a buscar activamente.
+</div>
+<div class="persona-card">
+<div class="persona-left">
+<div class="role"><i aria-hidden="true" class="ti ti-user-star"></i> Target</div>
+<ul>
+<li>Gerente general, director o dueño de una empresa rentable en fase de crecimiento</li>
+<li>Desde 50 empleados</li>
+<li>Curioso e inquieto: sigue newsletters de estrategia, liderazgo, top voices</li>
+<li>Humilde para buscar ayuda: ya ha contratado consultores o coaches</li>
+<li>Se siente solo — concentra la información, no tiene pares con quién compartir</li>
+<li>Quiere más tiempo y le importan las personas de su equipo</li>
+</ul>
+</div>
+<div class="persona-right">
+<div class="insight-label">El dolor real (insight)</div>
+<div class="quote">"Me encantaría poder tomarme vacaciones tranquilo, no he encontrado una solución que se adecúe a mi realidad única."</div>
+<div class="pains">
+<div class="pain-row"><b>Frustración:</b> el potencial de la empresa no se aprovecha del todo</div>
+<div class="pain-row"><b>Temor:</b> al crecer, siente que pierde el control del negocio</div>
+</div>
+</div>
+</div>
+<div class="funnel-wrap">
+<svg viewbox="0 0 616 340" xmlns="http://www.w3.org/2000/svg">
+<!-- Layer D -->
+<polygon fill="#1B4F8A" points="40,4 560,4 530,84 70,84" stroke="#ffffff" stroke-width="3"></polygon>
+<!-- Layer C -->
+<polygon fill="#1B4F8A" fill-opacity="0.85" points="70,84 530,84 500,164 100,164" stroke="#ffffff" stroke-width="3"></polygon>
+<!-- Layer B -->
+<polygon fill="#1B4F8A" fill-opacity="0.7" points="100,164 500,164 470,244 130,244" stroke="#ffffff" stroke-width="3"></polygon>
+<!-- Layer A -->
+<polygon fill="#1B4F8A" fill-opacity="0.55" points="130,244 470,244 440,324 160,324" stroke="#ffffff" stroke-width="3"></polygon>
+<!-- Arrows -->
+<polygon fill="#5EA6E0" points="292,86 308,86 300,100"></polygon>
+<polygon fill="#5EA6E0" points="292,166 308,166 300,180"></polygon>
+<polygon fill="#5EA6E0" points="292,246 308,246 300,260"></polygon>
+<!-- Left letters -->
+<text fill="#1a1d29" font-size="20" font-weight="700" text-anchor="middle" x="18" y="48">D</text>
+<text fill="#1a1d29" font-size="20" font-weight="700" text-anchor="middle" x="18" y="128">C</text>
+<text fill="#1a1d29" font-size="20" font-weight="700" text-anchor="middle" x="18" y="208">B</text>
+<text fill="#1a1d29" font-size="20" font-weight="700" text-anchor="middle" x="18" y="288">A</text>
+<!-- Right percentages -->
+<text fill="#1a1d29" font-size="18" font-weight="700" text-anchor="middle" x="582" y="48">25%</text>
+<text fill="#1a1d29" font-size="18" font-weight="700" text-anchor="middle" x="582" y="128">50%</text>
+<text fill="#1a1d29" font-size="18" font-weight="700" text-anchor="middle" x="582" y="208">75%</text>
+<text fill="#1a1d29" font-size="18" font-weight="700" text-anchor="middle" x="582" y="288">100%</text>
+<!-- Body text via foreignObject -->
+<foreignobject height="76" width="420" x="90" y="8">
+<div style="font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 600; color: #fff; text-align: center; line-height: 1.35; display:flex; align-items:center; justify-content:center; height:100%;" xmlns="http://www.w3.org/1999/xhtml">
+          GG, directores y dueños de empresas: desde 50 empleados, sin gerencia de estrategia, no corporativa
+        </div>
+</foreignobject>
+<foreignobject height="76" width="370" x="115" y="88">
+<div style="font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 600; color: #fff; text-align: center; line-height: 1.35; display:flex; align-items:center; justify-content:center; height:100%;" xmlns="http://www.w3.org/1999/xhtml">
+          GG anterior que es curioso: buscando nuevas herramientas (sigue newsletter de estrategia, liderazgo, top voices, etc.)
+        </div>
+</foreignobject>
+<foreignobject height="76" width="320" x="140" y="168">
+<div style="font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 600; color: #fff; text-align: center; line-height: 1.35; display:flex; align-items:center; justify-content:center; height:100%;" xmlns="http://www.w3.org/1999/xhtml">
+          GG anterior que es humilde: ha contratado consultores o coaches
+        </div>
+</foreignobject>
+<foreignobject height="76" width="270" x="165" y="248">
+<div style="font-family: -apple-system, sans-serif; font-size: 12px; font-weight: 600; color: #fff; text-align: center; line-height: 1.35; display:flex; align-items:center; justify-content:center; height:100%;" xmlns="http://www.w3.org/1999/xhtml">
+          GG anterior que tiene un temor/frustración que lo mueve a la acción
+        </div>
+</foreignobject>
+</svg>
+<div class="funnel-caption">Por medio de las distintas interacciones se va clasificando el lead: partiendo de un <strong>dolor amplio (D)</strong> y filtrando hasta llegar al <strong>perfil exacto de cliente que salimos a buscar (A)</strong>: nuestro cliente principal.</div>
+</div>
+<div class="section-title"><i aria-hidden="true" class="ti ti-route"></i> ¿Por dónde interactuamos con el cliente principal?</div>
+<div class="intro-box" style="margin-bottom: 10px;">
+  Depende de su <strong>temperatura</strong>: en qué punto del embudo está (D, C, B o A). Vamos de los canales más lejanos a los más cercanos — nadie pasa de un post de LinkedIn a una reunión sin escalones intermedios.
+</div>
+<div class="temp-escala">
+<div style="background:#0A3766;">D · Frío</div>
+<div style="background:#C07A16;">C · Tibio</div>
+<div style="background:#D2601F;">B · Cálido</div>
+<div style="background:#B4271F;">A · Cliente principal</div>
+</div>
+<div class="temp-barra"><span>Más lejano</span><div class="barra"></div><span>Más cercano</span></div>
+<div class="channel-card linkedin">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-brand-linkedin"></i></div>
+<div class="name">LinkedIn</div>
+<div class="temp">D · Frío</div>
+</div>
+<div class="channel-body">
+<div class="desc">Combina alcance de contenido con mensajes uno a uno — sirve tanto para atraer como para mantener el vínculo.</div>
+<div class="msg-title">Qué enviamos</div>
+<div class="msg-pills">
+<span class="msg-pill">Posteos</span>
+<span class="msg-pill">Artículos</span>
+<span class="msg-pill">Interacción con las publicaciones de los leads</span>
+<span class="msg-pill">Mensajes personales</span>
+<span class="msg-pill">Newsletter</span>
+<span class="msg-pill">Invitación a webinar</span>
+<span class="msg-pill">Invitación a seguir a Scaling</span>
+</div>
+</div>
+</div>
+<div class="channel-card web">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-world"></i></div>
+<div class="name">Página web</div>
+<div class="temp">D · Frío</div>
+</div>
+<div class="channel-body">
+<div class="desc">Canal inbound: si alguien descarga los Growth Tools desde la web, se activa un seguimiento — es una señal de interés espontáneo.</div>
+<div class="msg-title">Gatillante</div>
+<div class="msg-pills">
+<span class="msg-pill">Descarga de Growth Tools</span>
+</div>
+</div>
+</div>
+<div class="channel-card eventos">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-calendar-event"></i></div>
+<div class="name">Eventos (universidades, empresas)</div>
+<div class="temp">D · Frío</div>
+</div>
+<div class="channel-body">
+<div class="desc">Asistir a eventos de universidades, encuentros empresariales, ferias y charlas donde puede haber gerentes generales o dueños de empresa target — presencia física para generar contactos nuevos y buscar el "asado".</div>
+<div class="msg-title">Rol</div>
+<div class="msg-pills">
+<span class="msg-pill">Networking presencial</span>
+<span class="msg-pill">Buscar el asado (Actitud Comercial)</span>
+</div>
+</div>
+</div>
+<div class="channel-card mail">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-mail"></i></div>
+<div class="name">Mail · Newsletter</div>
+<div class="temp">C · Tibio</div>
+</div>
+<div class="channel-body">
+<div class="desc">Canal de nutrición continua — mantiene a Scaling presente en el tiempo, sin necesidad de contacto directo.</div>
+<div class="msg-title">Qué enviamos</div>
+<div class="msg-pills">
+<span class="msg-pill">Tips</span>
+<span class="msg-pill">Invitación a webinar</span>
+<span class="msg-pill">Newsletter</span>
+<span class="msg-pill">Invitación a juntarse</span>
+</div>
+</div>
+</div>
+<div class="channel-card webinar">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-video"></i></div>
+<div class="name">Webinar</div>
+<div class="temp">C · Tibio</div>
+</div>
+<div class="channel-body">
+<div class="desc">Nuestra principal forma de atraer e interactuar con desconocidos — quien se registra e interactúa pasa a ser un lead nuevo dentro del funnel.</div>
+<div class="msg-title">Rol</div>
+<div class="msg-pills">
+<span class="msg-pill">Atracción de desconocidos</span>
+<span class="msg-pill">Primer punto de interacción</span>
+</div>
+</div>
+</div>
+<div class="channel-card whatsapp">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-brand-whatsapp"></i></div>
+<div class="name">WhatsApp personal</div>
+<div class="temp">B · Cálido</div>
+</div>
+<div class="channel-body">
+<div class="desc">Se usa solo cuando ya existe una relación cercana — es el canal más directo y de mayor confianza. Cuando se necesita un seguimiento más formal, se trabaja en paralelo por mail.</div>
+<div class="msg-title">Cuándo se usa</div>
+<div class="msg-pills">
+<span class="msg-pill">Hay relación previa</span>
+<span class="msg-pill">Seguimiento formal en paralelo por mail</span>
+</div>
+</div>
+</div>
+<div class="channel-card reunion">
+<div class="channel-head">
+<div class="icon-wrap"><i aria-hidden="true" class="ti ti-users"></i></div>
+<div class="name">Reunión</div>
+<div class="temp">A · Cliente principal</div>
+</div>
+<div class="channel-body">
+<div class="desc">El punto de llegada de todos los canales anteriores. Acá ya no se atrae ni se nutre: se escucha el dolor y se ve si hay fit. Es el único canal donde se puede vender.</div>
+<div class="msg-title">Qué pasa acá</div>
+<div class="msg-pills">
+<span class="msg-pill">Pitch de asado o catch up</span>
+<span class="msg-pill">Reunión de presentación</span>
+<span class="msg-pill">Diagnóstico</span>
+<span class="msg-pill">Presentación de propuesta</span>
+</div>
+</div>
+</div>
+<div class="msg-title" style="margin-top:6px;">El orden, de más frío a menos frío</div>
+<div class="orden-canales">
+<span class="oc" style="background:#0A3766;">LinkedIn</span>
+<span class="oc" style="background:#12599B;">Página web</span>
+<span class="oc" style="background:#1E82B8;">Eventos</span>
+<span class="flecha">→</span><span class="oc" style="background:#9C6B0E;">Mail · Newsletter</span>
+<span class="flecha">→</span><span class="oc" style="background:#C07A16;">Webinar</span>
+<span class="flecha">→</span><span class="oc" style="background:#D2601F;">WhatsApp personal</span>
+<span class="flecha">→</span><span class="oc" style="background:#B4271F;">Reunión</span>
+</div>
+<div class="tip-box">
+<i aria-hidden="true" class="ti ti-bulb"></i>
+<span><strong>Cómo elegir el canal:</strong> mientras más fría la relación (D), más se apoya en contenido o presencia. A medida que sube la temperatura se pasa a canales más directos y personales, hasta llegar a la reunión (A). No saltarse escalones: el canal tiene que calzar con la temperatura real, no con las ganas de avanzar.</span>
+</div>
+<div class="footer-note">
+    Este resumen cubre el "dónde" y "por dónde" llegan los leads: a quién le vendemos y por qué canal aparece. El "qué decir" en cada etapa está en <strong>Material seguimiento leads y cliente</strong>, y el guion de cada reunión en <strong>Guiones por tipo de reunión</strong>.
+</div>
+</div>
+<script>
+function showSuccess(btn) {
+  const original = btn.textContent;
+  btn.textContent = btn.classList.contains('ref-mini-copy') ? '✓' : '¡Copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1500);
+}
+
+function manualFallback(text) {
+  window.prompt('No pudimos copiar automáticamente. El texto ya está seleccionado abajo — presiona Cmd/Ctrl+C, o mantén presionado y elige Copiar:', text);
+}
+
+function execCommandCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.top = '0';
+  ta.style.left = '0';
+  ta.style.width = '2em';
+  ta.style.height = '2em';
+  ta.style.padding = '0';
+  ta.style.border = 'none';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+
+  const isIOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+  let ok = false;
+  try {
+    if (isIOS) {
+      ta.contentEditable = 'true';
+      ta.readOnly = false;
+      const range = document.createRange();
+      range.selectNodeContents(ta);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      ta.setSelectionRange(0, text.length);
+    } else {
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+    }
+    ok = document.execCommand('copy');
+  } catch (e) {
+    ok = false;
+  }
+  document.body.removeChild(ta);
+  return ok;
+}
+
+function copyPlainText(text, btn) {
+  if (execCommandCopy(text)) {
+    showSuccess(btn);
+    return;
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => showSuccess(btn)).catch(() => manualFallback(text));
+    return;
+  }
+  manualFallback(text);
+}
+
+function copyMsg(btn) {
+  const card = btn.closest('.msg-card');
+  const body = card.querySelector('[data-copy]');
+  copyPlainText(body.value, btn);
+}
+
+function showSegment(segId) {
+  document.querySelectorAll('.segment-panel').forEach(p => {
+    p.style.display = (p.id === 'segpanel-' + segId) ? '' : 'none';
+  });
+  document.querySelectorAll('.segment-nav-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.seg === segId);
+  });
+}
+
+function showMsg(segId, idx) {
+  const panel = document.getElementById('segpanel-' + segId);
+  panel.querySelectorAll('.msg-card').forEach(c => {
+    c.style.display = (c.id === 'msgcard-' + segId + '-' + idx) ? '' : 'none';
+  });
+  panel.querySelectorAll('.int-btn').forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
+  });
+}
+
+function refUpdate() {
+  const checked = document.querySelectorAll('.ref-row input[type="checkbox"]:checked');
+  document.getElementById('refCount').textContent = checked.length;
+  document.getElementById('refCopyBtn').disabled = checked.length === 0;
+}
+
+function copyRefs() {
+  const checked = document.querySelectorAll('.ref-row input[type="checkbox"]:checked');
+  const lines = Array.from(checked).map(cb => '- ' + cb.dataset.line);
+  const text = lines.join('\n');
+  const btn = document.getElementById('refCopyBtn');
+  copyPlainText(text, btn);
+}
+</script>
+</body>
+</html>
