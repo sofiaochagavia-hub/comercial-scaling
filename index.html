@@ -1428,6 +1428,140 @@ body.nav-on .app-bar { display: block; }
 #v-seguimiento #hcradio-3:checked ~ #hcpanel-3 { display: block; }
 #v-seguimiento .container:has(#hcradio-3:checked) label[for="hcradio-3"] { background:#0C447C; color:#fff; border-color:#0C447C; box-shadow: 0 2px 8px rgba(12,68,124,0.3); }
 /*CASOS-CSS-FIN*/
+/* ===== pantallas simples ===== */
+
+/* ---- inicio: botones simples ---- */
+#v-menu .wrap { padding-top: 1.5rem; }
+#v-menu .head { margin-bottom: 1rem; }
+#v-menu .aviso { margin-bottom: 1.25rem; }
+#v-menu .m-lista { display: flex; flex-direction: column; border: 0.5px solid var(--bor); border-radius: 12px;
+  overflow: hidden; background: #fff; margin-bottom: 1.5rem; }
+#v-menu .m-btn { appearance: none; border: 0; background: #fff; width: 100%; text-align: left; cursor: pointer;
+  display: flex; align-items: center; gap: 12px; padding: 15px 16px; min-height: 54px; font-size: 15.5px;
+  font-weight: 500; color: var(--txt); -webkit-tap-highlight-color: transparent; }
+#v-menu .m-btn + .m-btn { border-top: 0.5px solid var(--bor); }
+#v-menu .m-btn i { color: var(--azul-medio); font-size: 19px; flex-shrink: 0; }
+#v-menu .m-btn::after { content: "›"; margin-left: auto; color: var(--txt2); font-size: 22px; line-height: 1; }
+#v-menu .m-btn:active { background: var(--bg2); }
+@media (hover: hover) { #v-menu .m-btn:hover { background: var(--bg2); } }
+
+/* ---- pantallas ---- */
+#v-rapido .wrap { max-width: 680px; margin: 0 auto; padding: 10px 16px 64px; }
+#v-rapido .pant { display: none; }
+#v-rapido .pant.on { display: block; animation: fadein .18s ease; }
+#v-rapido .p-volver, #v-seguimiento .sub-volver { appearance: none; border: 0; background: none; cursor: pointer;
+  color: var(--azul-medio); font-size: 14px; font-weight: 600; padding: 8px 0; margin-bottom: 4px;
+  -webkit-tap-highlight-color: transparent; }
+#v-rapido h1 { font-size: 21px; font-weight: 650; letter-spacing: -.01em; margin: 2px 0 6px; line-height: 1.25; }
+#v-rapido .p-d { font-size: 13.5px; color: var(--txt2); line-height: 1.55; margin: 0 0 16px; }
+#v-rapido .p-sec { font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--txt2); margin: 22px 2px 8px; }
+
+/* lista de botones */
+#v-rapido .p-lista { display: flex; flex-direction: column; border: 0.5px solid var(--bor); border-radius: 12px;
+  overflow: hidden; background: #fff; margin-bottom: 14px; }
+#v-rapido .p-btn { appearance: none; border: 0; background: #fff; width: 100%; text-align: left; cursor: pointer;
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px; min-height: 52px; font-size: 15px;
+  font-weight: 500; color: var(--txt); -webkit-tap-highlight-color: transparent; }
+#v-rapido .p-btn + .p-btn { border-top: 0.5px solid var(--bor); }
+#v-rapido .p-btn::after { content: "›"; margin-left: auto; color: var(--txt2); font-size: 22px; line-height: 1; }
+#v-rapido .p-btn:active { background: var(--bg2); }
+@media (hover: hover) { #v-rapido .p-btn:hover { background: var(--bg2); } }
+#v-rapido .p-btn small { display: block; font-size: 12.5px; font-weight: 400; color: var(--txt2); margin-top: 2px; }
+
+/* número */
+#v-rapido .n { flex: 0 0 26px; height: 26px; border-radius: 50%; background: var(--bg2); color: var(--txt2);
+  font-size: 12.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+
+/* pasos que se despliegan (uno abierto a la vez) */
+#v-rapido details.p-paso { border: 0.5px solid var(--bor); border-radius: 12px; background: #fff; margin-bottom: 8px; }
+#v-rapido details.p-paso > summary { list-style: none; display: flex; align-items: center; gap: 12px;
+  padding: 13px 14px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+#v-rapido details.p-paso > summary::-webkit-details-marker { display: none; }
+#v-rapido details.p-paso > summary::after { content: "›"; margin-left: auto; color: var(--txt2); font-size: 22px;
+  line-height: 1; transition: transform .15s ease; }
+#v-rapido details.p-paso[open] > summary::after { transform: rotate(90deg); }
+#v-rapido details.p-paso[open] > summary .n { background: var(--azul-medio); color: #fff; }
+#v-rapido .p-t { display: flex; flex-direction: column; font-size: 15px; font-weight: 600; color: var(--txt); }
+#v-rapido .p-t small { font-size: 12.5px; font-weight: 400; color: var(--txt2); margin-top: 2px; line-height: 1.4; }
+#v-rapido .p-cuerpo { padding: 0 14px 14px; }
+#v-rapido .p-cuerpo > p, #v-rapido .p-cuerpo > ul { font-size: 13.5px; line-height: 1.55; color: var(--txt); margin: 0 0 10px; }
+#v-rapido .p-cuerpo > ul { padding-left: 18px; }
+#v-rapido .p-canal { font-size: 12.5px; color: var(--txt2); margin: 0 0 8px; }
+
+/* botones chicos de enlace */
+#v-rapido .p-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+#v-rapido .p-link { appearance: none; border: 0.5px solid var(--bor); background: #fff; color: var(--azul-medio);
+  font-size: 13px; font-weight: 600; padding: 8px 12px; border-radius: 9px; cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
+#v-rapido .p-link:active { background: var(--azul-claro); }
+
+/* elegir entre dos o tres caminos */
+#v-rapido .p-elige { display: flex; gap: 6px; margin: 4px 0 14px; }
+#v-rapido .p-elige button { flex: 1; appearance: none; border: 0.5px solid var(--bor); background: var(--bg2);
+  color: var(--txt2); font-size: 13.5px; font-weight: 600; padding: 11px 8px; border-radius: 10px; cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
+#v-rapido .p-elige button.on { background: var(--azul-medio); border-color: var(--azul-medio); color: #fff; }
+#v-rapido .p-camino { display: none; }
+#v-rapido .p-camino.on { display: block; }
+
+/* nota corta */
+#v-rapido .p-nota { font-size: 12.5px; color: var(--txt2); line-height: 1.55; margin: 12px 2px 0; }
+
+/* tarjetas de mensaje */
+#v-rapido .p-lib { display: none; }
+#v-rapido .msg-card { border: 0.5px solid var(--bor); border-radius: 10px; background: var(--bg2); padding: 12px; margin-top: 8px; }
+#v-rapido .msg-card-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+#v-rapido .msg-card-title { flex: 1 1 100%; font-size: 13.5px; font-weight: 600; color: var(--txt); }
+/* con un solo mensaje, su título repite el del paso: se oculta */
+#v-rapido .pant > .msg-card .msg-card-title,
+#v-rapido .p-cuerpo:not(:has(.msg-card + .msg-card)) .msg-card-title { display: none; }
+#v-rapido .channel-badge { font-size: 11px; color: var(--txt2); background: #fff; border: 0.5px solid var(--bor);
+  border-radius: 6px; padding: 2px 7px; }
+#v-rapido .copy-btn { margin-left: auto; appearance: none; border: 0; background: var(--azul-medio); color: #fff;
+  font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 8px; cursor: pointer; }
+#v-rapido .copy-btn.copied { background: #1E7A4C; }
+#v-rapido .msg-card-note { font-size: 12.5px; color: var(--txt2); line-height: 1.5; margin: 8px 0; }
+#v-rapido .msg-card-body { display: block; width: 100%; margin-top: 8px; border: 0.5px solid var(--bor); border-radius: 8px;
+  background: #fff; color: var(--txt); font-size: 13.5px; line-height: 1.55; padding: 10px; resize: vertical; }
+
+/* regalo según el dolor */
+#v-rapido .p-tabla { border: 0.5px solid var(--bor); border-radius: 12px; background: #fff; overflow: hidden; }
+#v-rapido .p-tabla div { display: flex; flex-direction: column; padding: 10px 14px; font-size: 13.5px; line-height: 1.45; }
+#v-rapido .p-tabla div + div { border-top: 0.5px solid var(--bor); }
+#v-rapido .p-tabla span { color: var(--txt2); font-size: 12.5px; }
+
+/* viaje del lead */
+#v-rapido .p-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+#v-rapido .p-chips button { appearance: none; border: 0.5px solid var(--bor); background: var(--bg2); color: var(--txt2);
+  font-size: 13px; font-weight: 600; padding: 8px 12px; border-radius: 9px; cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
+#v-rapido .p-chips button.on { background: var(--azul-medio); border-color: var(--azul-medio); color: #fff; }
+#v-rapido .p-ruta { display: none; border: 0.5px solid var(--bor); border-radius: 12px; background: #fff; padding: 12px 14px; margin-bottom: 18px; }
+#v-rapido .p-ruta.on { display: block; }
+#v-rapido .p-ruta ol { list-style: none; margin: 0; padding: 0; }
+#v-rapido .p-ruta li { position: relative; padding: 0 0 10px 22px; font-size: 13.5px; line-height: 1.4; }
+#v-rapido .p-ruta li::before { content: ""; position: absolute; left: 4px; top: 5px; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--azul-medio); }
+#v-rapido .p-ruta li:not(:last-child)::after { content: ""; position: absolute; left: 7.5px; top: 15px; bottom: 0;
+  width: 1px; background: var(--bor); }
+#v-rapido .p-ruta li:last-child { padding-bottom: 0; font-weight: 600; }
+#v-rapido .p-ruta p { font-size: 12.5px; color: var(--txt2); margin: 10px 0 0; line-height: 1.5; }
+
+/* ---- reuniones: botón al final de cada etapa ---- */
+#v-guiones .entre-ir { display: flex; align-items: center; width: 100%; appearance: none; text-align: left; cursor: pointer;
+  border: 0.5px solid var(--color-border-secondary, #e8eaef); background: #fff; border-radius: 10px; padding: 13px 14px;
+  margin-top: 8px; font-size: 14px; font-weight: 600; color: #1B4F8A; -webkit-tap-highlight-color: transparent; }
+#v-guiones .entre-ir::after { content: "›"; margin-left: auto; color: #6b7189; font-size: 20px; line-height: 1; }
+
+/* ---- seguimiento: una sección a la vez ---- */
+#v-seguimiento .sub { display: none; }
+#v-seguimiento .sub.on { display: block; }
+#v-seguimiento .container.con-sub > .header,
+#v-seguimiento .container.con-sub > .intro-box,
+#v-seguimiento .container.con-sub > .idx { display: none; }
+#v-seguimiento .idx .ix-d { display: none; }
+
 </style>
 </head>
 <body>
@@ -1452,31 +1586,891 @@ body.nav-on .app-bar { display: block; }
 <div class="vista on" id="v-menu"><div class="wrap">
 <div class="head">
 <h1>Material Comercial · Scaling</h1>
-<p>Guías de trabajo del proceso comercial</p>
 </div>
 <div class="aviso">
 <i aria-hidden="true" class="ti ti-refresh"></i>
-<span><strong>Estas páginas se actualizan.</strong> No guardes copias ni capturas: entra siempre por aquí para tener la última versión.</span>
+<span><strong>Se actualiza.</strong> Entra siempre por aquí, no guardes copias.</span>
 </div>
-<div class="seccion">Proceso de venta</div>
-<button class="card" data-go="estrategia" type="button">
-<div class="card-top"><i aria-hidden="true" class="ti ti-target-arrow"></i><h2>1. Estrategia Comercial Scaling</h2></div>
-<p>¿A quién? ¿Por dónde? — el cliente principal (Humble Hungry Harry) y los canales de interacción, de los más fríos a los más cercanos.</p>
-<span class="abrir">Abrir →</span>
-</button>
-<button class="card" data-go="guiones" type="button">
-<div class="card-top"><i aria-hidden="true" class="ti ti-list-check"></i><h2>2. Reuniones</h2></div>
-<p>El guion de cada tipo de reunión — pitch de asado, catch up, presentación, diagnóstico, propuesta, seguimiento y cierre — con la metodología Sandler.</p>
-<span class="abrir">Abrir →</span>
-</button>
-<button class="card" data-go="seguimiento" type="button">
-<div class="card-top"><i aria-hidden="true" class="ti ti-messages"></i><h2>3. Material seguimiento leads y cliente</h2></div>
-<p>Los mensajes listos para copiar por etapa del viaje del lead — de desconocido a excliente — más la base de clientes de referencia agrupada por industria.</p>
-<span class="abrir">Abrir →</span>
-</button>
+<nav class="m-lista">
+<button class="m-btn" data-go="p/viaje" type="button"><i aria-hidden="true" class="ti ti-route"></i>Viaje del lead</button>
+<button class="m-btn" data-go="p/despues" type="button"><i aria-hidden="true" class="ti ti-calendar-check"></i>Qué mandar después de cada reunión</button>
+<button class="m-btn" data-go="p/acercar" type="button"><i aria-hidden="true" class="ti ti-gift"></i>Acercar sin pedir reunión</button>
+<button class="m-btn" data-go="p/tipos" type="button"><i aria-hidden="true" class="ti ti-mail"></i>Tipos de mensaje</button>
+</nav>
+<div class="seccion">Guías completas</div>
+<nav class="m-lista">
+<button class="m-btn" data-go="guiones" type="button"><i aria-hidden="true" class="ti ti-list-check"></i>Guiones de reunión</button>
+<button class="m-btn" data-go="estrategia" type="button"><i aria-hidden="true" class="ti ti-target-arrow"></i>Estrategia comercial</button>
+<button class="m-btn" data-go="seguimiento" type="button"><i aria-hidden="true" class="ti ti-messages"></i>Mensajes por tipo de lead y casos</button>
+</nav>
 <div class="pie">
 Material interno de Scaling · No compartir fuera del equipo<br/>
 ¿Falta algo o hay que corregir un contenido? Avísale a Sofía.
+</div>
+</div></div>
+<div class="vista" id="v-rapido"><div class="wrap">
+
+<!-- ================= VIAJE DEL LEAD ================= -->
+<section class="pant" data-p="viaje">
+<button class="p-volver" data-go="menu" type="button">‹ Inicio</button>
+<h1>Viaje del lead</h1>
+<p class="p-d">De desconocido a cliente. Elige por dónde llegó para ver su camino, o toca una etapa.</p>
+
+<div class="p-sec">¿Por dónde llegó?</div>
+<div class="p-chips">
+<button data-ruta="linkedin" type="button">LinkedIn</button>
+<button data-ruta="web" type="button">Página web</button>
+<button data-ruta="webinar" type="button">Webinar</button>
+<button data-ruta="evento" type="button">Evento o asado</button>
+<button data-ruta="conocido" type="button">Conocido</button>
+<button data-ruta="referido" type="button">Referido</button>
+</div>
+<div class="p-ruta" data-ruta="linkedin"><ol><li>Conectar, sin mensaje</li><li>Regalo o invitación al webinar</li><li>Newsletter</li><li>Test diagnóstico</li><li>Reunión de presentación</li><li>Reunión de diagnóstico</li><li>Propuesta</li><li>Cliente</li></ol><p>Al desconocido no se le pide reunión de entrada: primero se gana su confianza.</p></div>
+<div class="p-ruta" data-ruta="web"><ol><li>Descarga una herramienta o hace el test diagnóstico</li><li>Regalo según su dolor</li><li>Webinar o Newsletter</li><li>Reunión de presentación</li><li>Reunión de diagnóstico</li><li>Propuesta</li><li>Cliente</li></ol><p>Llegó solo: es una señal de interés. Se responde rápido y con algo útil.</p></div>
+<div class="p-ruta" data-ruta="webinar"><ol><li>Se inscribe al webinar</li><li>Grabación y regalo</li><li>Test diagnóstico</li><li>Reunión de presentación</li><li>Reunión de diagnóstico</li><li>Propuesta</li><li>Cliente</li></ol><p>Quien se inscribe pasa a ser un lead nuevo: el tema que eligió dice qué le duele.</p></div>
+<div class="p-ruta" data-ruta="evento"><ol><li>Pitch de asado</li><li>Credenciales</li><li>Regalo o Newsletter</li><li>Reunión de presentación</li><li>Reunión de diagnóstico</li><li>Propuesta</li><li>Cliente</li></ol><p>Si hay interés, se agenda ahí mismo. Si no, se regala algo y se deja que él se acerque.</p></div>
+<div class="p-ruta" data-ruta="conocido"><ol><li>Catch up (café)</li><li>Credenciales y el regalo prometido</li><li>Reunión de presentación o directo al diagnóstico</li><li>Reunión de diagnóstico</li><li>Propuesta</li><li>Cliente</li></ol><p>Por WhatsApp, porque ya hay relación. Lo formal va en paralelo por mail.</p></div>
+<div class="p-ruta" data-ruta="referido"><ol><li>Lo presenta quien lo refiere</li><li>Invitación a juntarse</li><li>Reunión de presentación</li><li>Reunión de diagnóstico</li><li>Propuesta</li><li>Cliente</li></ol><p>La confianza viene prestada: se puede pedir el café de inmediato.</p></div>
+
+<div class="p-sec">Etapas</div>
+<details class="p-paso" name="viaje"><summary><span class="n">1</span><span class="p-t">No nos conoce<small>Que sepa que existimos</small></span></summary><div class="p-cuerpo">
+<p class="p-canal">LinkedIn · página web · eventos · webinar</p>
+<ul><li>Conectar en LinkedIn, sin mensaje.</li><li>Ofrecer un regalo o invitar al webinar. No se pide reunión.</li></ul>
+<div class="p-links"><button class="p-link" data-go="p/acercar" type="button">Acercar sin pedir reunión</button></div>
+</div></details>
+<details class="p-paso" name="viaje"><summary><span class="n">2</span><span class="p-t">Nos conoce<small>Ganar su confianza, de a poco</small></span></summary><div class="p-cuerpo">
+<p class="p-canal">Newsletter · webinar · LinkedIn · mail</p>
+<ul><li>Un toque cada 1 o 2 semanas, y cada uno le regala algo.</li><li>Si no responde a dos, un cierre amable.</li></ul>
+<div class="p-links"><button class="p-link" data-go="p/acercar/regalo" type="button">Regalo</button><button class="p-link" data-go="p/acercar/webinar" type="button">Webinar</button><button class="p-link" data-go="p/acercar/newsletter" type="button">Newsletter</button><button class="p-link" data-go="p/acercar/diagnostico" type="button">Test diagnóstico</button></div>
+</div></details>
+<details class="p-paso" name="viaje"><summary><span class="n">3</span><span class="p-t">Primera conversación<small>Pitch de asado, catch up o reunión de presentación</small></span></summary><div class="p-cuerpo">
+<p class="p-canal">Evento · café · WhatsApp · reunión</p>
+<ul><li>Escuchar su dolor antes de hablar de Scaling.</li><li>Después: credenciales, si todavía no se las mandaste.</li></ul>
+<div class="p-links"><button class="p-link" data-go="p/despues/pitch" type="button">Después de un asado o café</button><button class="p-link" data-go="p/despues/presentacion" type="button">Después de la presentación</button></div>
+</div></details>
+<details class="p-paso" name="viaje"><summary><span class="n">4</span><span class="p-t">Reunión de diagnóstico<small>Entender qué quiere lograr</small></span></summary><div class="p-cuerpo">
+<p class="p-canal">Reunión · mail</p>
+<ul><li>Mientras se prepara la propuesta: credenciales o testimonios.</li></ul>
+<div class="p-links"><button class="p-link" data-go="guiones" data-radio="stageradio-3" data-to="s2" type="button">Guion</button><button class="p-link" data-go="p/despues/diagnostico" type="button">Qué mandar después</button></div>
+</div></details>
+<details class="p-paso" name="viaje"><summary><span class="n">5</span><span class="p-t">Propuesta<small>Presentar, enviar y llamar</small></span></summary><div class="p-cuerpo">
+<p class="p-canal">Reunión · mail · llamado</p>
+<ul><li>Se envía el mismo día que se presenta, nunca antes.</li><li>A los 2 o 3 días, el llamado de feedback.</li></ul>
+<div class="p-links"><button class="p-link" data-go="guiones" data-radio="stageradio-4" data-to="s3" type="button">Guion</button><button class="p-link" data-go="p/despues/propuesta" type="button">Qué mandar después</button></div>
+</div></details>
+<details class="p-paso" name="viaje"><summary><span class="n">6</span><span class="p-t">Decide<small>Sí, no, o lo pospone</small></span></summary><div class="p-cuerpo">
+<ul><li><strong>Sí:</strong> pasa a ser cliente.</li><li><strong>No:</strong> vuelve a la etapa 2, sigue cerca sin presión.</li><li><strong>Lo pospone o no responde:</strong> un regalo cada 1 o 2 semanas, y cierre si no responde.</li></ul>
+<div class="p-links"><button class="p-link" data-go="p/respuesta/si" type="button">Si dice que sí</button><button class="p-link" data-go="p/respuesta/no" type="button">Si dice que no</button><button class="p-link" data-go="p/respuesta/pospuesto" type="button">Pospuesto o no responde</button></div>
+</div></details>
+<details class="p-paso" name="viaje"><summary><span class="n">7</span><span class="p-t">Cliente<small>Bienvenida y kick off</small></span></summary><div class="p-cuerpo">
+<p class="p-canal">Mail · WhatsApp · sesiones</p>
+<ul><li>Bienvenida, documento Bienvenidos, facturación y entrevistas.</li><li>Después: renovación, testimonios y referidos.</li></ul>
+<div class="p-links"><button class="p-link" data-go="p/respuesta/si" type="button">Pasos de la bienvenida</button><button class="p-link" data-go="seguimiento" data-seg="cliente" type="button">Mensajes a clientes</button></div>
+</div></details>
+</section>
+
+<!-- ================= QUÉ MANDAR DESPUÉS ================= -->
+<section class="pant" data-p="despues">
+<button class="p-volver" data-go="menu" type="button">‹ Inicio</button>
+<h1>Qué mandar después de cada reunión</h1>
+<p class="p-d">Elige la reunión que acabas de tener.</p>
+<div class="p-lista">
+<button class="p-btn" data-go="p/despues/pitch" type="button"><span class="n">1</span>Pitch de asado o catch up</button>
+<button class="p-btn" data-go="p/despues/presentacion" type="button"><span class="n">2</span>Reunión de presentación</button>
+<button class="p-btn" data-go="p/despues/diagnostico" type="button"><span class="n">3</span>Reunión de diagnóstico</button>
+<button class="p-btn" data-go="p/despues/propuesta" type="button"><span class="n">4</span>Presentación de propuesta</button>
+</div>
+</section>
+
+<section class="pant" data-p="despues/pitch">
+<button class="p-volver" data-go="p/despues" type="button">‹ Volver</button>
+<h1>Después de un pitch de asado o catch up</h1>
+<p class="p-d">Un toque cada 1 o 2 semanas, cada uno con algo útil. No se vuelve a pedir el café.</p>
+<details class="p-paso" name="pitch"><summary><span class="n">1</span><span class="p-t">Credenciales<small>Si todavía no se las mandaste</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cred-pitch"></div></div></details>
+<details class="p-paso" name="pitch"><summary><span class="n">2</span><span class="p-t">Regalo<small>Esa misma semana</small></span></summary><div class="p-cuerpo"><div data-msg="pm-regalo-conv"></div><div class="p-links"><button class="p-link" data-go="p/acercar/regalo" type="button">¿Qué herramienta mandar?</button></div></div></details>
+<details class="p-paso" name="pitch"><summary><span class="n">3</span><span class="p-t">Newsletter<small>En el mismo mensaje o 1 semana después</small></span></summary><div class="p-cuerpo"><div data-msg="pm-nl"></div></div></details>
+<details class="p-paso" name="pitch"><summary><span class="n">4</span><span class="p-t">Webinar<small>Si hay uno que le sirva</small></span></summary><div class="p-cuerpo"><div data-msg="pm-webinar-conv"></div></div></details>
+<details class="p-paso" name="pitch"><summary><span class="n">5</span><span class="p-t">Test diagnóstico<small>Si respondió con interés</small></span></summary><div class="p-cuerpo"><div data-msg="pm-diag-conocido"></div></div></details>
+<details class="p-paso" name="pitch"><summary><span class="n">6</span><span class="p-t">Cierre amable<small>Si no respondió a dos toques</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cierre-amable"></div></div></details>
+<p class="p-nota">Si quedó agendada la reunión de presentación, basta con las credenciales.</p>
+</section>
+
+<section class="pant" data-p="despues/presentacion">
+<button class="p-volver" data-go="p/despues" type="button">‹ Volver</button>
+<h1>Después de la reunión de presentación</h1>
+<p class="p-d">¿Quedó agendado el diagnóstico?</p>
+<div class="p-elige"><button class="on" data-camino="pres-si" type="button">Sí, quedó agendado</button><button data-camino="pres-no" type="button">No quiso seguir</button></div>
+<div class="p-camino on" data-camino="pres-si">
+<details class="p-paso" name="pres-si"><summary><span class="n">1</span><span class="p-t">Credenciales<small>El mismo día</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cred-agendada"></div></div></details>
+<details class="p-paso" name="pres-si"><summary><span class="n">2</span><span class="p-t">Test diagnóstico<small>Solo si la reunión quedó a 3 semanas o más</small></span></summary><div class="p-cuerpo"><div data-msg="pm-diag-antes"></div></div></details>
+<details class="p-paso" name="pres-si"><summary><span class="n">3</span><span class="p-t">Regalo<small>Solo si la reunión se posterga</small></span></summary><div class="p-cuerpo"><div data-msg="pm-regalo-espera"></div></div></details>
+</div>
+<div class="p-camino" data-camino="pres-no">
+<details class="p-paso" name="pres-no"><summary><span class="n">1</span><span class="p-t">Credenciales y testimonios<small>El mismo día</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cred-testimonios"></div></div></details>
+<details class="p-paso" name="pres-no"><summary><span class="n">2</span><span class="p-t">Regalo, Newsletter o webinar<small>Un toque cada 1 o 2 semanas</small></span></summary><div class="p-cuerpo"><div class="p-links"><button class="p-link" data-go="p/acercar/regalo" type="button">Regalo</button><button class="p-link" data-go="p/acercar/newsletter" type="button">Newsletter</button><button class="p-link" data-go="p/acercar/webinar" type="button">Webinar</button></div></div></details>
+<details class="p-paso" name="pres-no"><summary><span class="n">3</span><span class="p-t">Cierre amable<small>Si no respondió a dos toques</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cierre-amable"></div></div></details>
+</div>
+</section>
+
+<section class="pant" data-p="despues/diagnostico">
+<button class="p-volver" data-go="p/despues" type="button">‹ Volver</button>
+<h1>Después de la reunión de diagnóstico</h1>
+<p class="p-d">Mientras se prepara la propuesta. Si la presentación ya quedó agendada, basta con un mensaje.</p>
+<details class="p-paso" name="diag"><summary><span class="n">1</span><span class="p-t">Credenciales<small>Al día siguiente, si todavía no se las mandaste</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cred-diag"></div></div></details>
+<details class="p-paso" name="diag"><summary><span class="n">2</span><span class="p-t">Testimonios de 1 minuto<small>Si ya le mandaste las credenciales</small></span></summary><div class="p-cuerpo"><div data-msg="pm-testimonios"></div></div></details>
+<details class="p-paso" name="diag"><summary><span class="n">3</span><span class="p-t">Regalo<small>Solo si la presentación quedó a 3 semanas o más</small></span></summary><div class="p-cuerpo"><div data-msg="pm-regalo-propuesta"></div></div></details>
+</section>
+
+<section class="pant" data-p="despues/propuesta">
+<button class="p-volver" data-go="p/despues" type="button">‹ Volver</button>
+<h1>Después de presentar la propuesta</h1>
+<details class="p-paso" name="prop"><summary><span class="n">1</span><span class="p-t">Envío de propuesta<small>El mismo día de la presentación</small></span></summary><div class="p-cuerpo"><div data-msg="pm-propuesta"></div></div></details>
+<details class="p-paso" name="prop"><summary><span class="n">2</span><span class="p-t">Llamado de feedback<small>A los 2 o 3 días</small></span></summary><div class="p-cuerpo"><div data-msg="pm-feedback"></div></div></details>
+<div class="p-sec">¿Qué respondió?</div>
+<div class="p-lista">
+<button class="p-btn" data-go="p/respuesta/si" type="button">Dijo que sí</button>
+<button class="p-btn" data-go="p/respuesta/no" type="button">Dijo que no</button>
+<button class="p-btn" data-go="p/respuesta/pospuesto" type="button">Lo pospuso o no responde</button>
+</div>
+</section>
+
+<section class="pant" data-p="respuesta/si">
+<button class="p-volver" data-go="p/despues/propuesta" type="button">‹ Volver</button>
+<h1>Dijo que sí</h1>
+<p class="p-d">El programa no parte hasta tener el sí por escrito.</p>
+<details class="p-paso" name="si"><summary><span class="n">1</span><span class="p-t">Mail si dice que sí<small>Dijo que sí de palabra. Si ya lo confirmó por mail, salta al 3</small></span></summary><div class="p-cuerpo"><div data-msg="pm-si"></div></div></details>
+<details class="p-paso" name="si"><summary><span class="n">2</span><span class="p-t">Acuerdo de trabajo<small>Solo si se ajustó la propuesta (en vez del paso 1)</small></span></summary><div class="p-cuerpo"><div data-msg="pm-acuerdo"></div></div></details>
+<details class="p-paso" name="si"><summary><span class="n">3</span><span class="p-t">Mail de bienvenida<small>Apenas confirma por escrito. Lo manda el coach</small></span></summary><div class="p-cuerpo"><div data-msg="pm-bienvenida"></div></div></details>
+<details class="p-paso" name="si"><summary><span class="n">4</span><span class="p-t">Documento Bienvenidos<small>Después del mail de bienvenida. Lo manda CX</small></span></summary><div class="p-cuerpo"><div data-msg="pm-bienvenidos-doc"></div></div></details>
+<details class="p-paso" name="si"><summary><span class="n">5</span><span class="p-t">Bienvenidos recibido<small>Cuando devuelven el documento completo</small></span></summary><div class="p-cuerpo"><div data-msg="pm-bienvenidos-recibido"></div></div></details>
+<details class="p-paso" name="si"><summary><span class="n">6</span><span class="p-t">Facturación<small>Primer contacto con la persona de facturación</small></span></summary><div class="p-cuerpo"><div data-msg="pm-facturacion"></div></div></details>
+<details class="p-paso" name="si"><summary><span class="n">7</span><span class="p-t">Entrevistas de diagnóstico<small>Cuando el gerente general ya avisó a su equipo</small></span></summary><div class="p-cuerpo"><div data-msg="pm-entrevistas"></div></div></details>
+</section>
+
+<section class="pant" data-p="respuesta/no">
+<button class="p-volver" data-go="p/despues/propuesta" type="button">‹ Volver</button>
+<h1>Dijo que no</h1>
+<p class="p-d">Se cierra con cariño y la relación sigue.</p>
+<details class="p-paso" name="no"><summary><span class="n">1</span><span class="p-t">Respuesta a la negativa<small>El mismo día que responde</small></span></summary><div class="p-cuerpo"><div data-msg="pm-no"></div></div></details>
+<div class="p-sec">Para retomar más adelante</div>
+<p class="p-d">Uno cada 2 o 3 meses, siempre con algo útil.</p>
+<details class="p-paso" name="no"><summary><span class="n">2</span><span class="p-t">Invitación al Newsletter<small>Si todavía no está inscrito</small></span></summary><div class="p-cuerpo"><div data-msg="pm-nl-no"></div></div></details>
+<details class="p-paso" name="no"><summary><span class="n">3</span><span class="p-t">Regalo<small>Una herramienta según su dolor</small></span></summary><div class="p-cuerpo"><div data-msg="pm-regalo-cerca"></div><div class="p-links"><button class="p-link" data-go="p/acercar/regalo" type="button">¿Qué herramienta mandar?</button></div></div></details>
+<details class="p-paso" name="no"><summary><span class="n">4</span><span class="p-t">Webinar<small>Si hay uno conectado con su objetivo</small></span></summary><div class="p-cuerpo"><div data-msg="pm-webinar-objetivo"></div></div></details>
+<details class="p-paso" name="no"><summary><span class="n">5</span><span class="p-t">Test diagnóstico<small>Unos meses después, para retomar</small></span></summary><div class="p-cuerpo"><div data-msg="pm-diag-retomar"></div></div></details>
+<details class="p-paso" name="no"><summary><span class="n">6</span><span class="p-t">Retomar<small>A los 6 meses, o cuando cambie algo en su empresa</small></span></summary><div class="p-cuerpo"><div data-msg="pm-retomar"></div></div></details>
+</section>
+
+<section class="pant" data-p="respuesta/pospuesto">
+<button class="p-volver" data-go="p/despues/propuesta" type="button">‹ Volver</button>
+<h1>Lo pospuso o no responde</h1>
+<p class="p-d">Un toque cada 1 o 2 semanas, cada uno con algo nuevo. Nunca un «¿cómo vamos?».</p>
+<details class="p-paso" name="posp"><summary><span class="n">1</span><span class="p-t">Regalo<small>1 semana sin novedades</small></span></summary><div class="p-cuerpo"><div data-msg="pm-regalo-piensa"></div></div></details>
+<details class="p-paso" name="posp"><summary><span class="n">2</span><span class="p-t">Testimonio de un par<small>Si su duda es si de verdad funciona</small></span></summary><div class="p-cuerpo"><div data-msg="pm-seg-testimonio"></div></div></details>
+<details class="p-paso" name="posp"><summary><span class="n">3</span><span class="p-t">Webinar<small>Si hay uno cerca que conecte con su objetivo</small></span></summary><div class="p-cuerpo"><div data-msg="pm-webinar-objetivo"></div></div></details>
+<details class="p-paso" name="posp"><summary><span class="n">4</span><span class="p-t">Planificación del próximo año<small>De octubre a enero</small></span></summary><div class="p-cuerpo"><div data-msg="pm-planificacion"></div></div></details>
+<details class="p-paso" name="posp"><summary><span class="n">5</span><span class="p-t">Si pidió esperar<small>Sin fecha clara: una opción más chica</small></span></summary><div class="p-cuerpo"><div data-msg="pm-pospuesto"></div></div></details>
+<details class="p-paso" name="posp"><summary><span class="n">6</span><span class="p-t">Mail o WhatsApp de cierre<small>Después de 2 o 3 toques sin respuesta</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cierre-mail"></div><div data-msg="pm-cierre-wpp"></div></div></details>
+<div class="p-sec">Si responde</div>
+<div class="p-lista">
+<button class="p-btn" data-go="p/respuesta/si" type="button">Dijo que sí</button>
+<button class="p-btn" data-go="p/respuesta/no" type="button">Dijo que no</button>
+</div>
+</section>
+
+<!-- ================= ACERCAR SIN PEDIR REUNIÓN ================= -->
+<section class="pant" data-p="acercar">
+<button class="p-volver" data-go="menu" type="button">‹ Inicio</button>
+<h1>Acercar sin pedir reunión</h1>
+<p class="p-d">Para retomar contacto o ganar confianza. Un toque cada 1 o 2 semanas; si no responde a dos, un cierre amable.</p>
+<div class="p-lista">
+<button class="p-btn" data-go="p/acercar/regalo" type="button">Regalo (herramienta)</button>
+<button class="p-btn" data-go="p/acercar/webinar" type="button">Invitación a webinar</button>
+<button class="p-btn" data-go="p/acercar/newsletter" type="button">Invitación al Newsletter</button>
+<button class="p-btn" data-go="p/acercar/diagnostico" type="button">Test diagnóstico</button>
+</div>
+</section>
+
+<section class="pant" data-p="acercar/regalo">
+<button class="p-volver" data-go="p/acercar" type="button">‹ Volver</button>
+<h1>Regalo (herramienta)</h1>
+<details class="p-paso" name="regalo"><summary><span class="p-t">A alguien con quien ya conversaste<small>Va adjunto</small></span></summary><div class="p-cuerpo"><div data-msg="pm-regalo-conv"></div></div></details>
+<details class="p-paso" name="regalo"><summary><span class="p-t">En frío<small>Se ofrece en una línea, sin adjuntar</small></span></summary><div class="p-cuerpo"><div data-msg="pm-regalo-frio"></div></div></details>
+<div class="p-sec">¿Qué herramienta mandar?</div>
+<div class="p-tabla">
+<div><span>La caja no alcanza</span>Las 7 Palancas del Efectivo</div>
+<div><span>El margen no crece</span>Modelo de Negocio</div>
+<div><span>El equipo no rema para el mismo lado</span>Plan Estratégico en Una Página</div>
+<div><span>La estrategia no se nota en los resultados</span>10 tips para que tu estrategia impacte</div>
+<div><span>El plan se pierde en el día a día</span>10 Tips de Ejecución</div>
+<div><span>Falta ritmo y foco</span>Hábitos de Rockefeller</div>
+<div><span>Falta confianza en el equipo</span>Ejercicio de Historia Personal</div>
+<div><span>Está planificando el próximo año</span>Tips para planificar tu 2027</div>
+<div><span>Las áreas no bajan el plan</span>Cuadernillo de Planificación por Área</div>
+<div><span>No tiene claro su cliente ni en qué es distinto</span>Cuadernillo de Definiciones Estratégicas</div>
+</div>
+<div class="p-links" style="margin-top:10px"><button class="p-link" data-go="seguimiento" data-to="sec-regalos" type="button">Ver un mensaje por herramienta</button></div>
+</section>
+
+<section class="pant" data-p="acercar/webinar">
+<button class="p-volver" data-go="p/acercar" type="button">‹ Volver</button>
+<h1>Invitación a webinar</h1>
+<details class="p-paso" name="webinar"><summary><span class="p-t">General<small>Sirve con cualquier lead</small></span></summary><div class="p-cuerpo"><div data-msg="pm-webinar"></div></div></details>
+<details class="p-paso" name="webinar"><summary><span class="p-t">Conectado a lo que conversaron<small>Si ya sabes qué le preocupa</small></span></summary><div class="p-cuerpo"><div data-msg="pm-webinar-conv"></div></div></details>
+</section>
+
+<section class="pant" data-p="acercar/newsletter">
+<button class="p-volver" data-go="p/acercar" type="button">‹ Volver</button>
+<h1>Invitación al Newsletter</h1>
+<div data-msg="pm-nl"></div>
+</section>
+
+<section class="pant" data-p="acercar/diagnostico">
+<button class="p-volver" data-go="p/acercar" type="button">‹ Volver</button>
+<h1>Test diagnóstico</h1>
+<p class="p-d">Se manda antes de la propuesta, nunca mientras la está decidiendo.</p>
+<details class="p-paso" name="diagn"><summary><span class="p-t">A un conocido<small>Con una línea de vínculo</small></span></summary><div class="p-cuerpo"><div data-msg="pm-diag-conocido"></div></div></details>
+<details class="p-paso" name="diagn"><summary><span class="p-t">En frío<small>Mejor después de que aceptó la conexión</small></span></summary><div class="p-cuerpo"><div data-msg="pm-diag-base"></div></div></details>
+</section>
+
+<!-- ================= TIPOS DE MENSAJE ================= -->
+<section class="pant" data-p="tipos">
+<button class="p-volver" data-go="menu" type="button">‹ Inicio</button>
+<h1>Tipos de mensaje</h1>
+<div class="p-lista">
+<button class="p-btn" data-go="p/tipos/credenciales" type="button">Envío de credenciales</button>
+<button class="p-btn" data-go="p/tipos/propuesta" type="button">Envío de propuesta</button>
+<button class="p-btn" data-go="p/tipos/retomar" type="button">Retomar contacto</button>
+<button class="p-btn" data-go="p/tipos/seguimiento" type="button">Seguimiento de propuesta</button>
+<button class="p-btn" data-go="p/tipos/cierre" type="button">Mail o WhatsApp de cierre</button>
+<button class="p-btn" data-go="p/tipos/acuerdo" type="button">Envío de acuerdo de trabajo</button>
+<button class="p-btn" data-go="p/tipos/si" type="button">Mail si dice que sí</button>
+<button class="p-btn" data-go="p/tipos/bienvenida" type="button">Mail de bienvenida</button>
+</div>
+</section>
+
+<section class="pant" data-p="tipos/credenciales">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Envío de credenciales</h1>
+<details class="p-paso" name="cred"><summary><span class="p-t">Con la próxima reunión agendada<small>El mismo día de la reunión</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cred-agendada"></div></div></details>
+<details class="p-paso" name="cred"><summary><span class="p-t">Sin próxima reunión<small>Con testimonios parecidos a su caso</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cred-testimonios"></div></div></details>
+<details class="p-paso" name="cred"><summary><span class="p-t">Después de un asado o café<small>Si hubo interés</small></span></summary><div class="p-cuerpo"><div data-msg="pm-cred-pitch"></div></div></details>
+</section>
+
+<section class="pant" data-p="tipos/propuesta">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Envío de propuesta</h1>
+<div data-msg="pm-propuesta"></div>
+</section>
+
+<section class="pant" data-p="tipos/retomar">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Retomar contacto</h1>
+<details class="p-paso" name="ret"><summary><span class="p-t">Ya se interesó antes<small>Evaluó un programa y no avanzó</small></span></summary><div class="p-cuerpo"><div data-msg="pm-retomar"></div></div></details>
+<details class="p-paso" name="ret"><summary><span class="p-t">Contacto antiguo<small>Hubo relación personal</small></span></summary><div class="p-cuerpo"><div data-msg="pm-retomar-antiguo"></div></div></details>
+<details class="p-paso" name="ret"><summary><span class="p-t">Invitación a juntarse<small>Cuando ya hay confianza</small></span></summary><div class="p-cuerpo"><div data-msg="pm-juntarse"></div></div></details>
+<div class="p-links" style="margin-top:10px"><button class="p-link" data-go="p/acercar" type="button">Sin pedir reunión</button></div>
+</section>
+
+<section class="pant" data-p="tipos/seguimiento">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Seguimiento de propuesta</h1>
+<details class="p-paso" name="seg"><summary><span class="p-t">Llamado de feedback<small>A los 2 o 3 días del envío</small></span></summary><div class="p-cuerpo"><div data-msg="pm-feedback"></div></div></details>
+<details class="p-paso" name="seg"><summary><span class="p-t">Seguimiento con testimonio<small>Si no hay novedades</small></span></summary><div class="p-cuerpo"><div data-msg="pm-seg-testimonio"></div></div></details>
+<div class="p-links" style="margin-top:10px"><button class="p-link" data-go="p/respuesta/pospuesto" type="button">Más opciones si no responde</button></div>
+</section>
+
+<section class="pant" data-p="tipos/cierre">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Mail o WhatsApp de cierre</h1>
+<p class="p-d">Después de 2 o 3 toques sin respuesta a la propuesta.</p>
+<details class="p-paso" name="cie"><summary><span class="p-t">Mail de cierre</span></summary><div class="p-cuerpo"><div data-msg="pm-cierre-mail"></div></div></details>
+<details class="p-paso" name="cie"><summary><span class="p-t">WhatsApp de cierre</span></summary><div class="p-cuerpo"><div data-msg="pm-cierre-wpp"></div></div></details>
+</section>
+
+<section class="pant" data-p="tipos/acuerdo">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Envío de acuerdo de trabajo</h1>
+<p class="p-d">Solo si se ajustó la propuesta. Si la aceptó tal cual, va el mail si dice que sí.</p>
+<div data-msg="pm-acuerdo"></div>
+</section>
+
+<section class="pant" data-p="tipos/si">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Mail si dice que sí</h1>
+<div data-msg="pm-si"></div>
+<div class="p-links" style="margin-top:10px"><button class="p-link" data-go="p/respuesta/si" type="button">Todos los pasos si dice que sí</button></div>
+</section>
+
+<section class="pant" data-p="tipos/bienvenida">
+<button class="p-volver" data-go="p/tipos" type="button">‹ Volver</button>
+<h1>Mail de bienvenida</h1>
+<div data-msg="pm-bienvenida"></div>
+<div class="p-links" style="margin-top:10px"><button class="p-link" data-go="p/respuesta/si" type="button">Qué sigue después</button></div>
+</section>
+
+<!-- ================= BIBLIOTECA DE MENSAJES =================
+     Cada mensaje está escrito una sola vez. Las pantallas lo llaman con
+     data-msg="<id>". -->
+<div class="p-lib" aria-hidden="true">
+
+<div class="msg-card" id="pm-cred-pitch">
+<div class="msg-card-head"><span class="msg-card-title">Credenciales · después de un asado o café</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Adjunta las credenciales. Si quedó agendada la reunión, agrega el día.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="8">Hola [Nombre], ¡qué bueno haberte conocido!
+Gracias por la conversación y por tu interés en nuestro programa Scaling (https://scaling.cl/).
+
+Como te comenté, te comparto nuestras credenciales, que explican lo que hacemos y muestran casos de éxito.
+Además, puedes encontrar testimonios de clientes en este link: https://scaling.cl/nos-recomiendan/
+
+[Si quedó agendada: Nos vemos el [día y hora].]
+
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-cred-agendada">
+<div class="msg-card-head"><span class="msg-card-title">Credenciales · con la próxima reunión agendada</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Solo credenciales y la confirmación de la próxima reunión.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="9">Estimado/a [Nombre],
+Gracias por la reunión de hoy y por tu interés en el programa Scaling (https://scaling.cl/).
+
+Estamos entusiasmados con la posibilidad de trabajar contigo y tu equipo.
+
+Adjunto nuestras credenciales, que explican lo que hacemos y muestran casos de éxito.
+Además, puedes encontrar testimonios de clientes en este link: https://scaling.cl/nos-recomiendan/
+
+Nos vemos el [día y hora de la reunión de diagnóstico].
+
+Saludos y que tengas una excelente semana,</textarea>
+</div>
+
+<div class="msg-card" id="pm-cred-testimonios">
+<div class="msg-card-head"><span class="msg-card-title">Credenciales y testimonios · sin próxima reunión</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Asunto: Scaling. Elige testimonios de su industria o de su mismo problema.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="11">Estimado/a [Nombre],
+Gracias por la reunión de hoy y por tu interés en nuestro programa Scaling.
+
+Estamos entusiasmados con la posibilidad de trabajar contigo y con tu equipo para llevar a [empresa] al siguiente nivel.
+
+Como referencia adjunto nuestras credenciales, que incluyen casos de éxito y testimonios de clientes. Si quieres verlos directamente, te dejo el link a algunos de ellos:
+- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
+- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
+- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
+
+Puedes encontrar más testimonios en: https://scaling.cl/nos-recomiendan/
+
+Saludos y que tengas una buena semana,</textarea>
+</div>
+
+<div class="msg-card" id="pm-cred-diag">
+<div class="msg-card-head"><span class="msg-card-title">Credenciales · después del diagnóstico</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Al día siguiente de la reunión de diagnóstico.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="9">Estimado/a [Nombre],
+Gracias por la reunión de ayer y por tu interés en el programa Scaling (https://scaling.cl/).
+
+Estamos entusiasmados con la posibilidad de trabajar contigo y tu equipo.
+
+Adjunto nuestras credenciales que explican lo que hacemos y muestran casos de éxito.
+Además, puedes encontrar testimonios de clientes en este link: https://scaling.cl/nos-recomiendan/
+
+Nos vemos el [día y hora de la próxima reunión].
+
+Saludos y que tengas una excelente semana,</textarea>
+</div>
+
+<div class="msg-card" id="pm-testimonios">
+<div class="msg-card-head"><span class="msg-card-title">Testimonios de 1 minuto</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Elige 2 o 3 testimonios de su industria o de su mismo problema.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="10">Hola [Nombre], ¡espero que estés muy bien!
+Gracias por la reunión de diagnóstico.
+Mientras preparamos la propuesta, te dejo algunos testimonios de gerentes que vivieron algo parecido a lo que me contaste. Son de 1 minuto:
+- Testimonio de [nombre, cargo, empresa]: [link]
+- Testimonio de [nombre, cargo, empresa]: [link]
+
+Puedes ver más en: https://scaling.cl/nos-recomiendan/
+
+Nos vemos el [día] para presentarte la propuesta.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-regalo-conv">
+<div class="msg-card-head"><span class="msg-card-title">Regalo después de una conversación</span><span class="channel-badge wpp">WhatsApp</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">La herramienta se elige por lo que te contó. No se pide reunión.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="6">Hola [Nombre], ¡qué bueno haberte visto!
+Me quedé pensando en lo que me contaste de [tema, en sus palabras].
+Si te sirve, te comparto [herramienta]: [para qué sirve, en una línea].
+Espero que sea de tu utilidad.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-regalo-frio">
+<div class="msg-card-head"><span class="msg-card-title">Ofrecer un regalo · en frío</span><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Si dice que sí, le mandas el archivo. De octubre a enero calza «Tips para planificar tu 2027».</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+[Vínculo: vi que… / felicitaciones por…]
+
+Armamos unos tips cortos para gerentes generales que están planificando su 2027. ¿Te los comparto?
+
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-regalo-espera">
+<div class="msg-card-head"><span class="msg-card-title">Regalo · mientras llega la reunión</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">La herramienta va conectada con el dolor que contó.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+Mientras llega nuestra reunión del [día], me acordé de lo que me contaste de [su dolor, en sus palabras].
+Si te sirve, te comparto [herramienta]: [para qué sirve, en una línea]. Te puede ayudar a ir avanzando desde ya.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-regalo-propuesta">
+<div class="msg-card-head"><span class="msg-card-title">Regalo · mientras preparamos la propuesta</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Una herramienta que adelanta parte del trabajo. Ej.: el Plan Estratégico en Una Página si el dolor es alineamiento.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+Estamos armando la propuesta pensando en lo que quieres lograr: [su objetivo, en sus palabras].
+Mientras tanto, te comparto [herramienta]. Es una de las que usaríamos juntos, y la puedes empezar a usar desde ya con tu equipo.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-regalo-piensa">
+<div class="msg-card-head"><span class="msg-card-title">Regalo · mientras lo piensa</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Elige la herramienta por el objetivo que te contó.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+Mientras lo piensas, te comparto [herramienta], que te puede servir para [su objetivo] desde ya, con o sin nosotros.
+Espero que sea de tu utilidad.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-regalo-cerca">
+<div class="msg-card-head"><span class="msg-card-title">Regalo · para seguir cerca</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Cada 2 o 3 meses, según el dolor que conociste en el proceso.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="6">Hola [Nombre], ¡espero que estés muy bien!
+Me acordé de lo que conversamos sobre [su tema].
+Si te sirve, te comparto [herramienta]: [para qué sirve, en una línea].
+Espero que sea de tu utilidad.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-nl">
+<div class="msg-card-head"><span class="msg-card-title">Invitación al Newsletter</span><span class="channel-badge wpp">WhatsApp</span><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Si dice que sí, se inscribe con su mail.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+Si te sirve, una vez al mes enviamos herramientas prácticas para gerentes generales, enfocadas en mejorar los resultados financieros y el desempeño del equipo.
+¿Te interesaría que te las mande? Solo necesitaría tu mail.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-nl-no">
+<div class="msg-card-head"><span class="msg-card-title">Invitación al Newsletter · después del cierre</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Para seguir cerca como alguien que ayuda, sin vender.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+Para seguir en contacto sin llenarte de mensajes: una vez al mes enviamos herramientas prácticas para gerentes generales, enfocadas en mejorar los resultados financieros y el desempeño del equipo.
+Si te sirve, te inscribo con este mail. ¿Te parece?
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-webinar">
+<div class="msg-card-head"><span class="msg-card-title">Invitación a webinar</span><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">El toque más liviano: invita sin pedir nada a cambio.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="8">Hola [Nombre],
+
+El [fecha] realizaré un webinar de Scaling: [tema — ej. "¿Cómo escalar la caja de tu empresa?"]
+
+Conversaremos sobre:
+— [idea concreta 1, ej. "12 decisiones concretas para aumentar el efectivo disponible"]
+— [idea concreta 2, ej. "Las 7 palancas del efectivo que impactan la caja del negocio"]
+
+Si te interesa, te dejo el link: [link inscripción]
+
+¡Saludos y buena semana!</textarea>
+</div>
+
+<div class="msg-card" id="pm-webinar-conv">
+<div class="msg-card-head"><span class="msg-card-title">Webinar · conectado a lo que conversaron</span><span class="channel-badge wpp">WhatsApp</span><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Parte de lo que te contó.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+Me acordé de lo que conversamos sobre [tema]. El [fecha] hacemos un webinar justo de eso: [título — ej. "Planifica tu 2027"].
+Si te sirve, acá va el link: [link inscripción]
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-webinar-objetivo">
+<div class="msg-card-head"><span class="msg-card-title">Webinar · para su objetivo</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><span class="channel-badge linkedin">LinkedIn</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Le regala ideas para avanzar, con o sin nosotros.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+El [fecha] hacemos el webinar [título]. Me acordé de ti porque está muy conectado con lo que quieres lograr: [su objetivo].
+Si te sirve, acá va el link: [link inscripción]
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-diag-base">
+<div class="msg-card-head"><span class="msg-card-title">Test diagnóstico · en frío</span><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Para que quede asignado a ti en el CRM, agrega ?r= y tus iniciales al final del link (ej. …/diagnostico?r=AMU).</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="6">Hola [Nombre], ¡espero que estés muy bien!
+Te comparto un diagnóstico de 3 minutos para gerentes generales. Te muestra qué tan preparada está tu empresa para escalar, dónde se te están fugando el tiempo y el margen, y cuánto te está costando.
+Si te sirve, acá va el link: https://scaling-crm-eight.vercel.app/diagnostico
+Un abrazo,
+[Tu nombre]</textarea>
+</div>
+
+<div class="msg-card" id="pm-diag-conocido">
+<div class="msg-card-head"><span class="msg-card-title">Test diagnóstico · a un conocido</span><span class="channel-badge wpp">WhatsApp</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Para que quede asignado a ti en el CRM, agrega ?r= y tus iniciales al final del link (ej. …/diagnostico?r=AMU).</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="6">Hola [Nombre], ¡espero que estés muy bien!
+[Vínculo: me acordé de ti por… / felicitaciones por…]
+Te comparto un diagnóstico de 3 minutos que armamos para gerentes generales. Te muestra qué tan preparada está [empresa] para escalar, dónde se están fugando el tiempo y el margen, y cuánto te está costando.
+Si te sirve, acá va el link: https://scaling-crm-eight.vercel.app/diagnostico
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-diag-antes">
+<div class="msg-card-head"><span class="msg-card-title">Test diagnóstico · antes de la reunión de diagnóstico</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Si lo responde, revisa el resultado en el CRM (Diagnósticos) antes de la reunión. Agrega ?r= y tus iniciales al link.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
+Gracias de nuevo por la conversación.
+Antes de juntarnos el [día], te comparto un diagnóstico de 3 minutos. Así aprovechas mejor la reunión: llegamos sabiendo dónde está más fuerte [empresa] y dónde se están fugando el tiempo y el margen.
+Acá va el link: https://scaling-crm-eight.vercel.app/diagnostico
+Nos vemos el [día],
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-diag-retomar">
+<div class="msg-card-head"><span class="msg-card-title">Test diagnóstico · para retomar</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Unos meses después del no, no mientras decide. Agrega ?r= y tus iniciales al link.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="7">Hola [Nombre], ¡espero que estés muy bien!
+Me acordé de lo que conversamos sobre [su objetivo].
+Te comparto un diagnóstico de 3 minutos para gerentes generales. Te muestra qué tan preparada está [empresa] para escalar y dónde se están fugando el tiempo y el margen. Te puede servir para tu próxima planificación.
+Si te sirve, acá va el link: https://scaling-crm-eight.vercel.app/diagnostico
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-cierre-amable">
+<div class="msg-card-head"><span class="msg-card-title">Cierre amable · sin propuesta</span><span class="channel-badge wpp">WhatsApp</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Le saca la presión. Sigue recibiendo el Newsletter y en unos meses se puede retomar.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="5">Hola [Nombre], ¡espero que estés muy bien!
+No te quiero llenar de mensajes: entiendo que hoy tienes otras prioridades.
+Si te sirve, te sigo compartiendo una vez al mes herramientas para gerentes generales. Y cuando quieras conversar sobre [su tema], aquí estoy.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-propuesta">
+<div class="msg-card-head"><span class="msg-card-title">Envío de propuesta</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">El mismo día que la presentaste, nunca antes. Con garantías y tres clientes de referencia.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="16">Hola [Nombre],
+Gracias por la reunión de hoy y por tu tiempo e interés en nuestro programa Scaling.
+
+Estamos muy entusiasmados en trabajar contigo y con tu equipo para llevar a [empresa] al siguiente nivel.
+
+Adjunto la propuesta que revisamos. Tal como te señalamos en la reunión, queremos ser una inversión altamente rentable para [empresa].
+
+Para ayudarte en la decisión te damos garantías tales como cancelación sin compromiso en cualquier momento del programa y devolución del dinero si no estás conforme durante el primer mes de trabajo.
+
+Como referencia adjunto 3 clientes que te pueden comentar de su experiencia con nosotros:
+- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
+- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
+- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
+
+Si quisieras contactar a otro cliente, agradeceré que nos lo hagas saber.
+
+Puedes encontrar más testimonios en: https://scaling.cl/nos-recomiendan/
+
+Cuenta con nosotros si hubiera algo más que podamos hacer para ayudarte a avanzar.
+
+Nos vemos el [día],
+Saludos y que tengas una excelente semana,</textarea>
+</div>
+
+<div class="msg-card" id="pm-feedback">
+<div class="msg-card-head"><span class="msg-card-title">Llamado de feedback</span><span class="channel-badge llamado">Llamado</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Acá se descubre el motivo real de la demora.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="14">Hola [Nombre] ¿cómo estás? Habla [tu nombre].
+
+¿Alcanzaste a revisar la propuesta que te enviamos?
+
+(escuchar)
+
+¿Qué te pareció? Cuéntame qué es lo que más te hizo sentido, y qué es lo que te genera dudas o te hace ruido.
+
+(escuchar)
+
+De lo que te presentamos, ¿qué es lo que más valor le ves? ¿Y qué es lo que menos valor le ves, o sientes que no aplica tanto a tu realidad?
+
+(escuchar)
+
+Perfecto, eso me sirve mucho para ajustarlo. Quiero que sientas que esto es a tu medida, no un programa genérico — cuéntame, ¿qué necesitarías ver distinto para que esto realmente te haga sentido?
+
+(escuchar y tomar nota del motivo real: precio, tiempo, confianza en resultados, necesita involucrar a más gente, etc.)
+
+Tranquilo/a, esto se puede ajustar. Lo que buscamos es que el programa te haga sentido y que realmente genere resultados para ti y tu equipo — no que avances solo por avanzar.
+
+Te propongo [ajustar la propuesta en base a esto / mandarte contenido puntual sobre tu duda / darte unos días más] y seguimos la conversación desde ahí. ¿Te parece?</textarea>
+</div>
+
+<div class="msg-card" id="pm-seg-testimonio">
+<div class="msg-card-head"><span class="msg-card-title">Seguimiento de propuesta · con testimonio</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Elige un testimonio de su industria.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="9">Hola [Nombre],
+¿Cómo estás? Espero que muy bien.
+
+Estamos entusiasmados con la posibilidad de trabajar contigo y tu equipo para llevar a [empresa] al siguiente nivel. Podemos ajustar el alcance, intensidad y precio del programa según lo que estimes de mayor impacto.
+
+Entendemos que una de las principales dudas al evaluar Scaling es si realmente impacta en los resultados. Te invito a revisar este testimonio: [nombre cliente, cargo — link testimonio 1 min], que comenta cómo el programa ayudó a alinear al equipo y enfocarse en lo que realmente mueve la aguja del negocio.
+
+Si te hace sentido, nos encantaría recibir tu feedback de la propuesta — ¿tienes disponibilidad esta semana?
+
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-planificacion">
+<div class="msg-card-head"><span class="msg-card-title">La planificación del próximo año</span><span class="channel-badge mail">Mail</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Adjunta Tips para Planificar_Scaling_2026.pdf. Sirve de octubre a enero.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="7">Hola [Nombre], ¡espero que estés muy bien!
+Se viene la planificación 2027 y me acordé de lo que me contaste de [su objetivo].
+Te comparto estos tips para planificar, por si te sirven: son 7 ideas cortas, y la primera es agendarla antes de que lo urgente se tome la agenda.
+Si quieres que te acompañemos en esa planificación, feliz de ayudarte. Y si no es el momento, ningún problema.
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-pospuesto">
+<div class="msg-card-head"><span class="msg-card-title">Si pidió esperar · una opción más chica</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Pidió esperar sin fecha clara. Se le ofrece partir con menos riesgo.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="10">Hola [Nombre],
+
+Espero que estén muy bien.
+
+Ha pasado un tiempo desde que conversamos y entiendo que querías esperar antes de retomar. Quisiera proponerte algo distinto.
+
+Lo más difícil siempre es decidir dar el primer paso — y nunca es "el mejor momento". Pero si ya tomaste la decisión de fortalecer a tu equipo de liderazgo y acelerar el crecimiento, cuanto antes, mejor: posponer el inicio también pospone los beneficios.
+
+Para ayudarte en la decisión, sumamos una garantía: después de la sesión de inicio, evaluamos juntos el fit con el coach asignado — así decides con la experiencia ya vivida si continuar, ajustar o seguir por cuenta propia.
+
+Te dejo también este testimonio donde seis clientes comparten el impacto del programa en sus resultados: [link].
+
+¿Agendamos un café?</textarea>
+</div>
+
+<div class="msg-card" id="pm-cierre-mail">
+<div class="msg-card-head"><span class="msg-card-title">Mail de cierre</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Pide una definición sin presionar y deja la puerta abierta.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="9">Hola [Nombre],
+
+Espero que te encuentres bien.
+
+Como no hemos recibido noticias tuyas desde que presentamos la propuesta, asumimos que tienes otras prioridades en este momento.
+
+Agradeceré que confirmes el cierre de nuestro proceso con [empresa].
+
+Si no es así, y aún tienes interés en retomar la conversación, ¿cuál sería el siguiente paso que recomiendas?
+
+Si cerramos, seguiremos en contacto por medio de nuestro Newsletter y quedamos a tu disposición para el futuro.
+
+Saludos y gracias por el tiempo que nos has dedicado,</textarea>
+</div>
+
+<div class="msg-card" id="pm-cierre-wpp">
+<div class="msg-card-head"><span class="msg-card-title">WhatsApp de cierre</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">La versión corta, para quien conversa por WhatsApp.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="7">Hola [Nombre],
+¿Cómo estás?
+
+Dado que no hemos tenido respuesta a nuestra propuesta, asumo que están priorizando otros temas.
+
+Quedamos en contacto por medio de nuestro Newsletter.
+
+Si me equivoco, avísame y retomamos la conversación.
+
+Que tengas una excelente semana.</textarea>
+</div>
+
+<div class="msg-card" id="pm-si">
+<div class="msg-card-head"><span class="msg-card-title">Mail si dice que sí</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Dijo que sí de palabra y acepta la propuesta tal cual: se le pide confirmarlo por escrito.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="8">Hola [Nombre],
+
+Gracias por tu tiempo y por la decisión de iniciar nuestro programa Scaling.
+
+Como te comentamos, buscaremos ser una inversión altamente rentable para [empresa].
+
+Para empezar, agradeceré que nos confirmes por este medio tu aceptación de la propuesta que te enviamos. Una vez confirmada, [nombre contraparte] te hará llegar el documento de Bienvenida con la información que necesitamos para iniciar el programa.
+
+Cualquier inquietud, no dudes en contactarme.
+
+Saludos,</textarea>
+</div>
+
+<div class="msg-card" id="pm-acuerdo">
+<div class="msg-card-head"><span class="msg-card-title">Acuerdo de trabajo · propuesta con cambios</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Adjunta el acuerdo de trabajo con los ajustes.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="8">Estimado/a [Nombre],
+
+Muchas gracias por la conversación de hoy y por la decisión de iniciar nuestro programa Scaling.
+
+Adjunto el acuerdo de trabajo con los ajustes que conversamos.
+
+Si estás de acuerdo, agradeceré que nos confirmes tu aceptación por este medio. Una vez confirmada, [nombre contraparte] te hará llegar el documento de Bienvenida, y [nombre coach] se pondrá en contacto para coordinar el kick off.
+
+Cualquier inquietud, no dudes en contactarme.
+
+Saludos,</textarea>
+</div>
+
+<div class="msg-card" id="pm-bienvenida">
+<div class="msg-card-head"><span class="msg-card-title">Mail de bienvenida · lo manda el coach</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Lo manda Alfonso o el coach líder apenas confirma por escrito.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="9">Estimado/a [Nombre],
+Gracias por la confianza depositada en nosotros.
+Buscaremos ser una inversión altamente rentable para ustedes y para [empresa].
+
+[Nombre CX] les hará llegar el documento Bienvenidos, que incluye la información que requerimos para iniciar el programa.
+Además, [nombre coach] se pondrá en contacto con ustedes para coordinar la reunión de kick off.
+Por último, [nombre] será la contraparte administrativa.
+
+Cualquier pregunta o inquietud, no duden en contactarme.
+
+Saludos y que tengan un excelente día,</textarea>
+</div>
+
+<div class="msg-card" id="pm-bienvenidos-doc">
+<div class="msg-card-head"><span class="msg-card-title">Documento Bienvenidos · lo manda CX</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Adjunta el docx de Bienvenidos. Incluye el borrador para que el gerente general avise a su equipo.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="16">Estimado/a [Nombre],
+¡Gracias por tu confirmación y bienvenido/a al programa Scaling!
+Estamos muy contentos y entusiasmados de ser parte de esta etapa de crecimiento de [empresa].
+Tal como te comentó [nombre coach], adjunto el documento "Bienvenidos", en el que se solicitan los datos necesarios para empezar el programa. Agradeceré completarlo y compartirlo con nosotros.
+Cualquier pregunta, no dudes en contactarnos.
+
+Además, te comparto un borrador de mail por si quisieras usarlo para contarle a tu equipo sobre el proceso que estamos iniciando y facilitar el agendamiento de las entrevistas. Agradeceré nos des tu ok cuando hayas dado aviso, para empezar a contactarlos y realizar las entrevistas de diagnóstico.
+____________________
+Estimado equipo,
+Durante el próximo mes trabajaremos con el equipo de Scaling, quienes nos apoyarán en nuestro crecimiento con la implementación de un sistema de trabajo ágil y adaptativo llamado Scaling Up.
+Como parte del programa, ellos contactarán a algunos de ustedes para agendar una entrevista de diagnóstico e inducción al programa, a realizarse durante las próximas semanas.
+Esta reunión no durará más de 40 minutos. Agradeceré se hagan un tiempo para esta importante actividad.
+____________________
+
+Saludos y que tengas una excelente tarde,</textarea>
+</div>
+
+<div class="msg-card" id="pm-bienvenidos-recibido">
+<div class="msg-card-head"><span class="msg-card-title">Bienvenidos recibido · aviso al equipo y facturación</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Cuando devuelven el documento completo.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="7">Estimado/a [Nombre],
+Muchas gracias por la información compartida.
+
+¿Podrías confirmarnos si ya se ha informado al equipo de [empresa] sobre el inicio del programa? Esto nos permitirá avanzar con la programación de las entrevistas de diagnóstico.
+
+Además, según lo acordado en la propuesta, correspondería emitir la primera factura asociada al cierre del acuerdo. Agradeceré que nos confirmes si [persona de facturación] está al tanto, para contactarme con él/ella.
+
+Quedo atento/a a tus comentarios.
+Saludos cordiales,</textarea>
+</div>
+
+<div class="msg-card" id="pm-facturacion">
+<div class="msg-card-head"><span class="msg-card-title">Primer contacto con facturación</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Lo manda la contraparte administrativa. Los datos bancarios se pegan desde el mail original.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="11">Estimado/a [Nombre],
+Espero que te encuentres muy bien.
+
+Mi nombre es [tu nombre] y trabajo junto a [coaches y CX de Scaling], a quienes pongo en copia.
+
+Tal como te habrá comentado [gerente general], comenzaremos con el programa Scaling en [empresa] por [X] meses, por un monto de $[monto] + IVA al mes.
+
+¡Bienvenidos al programa! Estamos muy felices de ser parte de esta etapa de crecimiento de [empresa].
+
+Según el acuerdo de trabajo, el primer pago es al contado y las próximas facturas las emitiremos a mediados de cada mes, con plazo de pago el 5 del mes siguiente. Antes de emitir la primera factura, quisiera saber si trabajan o no con OC.
+
+Te comparto también nuestros datos bancarios:
+[datos bancarios de Scaling]
+
+Si tuvieras cualquier duda o inquietud, estoy a tu disposición.
+
+Saludos y gracias,</textarea>
+</div>
+
+<div class="msg-card" id="pm-entrevistas">
+<div class="msg-card-head"><span class="msg-card-title">Agendamiento de entrevistas de diagnóstico</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Asunto: Agendamiento de entrevistas de diagnóstico Scaling - [empresa]. Va al equipo.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="10">Estimado equipo de [empresa],
+¡Bienvenidos al programa! Esperamos ser un aporte para el equipo.
+
+Mi nombre es [tu nombre], y trabajo junto a [coaches y CX de Scaling], a quienes pongo en copia.
+Tal como les comentó [gerente general], comenzamos un programa de acompañamiento en [empresa] para potenciar el crecimiento del equipo y sus resultados.
+
+Para conocerlos, nos gustaría tener con cada uno de ustedes una entrevista de diagnóstico e inducción al programa. Será una conversación online de aproximadamente 20-30 minutos.
+
+Agradeceré que entren al siguiente link y escojan el día y horario que más les acomode: [link]
+
+Una vez que se inscriban en la planilla escribiendo su nombre según su disponibilidad, los agendaremos.
+
+Cualquier pregunta o inquietud, no duden en escribirme.
+
+Saludos y muchas gracias,</textarea>
+</div>
+
+<div class="msg-card" id="pm-no">
+<div class="msg-card-head"><span class="msg-card-title">Respuesta a la negativa</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Se agradece la franqueza y se deja la puerta abierta.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="7">Estimado/a [Nombre],
+
+Gracias por tu respuesta y franqueza.
+
+Entendemos completamente el contexto en que están y lo desafiante que es priorizar en medio de una planificación compleja.
+
+Puede que más adelante ya no tenga sentido retomar esta conversación, y está perfecto si es así. Pero si al revisar prioridades sienten que esto puede ser un aporte real, felices de conversar en ese momento.
+
+Quedamos atentos y disponibles para cuando quieras retomar el proceso, y seguimos en contacto por medio de nuestro Newsletter.
+
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-retomar">
+<div class="msg-card-head"><span class="msg-card-title">Retomar · ya se interesó antes</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Reconocer esa historia en la primera línea es lo que lo distingue de un mensaje frío.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="8">Hola [Nombre],
+¿Cómo estás?
+Hace un tiempo te interesaste en un programa Scaling para [empresa].
+
+Te cuento que desde entonces hemos seguido creciendo en coaches, experiencias de éxito y metodologías de impacto que ayudan a escalar negocios y equipos hacia resultados extraordinarios de EBITDA y caja.
+
+Por lo mismo es que te invito a volver a evaluar un programa para [empresa] que te ayude a escalar los resultados del negocio y disfrutar el camino.
+
+Si no es un buen momento o estás priorizando otros temas, no te preocupes y seguimos en contacto por medio de nuestro Newsletter.
+
+Saludos,</textarea>
+</div>
+
+<div class="msg-card" id="pm-retomar-antiguo">
+<div class="msg-card-head"><span class="msg-card-title">Retomar · contacto antiguo</span><span class="channel-badge mail">Mail</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Trae una herramienta concreta como excusa para reabrir la conversación.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="11">Hola [Nombre],
+¿Cómo estás? Tanto tiempo.
+Espero que tú y tu familia estén muy bien.
+
+Te cuento que ya cumplimos 8 años y más de 70 casos de éxito en Chile y otros países.
+
+En este tiempo hemos crecido como coaches y desarrollado nuevas herramientas para lograr resultados de EBITDA y caja.
+Una de ellas es un Modelo de Negocio que resuelve una duda común de las empresas: ¿cómo deleitar al cliente y, al mismo tiempo, generar un margen creciente?
+Si te interesa, avísame y te mando la Growth Tool.
+
+¿Te animas a evaluar una nueva etapa del programa Scaling (https://scaling.cl/)?
+Si no es el momento, no hay problema, seguimos en contacto por medio de nuestro Newsletter.
+
+Un abrazo,</textarea>
+</div>
+
+<div class="msg-card" id="pm-juntarse">
+<div class="msg-card-head"><span class="msg-card-title">Invitación a juntarse</span><span class="channel-badge mail">Mail</span><span class="channel-badge linkedin">LinkedIn</span><span class="channel-badge wpp">WhatsApp</span><button class="copy-btn" onclick="copyMsg(this)" type="button">Copiar</button></div>
+<div class="msg-card-note">Lo único que cambia es la línea de vínculo: el motivo real por el que le escribes hoy.</div>
+<textarea class="msg-card-body" data-copy="" readonly="readonly" rows="6">Hola [Nombre], ¿cómo estás?
+
+[Vínculo: felicitaciones por… / te vi en… / gracias por…]
+
+Si te interesa ver cómo podríamos apoyarte a escalar [empresa], feliz de agendar un café.
+
+Si no es el momento, ningún problema, seguimos en contacto.
+
+Saludos y buena semana,</textarea>
+</div>
+
 </div>
 </div></div>
 <div class="vista" id="v-estrategia"><div class="container">
@@ -1716,9 +2710,8 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
     </div>
 </div>
 <!--MAPA-INI--><div class="mapa-entre">
-<div class="mp-t">El camino, reunión a reunión</div>
-<p class="mp-d">Entre una reunión y otra no se presiona: se le regala algo que lo ayude a lograr sus resultados. El protagonista es él; nosotros somos la guía. <strong>Solo se manda algo si pasa tiempo y la relación se puede enfriar</strong>; si la próxima reunión es en pocos días, basta con el mensaje del mismo día.</p>
-<ol class="mp-lista"><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-0" data-to="s0" type="button"><span class="mp-n">1</span>Pitch de asado o catch up</button><button class="mp-gift" data-go="guiones" data-radio="stageradio-0" data-to="entre-s0" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-2" data-to="s1" type="button"><span class="mp-n">2</span>Reunión de presentación</button><button class="mp-gift" data-go="guiones" data-radio="stageradio-2" data-to="entre-s1" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-3" data-to="s2" type="button"><span class="mp-n">3</span>Reunión de diagnóstico</button><button class="mp-gift" data-go="guiones" data-radio="stageradio-3" data-to="entre-s2" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-4" data-to="s3" type="button"><span class="mp-n">4</span>Presentación de propuesta</button><button class="mp-gift" data-go="guiones" data-radio="stageradio-4" data-to="entre-s3" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-5" data-to="s4" type="button"><span class="mp-n">5</span>Seguimiento</button><button class="mp-gift" data-go="guiones" data-radio="stageradio-5" data-to="entre-s4" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-6" data-to="s5" type="button"><span class="mp-n">6</span>Cierre</button><button class="mp-gift" data-go="guiones" data-radio="stageradio-6" data-to="entre-s5" type="button">Qué mandar después →</button></li></ol>
+<div class="mp-t">Qué mandar después de cada reunión</div>
+<ol class="mp-lista"><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-0" data-to="s0" type="button"><span class="mp-n">1</span>Pitch de asado o catch up</button><button class="mp-gift" data-go="p/despues/pitch" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-2" data-to="s1" type="button"><span class="mp-n">2</span>Reunión de presentación</button><button class="mp-gift" data-go="p/despues/presentacion" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-3" data-to="s2" type="button"><span class="mp-n">3</span>Reunión de diagnóstico</button><button class="mp-gift" data-go="p/despues/diagnostico" type="button">Qué mandar después →</button></li><li><button class="mp-reu" data-go="guiones" data-radio="stageradio-4" data-to="s3" type="button"><span class="mp-n">4</span>Presentación de propuesta</button><button class="mp-gift" data-go="p/despues/propuesta" type="button">Qué mandar después →</button></li></ol>
 </div><!--MAPA-FIN-->
 <input class="nav-radio" id="stageradio-6" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-7" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-5" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-4" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-3" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-2" name="stagenav" type="radio"/><input class="nav-radio" id="stageradio-1" name="stagenav" type="radio"/><input checked="checked" class="nav-radio" id="stageradio-0" name="stagenav" type="radio"/><div class="stage-nav">
 <label class="stage-btn" for="stageradio-0"><span class="num">1</span>Pitch de asado</label>
@@ -1793,70 +2786,7 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>
 </div>
 <div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span><strong>Regla Sandler:</strong> el objetivo de esta conversación es conseguir la reunión, no convencer. El pitch perfecto no explica todo — despierta la pregunta "¿cómo lo hacen?". Si tienes que convencer mucho, no es un buen lead.</span></div>
-<!--ENTRE-INI--><div class="entre" id="entre-s0">
-<div class="entre-t">Entre reuniones · Si hubo interés, pero no se agendó</div>
-<p class="entre-ctx">No se vuelve a pedir el café. Se le regala algo que le sirva y se deja que él se acerque.</p>
-<ol class="entre-pasos">
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Regalo</span><span class="ep-c">Esa misma semana</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Regalo después de una conversación<span class="ec-canal">WhatsApp · Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">La herramienta se elige por lo que te contó, no por la que más te guste: la tabla está en <strong>Seguimiento › Regalo según el dolor</strong>. No se pide reunión: el regalo es el toque.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="7">Hola [Nombre], ¡qué bueno haberte visto!
-Me quedé pensando en lo que me contaste de [tema, en sus palabras].
-Si te sirve, te comparto [herramienta]: [para qué sirve, en una línea].
-Espero que sea de tu utilidad.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Invitación al Newsletter</span><span class="ep-c">En el mismo mensaje o 1 semana después</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Invitación al Newsletter<span class="ec-canal">WhatsApp · Mail · LinkedIn</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Para quedar cerca sin pedir nada. Si dice que sí, se inscribe con su mail.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
-Si te sirve, una vez al mes enviamos herramientas prácticas para gerentes generales, enfocadas en mejorar los resultados financieros y el desempeño del equipo.
-¿Te interesaría que te las mande? Solo necesitaría tu mail.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">3</span><span class="ep-txt"><span class="ep-t">Webinar</span><span class="ep-c">2 o 3 semanas después, si hay uno que le sirva</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Webinar · conectado a lo que conversaron<span class="ec-canal">WhatsApp · Mail · LinkedIn</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Más cálido que la invitación general al webinar: parte de lo que te contó.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="7">Hola [Nombre], ¡espero que estés muy bien!
-Me acordé de lo que conversamos sobre [tema]. El [fecha] hacemos un webinar justo de eso: [título — ej. "Planifica tu 2027"].
-Si te sirve, acá va el link: [link inscripción]
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">4</span><span class="ep-txt"><span class="ep-t">Diagnóstico</span><span class="ep-c">Si respondió con interés a alguno de los anteriores</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Diagnóstico · a un conocido<span class="ec-canal">WhatsApp · Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">La línea de vínculo es lo que hace que no se lea como envío masivo. Para que el contacto quede asignado a ti en el CRM cuando lo responda, agrega <strong>?r=</strong> y tus iniciales al final del link (ej. <strong>…/diagnostico?r=AMU</strong>).</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre], ¡espero que estés muy bien!
-[Vínculo: me acordé de ti por… / felicitaciones por…]
-Te comparto un diagnóstico de 3 minutos que armamos para gerentes generales. Te muestra qué tan preparada está [empresa] para escalar, dónde se están fugando el tiempo y el margen, y cuánto te está costando.
-Si te sirve, acá va el link: https://scaling-crm-eight.vercel.app/diagnostico
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">5</span><span class="ep-txt"><span class="ep-t">Cierre amable</span><span class="ep-c">Si no respondió a dos toques</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Cierre amable · sin propuesta<span class="ec-canal">WhatsApp · Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Después de 2 toques sin respuesta. No es despedirse: es sacarle la presión y quedar como alguien que ayuda. Sigue recibiendo el Newsletter, y en unos meses se puede retomar.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
-No te quiero llenar de mensajes: entiendo que hoy tienes otras prioridades.
-Si te sirve, te sigo compartiendo una vez al mes herramientas para gerentes generales. Y cuando quieras conversar sobre [su tema], aquí estoy.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-</ol>
-<p class="entre-pie">Solo si entre una reunión y otra pasa tiempo y se puede enfriar: un toque cada 1 o 2 semanas, y cada uno le regala algo. <button class="ep-ir" data-go="seguimiento" data-radio="ctradio-2" data-to="sec-etapas" type="button">Ver todo según la etapa del lead →</button></p>
-</div><!--ENTRE-FIN-->
+<!--ENTRE-INI--><div class="entre" id="entre-s0"><button class="entre-ir" data-go="p/despues/pitch" type="button">Qué mandar después de esta reunión</button></div><!--ENTRE-FIN-->
 </div>
 <div class="stage-panel" id="s1b">
 <div class="stage-header">
@@ -1980,70 +2910,7 @@ Un abrazo,</textarea>
 </div>
 </div>
 </div>
-<!--ENTRE-INI--><div class="entre" id="entre-s1b">
-<div class="entre-t">Entre reuniones · Después del catch up</div>
-<p class="entre-ctx">Salió del café con el sí al contenido (el no-lose close). Se cumple lo prometido, sin pedir nada más.</p>
-<ol class="entre-pasos">
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Regalo</span><span class="ep-c">Dentro de la semana, adjunto: ya hay confianza</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Regalo después de una conversación<span class="ec-canal">WhatsApp · Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">La herramienta se elige por lo que te contó, no por la que más te guste: la tabla está en <strong>Seguimiento › Regalo según el dolor</strong>. No se pide reunión: el regalo es el toque.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="7">Hola [Nombre], ¡qué bueno haberte visto!
-Me quedé pensando en lo que me contaste de [tema, en sus palabras].
-Si te sirve, te comparto [herramienta]: [para qué sirve, en una línea].
-Espero que sea de tu utilidad.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Invitación al Newsletter</span><span class="ep-c">En el mismo mensaje o 1 semana después</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Invitación al Newsletter<span class="ec-canal">WhatsApp · Mail · LinkedIn</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Para quedar cerca sin pedir nada. Si dice que sí, se inscribe con su mail.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
-Si te sirve, una vez al mes enviamos herramientas prácticas para gerentes generales, enfocadas en mejorar los resultados financieros y el desempeño del equipo.
-¿Te interesaría que te las mande? Solo necesitaría tu mail.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">3</span><span class="ep-txt"><span class="ep-t">Webinar</span><span class="ep-c">2 o 3 semanas después, si hay uno que le sirva</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Webinar · conectado a lo que conversaron<span class="ec-canal">WhatsApp · Mail · LinkedIn</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Más cálido que la invitación general al webinar: parte de lo que te contó.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="7">Hola [Nombre], ¡espero que estés muy bien!
-Me acordé de lo que conversamos sobre [tema]. El [fecha] hacemos un webinar justo de eso: [título — ej. "Planifica tu 2027"].
-Si te sirve, acá va el link: [link inscripción]
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">4</span><span class="ep-txt"><span class="ep-t">Diagnóstico</span><span class="ep-c">Si responde con interés. Recién después, el pitch de presentación</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Diagnóstico · a un conocido<span class="ec-canal">WhatsApp · Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">La línea de vínculo es lo que hace que no se lea como envío masivo. Para que el contacto quede asignado a ti en el CRM cuando lo responda, agrega <strong>?r=</strong> y tus iniciales al final del link (ej. <strong>…/diagnostico?r=AMU</strong>).</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre], ¡espero que estés muy bien!
-[Vínculo: me acordé de ti por… / felicitaciones por…]
-Te comparto un diagnóstico de 3 minutos que armamos para gerentes generales. Te muestra qué tan preparada está [empresa] para escalar, dónde se están fugando el tiempo y el margen, y cuánto te está costando.
-Si te sirve, acá va el link: https://scaling-crm-eight.vercel.app/diagnostico
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">5</span><span class="ep-txt"><span class="ep-t">Cierre amable</span><span class="ep-c">Si no respondió a dos toques</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Cierre amable · sin propuesta<span class="ec-canal">WhatsApp · Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Después de 2 toques sin respuesta. No es despedirse: es sacarle la presión y quedar como alguien que ayuda. Sigue recibiendo el Newsletter, y en unos meses se puede retomar.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
-No te quiero llenar de mensajes: entiendo que hoy tienes otras prioridades.
-Si te sirve, te sigo compartiendo una vez al mes herramientas para gerentes generales. Y cuando quieras conversar sobre [su tema], aquí estoy.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-</ol>
-<p class="entre-pie">Solo si entre una reunión y otra pasa tiempo y se puede enfriar: un toque cada 1 o 2 semanas, y cada uno le regala algo. <button class="ep-ir" data-go="seguimiento" data-radio="ctradio-2" data-to="sec-etapas" type="button">Ver todo según la etapa del lead →</button></p>
-</div><!--ENTRE-FIN-->
+<!--ENTRE-INI--><div class="entre" id="entre-s1b"><button class="entre-ir" data-go="p/despues/pitch" type="button">Qué mandar después de esta reunión</button></div><!--ENTRE-FIN-->
 </div>
 <div class="stage-panel" id="s1">
 <div class="stage-header">
@@ -2140,87 +3007,7 @@ Un abrazo,</textarea>
 </div>
 <div class="tip-box" style="background:#EAF6EE; border-color:#9CCBAE; display:block;"><i aria-hidden="true" class="ti ti-mail-check" style="color:#1E7A4C;"></i> <span><strong>Post reunión · si siguió a diagnóstico:</strong> se manda <strong>solo el mail con las credenciales</strong> y la confirmación de la próxima reunión — sin testimonios, porque el prospecto ya avanzó. El texto listo para copiar está en <strong>3 · Material seguimiento</strong>, tipo de lead <strong>"Leads con reunión de diagnóstico"</strong>.</span><br/><button class="ir-msg" data-go="seguimiento" data-seg="leads-diagnostico" type="button">Abrir ese mensaje <i aria-hidden="true" class="ti ti-arrow-right"></i></button></div>
 <div class="tip-box" style="background:#F6F1FC; border-color:#C3AEE0; display:block;"><i aria-hidden="true" class="ti ti-mail-forward" style="color:#5E3FA8;"></i> <span><strong>Post reunión · si quedó sin diagnóstico o sin interés:</strong> ahí sí se manda el mail de seguimiento con credenciales <strong>+ links a testimonios</strong>, eligiendo casos de <strong>industrias o situaciones parecidas</strong> a las del prospecto — es lo que mantiene la puerta abierta. El texto está en <strong>3 · Material seguimiento</strong>, tipo de lead <strong>"Leads con reunión"</strong>.</span><br/><button class="ir-msg" data-go="seguimiento" data-seg="leads-con-reunion" type="button">Abrir ese mensaje <i aria-hidden="true" class="ti ti-arrow-right"></i></button></div>
-<!--ENTRE-INI--><div class="entre" id="entre-s1">
-<div class="entre-t">Entre reuniones · Antes de la reunión de diagnóstico</div>
-<p class="entre-ctx">Si ya quedó agendado el diagnóstico, basta con las credenciales. Solo si la reunión quedó a 3 semanas o más se suma algo, para que no se enfríe.</p>
-<ol class="entre-pasos">
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Credenciales</span><span class="ep-c">El mismo día de la reunión de presentación</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Envío de credenciales<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">El mismo día de la reunión de presentación, cuando quedó agendado el diagnóstico. Solo credenciales y la confirmación de la próxima reunión: el prospecto ya avanzó.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="18">Estimado/a [Nombre],
-Gracias por la reunión de hoy y por tu interés en el programa Scaling (https://scaling.cl/).
-
-Estamos entusiasmados con la posibilidad de trabajar contigo y tu equipo.
-
-Adjunto nuestras credenciales, que explican lo que hacemos y muestran casos de éxito.
-Además, puedes encontrar testimonios de clientes en este link: https://scaling.cl/nos-recomiendan/
-
-Nos vemos el [día y hora de la reunión de diagnóstico].
-
-Saludos y que tengas una excelente semana,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Diagnóstico de 3 minutos</span><span class="ep-c">Solo si la reunión quedó a 3 semanas o más</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Diagnóstico · antes de la reunión de diagnóstico<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Solo si la reunión de diagnóstico quedó a 3 semanas o más: si es antes, no hace falta. Le sirve a él para aprovechar mejor la reunión. Si lo responde, el resultado aparece en el CRM, en <strong>Diagnósticos</strong>: revísalo antes, parte por el pilar más bajo y no repitas las preguntas que ya contestó. Para que el contacto quede asignado a ti en el CRM cuando lo responda, agrega <strong>?r=</strong> y tus iniciales al final del link (ej. <strong>…/diagnostico?r=AMU</strong>).</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre], ¡espero que estés muy bien!
-Gracias de nuevo por la conversación.
-Antes de juntarnos el [día], te comparto un diagnóstico de 3 minutos. Así aprovechas mejor la reunión: llegamos sabiendo dónde está más fuerte [empresa] y dónde se están fugando el tiempo y el margen.
-Acá va el link: https://scaling-crm-eight.vercel.app/diagnostico
-Nos vemos el [día],
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">3</span><span class="ep-txt"><span class="ep-t">Regalo</span><span class="ep-c">Solo si pasa todavía más tiempo o la reunión se posterga</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Regalo · mientras llega la reunión<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Para que no se enfríe si la reunión quedó lejos. La herramienta va conectada con el dolor que contó.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
-Mientras llega nuestra reunión del [día], me acordé de lo que me contaste de [su dolor, en sus palabras].
-Si te sirve, te comparto [herramienta]: [para qué sirve, en una línea]. Te puede ayudar a ir avanzando desde ya.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li class="ep-grupo">Si no quiso seguir al diagnóstico</li>
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Credenciales y testimonios</span><span class="ep-c">El mismo día</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Envío de credenciales y testimonios<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Asunto: <strong>Scaling</strong>. Si no quiso seguir al diagnóstico: credenciales con testimonios de industrias o situaciones parecidas a la suya (los links están en <strong>Seguimiento › Casos de éxito</strong>).</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="23">Estimado/a [Nombre],
-Gracias por la reunión de hoy y por tu interés en nuestro programa Scaling.
-
-Estamos entusiasmados con la posibilidad de trabajar contigo y con tu equipo para llevar a [empresa] al siguiente nivel.
-
-Como referencia adjunto nuestras credenciales, que incluyen casos de éxito y testimonios de clientes. Si quieres verlos directamente, te dejo el link a algunos de ellos:
-- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
-- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
-- Testimonio de [nombre, cargo, empresa] — 1 minuto: [link]
-
-Puedes encontrar más testimonios en: https://scaling.cl/nos-recomiendan/
-
-Saludos y que tengas una buena semana,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Cierre amable</span><span class="ep-c">Si no respondió a dos toques (antes, regalo o webinar como en el pitch)</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Cierre amable · sin propuesta<span class="ec-canal">WhatsApp · Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Después de 2 toques sin respuesta. No es despedirse: es sacarle la presión y quedar como alguien que ayuda. Sigue recibiendo el Newsletter, y en unos meses se puede retomar.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
-No te quiero llenar de mensajes: entiendo que hoy tienes otras prioridades.
-Si te sirve, te sigo compartiendo una vez al mes herramientas para gerentes generales. Y cuando quieras conversar sobre [su tema], aquí estoy.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-</ol>
-<p class="entre-pie">Solo si entre una reunión y otra pasa tiempo y se puede enfriar: un toque cada 1 o 2 semanas, y cada uno le regala algo. <button class="ep-ir" data-go="seguimiento" data-radio="ctradio-3" data-to="sec-etapas" type="button">Ver todo según la etapa del lead →</button></p>
-</div><!--ENTRE-FIN-->
+<!--ENTRE-INI--><div class="entre" id="entre-s1"><button class="entre-ir" data-go="p/despues/presentacion" type="button">Qué mandar después de esta reunión</button></div><!--ENTRE-FIN-->
 </div>
 <div class="stage-panel" id="s2">
 <div class="stage-header">
@@ -2363,59 +3150,7 @@ Un abrazo,</textarea>
 </div>
 </div>
 <div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>La propuesta no debe tomarle por sorpresa — <strong>ni en el contenido ni en la duración</strong>. El prospecto debe tener noción de lo que viene, saber que hablamos de un programa de 6 a 12 meses y sentir que la propuesta fue construida para él.</span></div>
-<!--ENTRE-INI--><div class="entre" id="entre-s2">
-<div class="entre-t">Entre reuniones · Mientras se prepara la propuesta</div>
-<p class="entre-ctx">Si ya quedó agendada la presentación de la propuesta, basta con un mensaje. Solo si queda a 3 semanas o más se suma un regalo.</p>
-<ol class="entre-pasos">
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Credenciales</span><span class="ep-c">Al día siguiente, si todavía no se las mandaste</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Envío de credenciales y testimonios<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Al día siguiente de la reunión de diagnóstico, si todavía no le mandaste las credenciales.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="18">Estimado/a [Nombre],
-Gracias por la reunión de ayer y por tu interés en el programa Scaling (https://scaling.cl/).
-
-Estamos entusiasmados con la posibilidad de trabajar contigo y tu equipo.
-
-Adjunto nuestras credenciales que explican lo que hacemos y muestran casos de éxito.
-Además, puedes encontrar testimonios de clientes en este link: https://scaling.cl/nos-recomiendan/
-
-Nos vemos el [día y hora de la próxima reunión].
-
-Saludos y que tengas una excelente semana,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Testimonios de 1 minuto</span><span class="ep-c">Si ya le mandaste las credenciales después de la presentación</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Testimonios de 1 minuto<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Si ya mandaste las credenciales después de la presentación. Elige 2 o 3 testimonios de su industria o de su mismo problema: los links están en <strong>Seguimiento › Casos de éxito</strong>.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="17">Hola [Nombre], ¡espero que estés muy bien!
-Gracias por la reunión de diagnóstico.
-Mientras preparamos la propuesta, te dejo algunos testimonios de gerentes que vivieron algo parecido a lo que me contaste. Son de 1 minuto:
-- Testimonio de [nombre, cargo, empresa]: [link]
-- Testimonio de [nombre, cargo, empresa]: [link]
-
-Puedes ver más en: https://scaling.cl/nos-recomiendan/
-
-Nos vemos el [día] para presentarte la propuesta.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">3</span><span class="ep-txt"><span class="ep-t">Regalo</span><span class="ep-c">Solo si la presentación de la propuesta quedó a 3 semanas o más</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Regalo · mientras preparamos la propuesta<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Una herramienta que adelanta parte del trabajo: le muestra cómo sería trabajar juntos, sin pedirle nada. Ej.: el Plan Estratégico en Una Página si el dolor es alineamiento.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="8">Hola [Nombre], ¡espero que estés muy bien!
-Estamos armando la propuesta pensando en lo que quieres lograr: [su objetivo, en sus palabras].
-Mientras tanto, te comparto [herramienta]. Es una de las que usaríamos juntos, y la puedes empezar a usar desde ya con tu equipo.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-</ol>
-<p class="entre-pie">Solo si entre una reunión y otra pasa tiempo y se puede enfriar: un toque cada 1 o 2 semanas, y cada uno le regala algo. <button class="ep-ir" data-go="seguimiento" data-radio="ctradio-4" data-to="sec-etapas" type="button">Ver todo según la etapa del lead →</button></p>
-</div><!--ENTRE-FIN-->
+<!--ENTRE-INI--><div class="entre" id="entre-s2"><button class="entre-ir" data-go="p/despues/diagnostico" type="button">Qué mandar después de esta reunión</button></div><!--ENTRE-FIN-->
 </div>
 <div class="stage-panel" id="s3">
 <div class="stage-header">
@@ -2596,70 +3331,7 @@ Un abrazo,</textarea>
 </div>
 </div>
 <div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>La propuesta no debe tomarle por sorpresa. El prospecto debe tener noción de lo que viene y sentir que fue construida para él. Lo que nos importa es que sea una inversión rentable, no solo un gasto.</span></div>
-<!--ENTRE-INI--><div class="entre" id="entre-s3">
-<div class="entre-t">Entre reuniones · Después de presentar la propuesta</div>
-<p class="entre-ctx">Primero el envío y el llamado de feedback. Lo que sigue depende de lo que salga en ese llamado.</p>
-<ol class="entre-pasos">
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Envío de propuesta</span><span class="ep-c">El mismo día de la presentación</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Envío de propuesta<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">El mismo día que la presentaste, nunca antes. Incluye las garantías y tres clientes de referencia (en <strong>Seguimiento › Base de referencia</strong>).</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="40">Hola [Nombre],
-Gracias por la reunión de hoy y por tu tiempo e interés en nuestro programa Scaling.
-
-Estamos muy entusiasmados en trabajar contigo y con tu equipo para llevar a [empresa] al siguiente nivel.
-
-Adjunto la propuesta que revisamos. Tal como te señalamos en la reunión, queremos ser una inversión altamente rentable para [empresa].
-
-Para ayudarte en la decisión te damos garantías tales como cancelación sin compromiso en cualquier momento del programa y devolución del dinero si no estás conforme durante el primer mes de trabajo.
-
-Como referencia adjunto 3 clientes que te pueden comentar de su experiencia con nosotros:
-- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
-- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
-- [Nombre], [cargo] de [www.empresa.cl], [teléfono]
-
-Si quisieras contactar a otro cliente, agradeceré que nos lo hagas saber.
-
-Puedes encontrar más testimonios en: https://scaling.cl/nos-recomiendan/
-
-Cuenta con nosotros si hubiera algo más que podamos hacer para ayudarte a avanzar.
-
-Nos vemos el [día],
-Saludos y que tengas una excelente semana,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Llamado de feedback</span><span class="ep-c">A los 2 o 3 días</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Llamado de feedback<span class="ec-canal">Llamado</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">A los 2 o 3 días. Acá se descubre el motivo real de la demora, y de eso depende lo que sigue.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="40">Hola [Nombre] ¿cómo estás? Habla [tu nombre].
-
-¿Alcanzaste a revisar la propuesta que te enviamos?
-
-(escuchar)
-
-¿Qué te pareció? Cuéntame qué es lo que más te hizo sentido, y qué es lo que te genera dudas o te hace ruido.
-
-(escuchar)
-
-De lo que te presentamos, ¿qué es lo que más valor le ves? ¿Y qué es lo que menos valor le ves, o sientes que no aplica tanto a tu realidad?
-
-(escuchar)
-
-Perfecto, eso me sirve mucho para ajustarlo. Quiero que sientas que esto es a tu medida, no un programa genérico — cuéntame, ¿qué necesitarías ver distinto para que esto realmente te haga sentido?
-
-(escuchar y tomar nota del motivo real: precio, tiempo, confianza en resultados, necesita involucrar a más gente, etc.)
-
-Tranquilo/a, esto se puede ajustar. Lo que buscamos es que el programa te haga sentido y que realmente genere resultados para ti y tu equipo — no que avances solo por avanzar.
-
-Te propongo [ajustar la propuesta en base a esto / mandarte contenido puntual sobre tu duda / darte unos días más] y seguimos la conversación desde ahí. ¿Te parece?</textarea>
-</div></div>
-</details></li>
-</ol>
-<p class="entre-pie">Si después del llamado pasa el tiempo sin respuesta, sigue en <strong>5 · Seguimiento</strong>. Si responde que sí o que no, en <strong>6 · Cierre</strong>.<br/>Solo si entre una reunión y otra pasa tiempo y se puede enfriar: un toque cada 1 o 2 semanas, y cada uno le regala algo. <button class="ep-ir" data-go="seguimiento" data-radio="ctradio-5" data-to="sec-etapas" type="button">Ver todo según la etapa del lead →</button></p>
-</div><!--ENTRE-FIN-->
+<!--ENTRE-INI--><div class="entre" id="entre-s3"><button class="entre-ir" data-go="p/despues/propuesta" type="button">Qué mandar después de esta reunión</button></div><!--ENTRE-FIN-->
 </div>
 <div class="stage-panel" id="s4">
 <div class="stage-header">
@@ -2693,77 +3365,7 @@ Te propongo [ajustar la propuesta en base a esto / mandarte contenido puntual so
 </div>
 <div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Usar la sección <strong>"Leads con propuesta"</strong> en Trello — revisar las distintas alternativas según la situación de cada lead.</span></div>
 <div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>Si después de varios contactos no hay avance, aplicar Sandler: "Entiendo que quizás no es el momento. ¿Tiene sentido seguir hablando o te parece que lo dejamos para más adelante?"</span></div>
-<!--ENTRE-INI--><div class="entre" id="entre-s4">
-<div class="entre-t">Entre reuniones · Si pasa el tiempo sin respuesta</div>
-<p class="entre-ctx">Elige según cuánto tiempo ha pasado. Cada contacto le regala algo nuevo, nunca un «¿cómo vamos?».</p>
-<ol class="entre-pasos">
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Regalo</span><span class="ep-c">1 semana sin novedades</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Regalo · mientras lo piensa<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Elige la herramienta por el objetivo que te contó. Es el toque que más confianza genera: le demuestra que te importa su resultado, no solo la venta.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="6">Hola [Nombre], ¡espero que estés muy bien!
-Mientras lo piensas, te comparto [herramienta], que te puede servir para [su objetivo] desde ya, con o sin nosotros.
-Espero que sea de tu utilidad.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Webinar</span><span class="ep-c">Si hay uno cerca que conecte con su objetivo</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Para decidir · un webinar para su objetivo<span class="ec-canal">Mail · WhatsApp · LinkedIn</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Elige un webinar conectado con lo que quiere lograr. Le regala ideas para avanzar, con o sin nosotros.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="7">Hola [Nombre], ¡espero que estés muy bien!
-El [fecha] hacemos el webinar [título]. Me acordé de ti porque está muy conectado con lo que quieres lograr: [su objetivo].
-Si te sirve, acá va el link: [link inscripción]
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">3</span><span class="ep-txt"><span class="ep-t">Planificación del próximo año</span><span class="ep-c">De octubre a enero</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Para decidir · la planificación del próximo año<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Adjunta <strong>Tips para Planificar_Scaling_2026.pdf</strong>. Sirve de octubre a enero: el momento lo pone el calendario, no nosotros.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="11">Hola [Nombre], ¡espero que estés muy bien!
-Se viene la planificación 2027 y me acordé de lo que me contaste de [su objetivo].
-Te comparto estos tips para planificar, por si te sirven: son 7 ideas cortas, y la primera es agendarla antes de que lo urgente se tome la agenda.
-Si quieres que te acompañemos en esa planificación, feliz de ayudarte. Y si no es el momento, ningún problema.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">4</span><span class="ep-txt"><span class="ep-t">Testimonio de un par</span><span class="ep-c">Si su duda es si de verdad funciona</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Seguimiento · con testimonio<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Cuando su duda es si de verdad funciona. Elige un testimonio de su industria en <strong>Seguimiento › Casos de éxito</strong>.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="22">Hola [Nombre],
-¿Cómo estás? Espero que muy bien.
-
-Estamos entusiasmados con la posibilidad de trabajar contigo y tu equipo para llevar a [empresa] al siguiente nivel. Podemos ajustar el alcance, intensidad y precio del programa según lo que estimes de mayor impacto.
-
-Entendemos que una de las principales dudas al evaluar Scaling es si realmente impacta en los resultados. Te invito a revisar este testimonio: [nombre cliente, cargo — link testimonio 1 min], que comenta cómo el programa ayudó a alinear al equipo y enfocarse en lo que realmente mueve la aguja del negocio.
-
-Si te hace sentido, nos encantaría recibir tu feedback de la propuesta — ¿tienes disponibilidad esta semana?
-
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">5</span><span class="ep-txt"><span class="ep-t">Cierre para acelerar la respuesta</span><span class="ep-c">Si no hubo respuesta a 2 o 3 toques</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Cierre para acelerar la respuesta<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Cuando ya hubo 2 o 3 toques sin respuesta. Le saca la presión y le pide una definición, con la puerta abierta (Sandler: cierre negativo). Casi siempre acelera la respuesta. Es la versión cálida del <strong>9B · Mail de cierre</strong> del viaje estándar.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="12">Hola [Nombre], ¡espero que estés muy bien!
-Veo que estás priorizando otras cosas, y lo entiendo perfecto.
-Lo que más me importa es que [empresa] logre [su objetivo, en sus palabras]. Si hoy no es el momento de hacerlo con nosotros, ¿lo dejamos cerrado por ahora?
-Y si me equivoco y sigue en tu radar, cuéntame cuál sería el siguiente paso.
-Te voy a seguir compartiendo herramientas que te puedan servir.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-</ol>
-<p class="entre-pie">Solo si entre una reunión y otra pasa tiempo y se puede enfriar: un toque cada 1 o 2 semanas, y cada uno le regala algo. <button class="ep-ir" data-go="seguimiento" data-radio="ctradio-5" data-to="sec-etapas" type="button">Ver todo según la etapa del lead →</button></p>
-</div><!--ENTRE-FIN-->
+<!--ENTRE-INI--><div class="entre" id="entre-s4"><button class="entre-ir" data-go="p/respuesta/pospuesto" type="button">Qué mandar si lo pospone o no responde</button></div><!--ENTRE-FIN-->
 </div>
 <div class="stage-panel" id="s5">
 <div class="stage-header">
@@ -2796,195 +3398,7 @@ Un abrazo,</textarea>
 </div>
 <div class="trello-box"><i aria-hidden="true" class="ti ti-brand-trello"></i><span>Si se cierra como <strong>cliente</strong>: usar en Trello la sección "Clientes" → tarjeta <strong>"Mail de bienvenida a Scaling"</strong>.<br/>Si se cierra como <strong>expediente</strong> (perdido): usar en Trello la sección "Leads con propuesta" → tarjeta <strong>"Mail respuesta negativa de leads"</strong>.</span></div>
 <div class="tip-box"><i aria-hidden="true" class="ti ti-bulb"></i><span>No asumir que "sí verbal" es suficiente — el proceso no comienza hasta tener el OK escrito. El cierre no es el final del proceso comercial — es el inicio de la relación de programa. La experiencia del primer mes define la renovación.</span></div>
-</div>
-<!--ENTRE-INI--><div class="entre" id="entre-s5">
-<div class="entre-t">Entre reuniones · Cuando responde</div>
-<p class="entre-ctx">Ganado o perdido, el proceso se cierra formalmente y por escrito. Y en los dos casos, la relación sigue.</p>
-<ol class="entre-pasos">
-<li class="ep-grupo">Si dice que sí</li>
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Acuerdo de trabajo</span><span class="ep-c">Solo si se ajustó la propuesta y hay cambios. Si la aceptó tal cual, salta al paso 2</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Acuerdo de trabajo · propuesta con cambios<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Solo cuando se ajustó la propuesta y hay un acuerdo con cambios. Si aceptó la propuesta tal cual por mail, este paso no va: se manda directo el mail de bienvenida.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="20">Estimado/a [Nombre],
-
-Muchas gracias por la conversación de hoy y por la decisión de iniciar nuestro programa Scaling.
-
-Adjunto el acuerdo de trabajo con los ajustes que conversamos.
-
-Si estás de acuerdo, agradeceré que nos confirmes tu aceptación por este medio. Una vez confirmada, [nombre contraparte] te hará llegar el documento de Bienvenida, y [nombre coach] se pondrá en contacto para coordinar el kick off.
-
-Cualquier inquietud, no dudes en contactarme.
-
-Saludos,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Mail de bienvenida</span><span class="ep-c">Apenas confirma por mail. Lo manda el coach</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Mail de bienvenida · lo manda el coach<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Lo manda Alfonso o el coach líder apenas confirma por mail: la propuesta tal cual, o el acuerdo de trabajo si hubo cambios. Presenta a quién manda el documento Bienvenidos, quién coordina el kick off y quién es la contraparte administrativa.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="19">Estimado/a [Nombre],
-Gracias por la confianza depositada en nosotros.
-Buscaremos ser una inversión altamente rentable para ustedes y para [empresa].
-
-[Nombre CX] les hará llegar el documento Bienvenidos, que incluye la información que requerimos para iniciar el programa.
-Además, [nombre coach] se pondrá en contacto con ustedes para coordinar la reunión de kick off.
-Por último, [nombre] será la contraparte administrativa.
-
-Cualquier pregunta o inquietud, no duden en contactarme.
-
-Saludos y que tengan un excelente día,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">3</span><span class="ep-txt"><span class="ep-t">Documento Bienvenidos</span><span class="ep-c">Después del mail de bienvenida. Lo manda CX</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Documento Bienvenidos · lo manda CX<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Adjunta el <strong>docx de Bienvenidos</strong>. Incluye el borrador de mail para que el gerente general le cuente a su equipo y se puedan agendar las entrevistas de diagnóstico.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="38">Estimado/a [Nombre],
-¡Gracias por tu confirmación y bienvenido/a al programa Scaling!
-Estamos muy contentos y entusiasmados de ser parte de esta etapa de crecimiento de [empresa].
-Tal como te comentó [nombre coach], adjunto el documento "Bienvenidos", en el que se solicitan los datos necesarios para empezar el programa. Agradeceré completarlo y compartirlo con nosotros.
-Cualquier pregunta, no dudes en contactarnos.
-
-Además, te comparto un borrador de mail por si quisieras usarlo para contarle a tu equipo sobre el proceso que estamos iniciando y facilitar el agendamiento de las entrevistas. Agradeceré nos des tu ok cuando hayas dado aviso, para empezar a contactarlos y realizar las entrevistas de diagnóstico.
-____________________
-Estimado equipo,
-Durante el próximo mes trabajaremos con el equipo de Scaling, quienes nos apoyarán en nuestro crecimiento con la implementación de un sistema de trabajo ágil y adaptativo llamado Scaling Up.
-Como parte del programa, ellos contactarán a algunos de ustedes para agendar una entrevista de diagnóstico e inducción al programa, a realizarse durante las próximas semanas.
-Esta reunión no durará más de 40 minutos. Agradeceré se hagan un tiempo para esta importante actividad.
-____________________
-
-Saludos y que tengas una excelente tarde,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">4</span><span class="ep-txt"><span class="ep-t">Bienvenidos recibido</span><span class="ep-c">Cuando devuelven el documento completo</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Bienvenidos recibido · aviso al equipo y facturación<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Cuando devuelven el documento Bienvenidos completo.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="18">Estimado/a [Nombre],
-Muchas gracias por la información compartida.
-
-¿Podrías confirmarnos si ya se ha informado al equipo de [empresa] sobre el inicio del programa? Esto nos permitirá avanzar con la programación de las entrevistas de diagnóstico.
-
-Además, según lo acordado en la propuesta, correspondería emitir la primera factura asociada al cierre del acuerdo. Agradeceré que nos confirmes si [persona de facturación] está al tanto, para contactarme con él/ella.
-
-Quedo atento/a a tus comentarios.
-Saludos cordiales,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">5</span><span class="ep-txt"><span class="ep-t">Facturación</span><span class="ep-c">Primer contacto con la persona de facturación</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Primer contacto con facturación<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Lo manda la contraparte administrativa. Los datos bancarios de Scaling se pegan desde el mail original: no están en esta página a propósito.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="31">Estimado/a [Nombre],
-Espero que te encuentres muy bien.
-
-Mi nombre es [tu nombre] y trabajo junto a [coaches y CX de Scaling], a quienes pongo en copia.
-
-Tal como te habrá comentado [gerente general], comenzaremos con el programa Scaling en [empresa] por [X] meses, por un monto de $[monto] + IVA al mes.
-
-¡Bienvenidos al programa! Estamos muy felices de ser parte de esta etapa de crecimiento de [empresa].
-
-Según el acuerdo de trabajo, el primer pago es al contado y las próximas facturas las emitiremos a mediados de cada mes, con plazo de pago el 5 del mes siguiente. Antes de emitir la primera factura, quisiera saber si trabajan o no con OC.
-
-Te comparto también nuestros datos bancarios:
-[datos bancarios de Scaling]
-
-Si tuvieras cualquier duda o inquietud, estoy a tu disposición.
-
-Saludos y gracias,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">6</span><span class="ep-txt"><span class="ep-t">Entrevistas de diagnóstico</span><span class="ep-c">Cuando el gerente general ya le avisó a su equipo</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Agendamiento de entrevistas de diagnóstico<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Asunto: <strong>Agendamiento de entrevistas de diagnóstico Scaling - [empresa]</strong>. Va al equipo, una vez que el gerente general les avisó.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="30">Estimado equipo de [empresa],
-¡Bienvenidos al programa! Esperamos ser un aporte para el equipo.
-
-Mi nombre es [tu nombre], y trabajo junto a [coaches y CX de Scaling], a quienes pongo en copia.
-Tal como les comentó [gerente general], comenzamos un programa de acompañamiento en [empresa] para potenciar el crecimiento del equipo y sus resultados.
-
-Para conocerlos, nos gustaría tener con cada uno de ustedes una entrevista de diagnóstico e inducción al programa. Será una conversación online de aproximadamente 20-30 minutos.
-
-Agradeceré que entren al siguiente link y escojan el día y horario que más les acomode: [link]
-
-Una vez que se inscriban en la planilla escribiendo su nombre según su disponibilidad, los agendaremos.
-
-Cualquier pregunta o inquietud, no duden en escribirme.
-
-Saludos y muchas gracias,</textarea>
-</div></div>
-</details></li>
-<li class="ep-grupo">Si dice que no</li>
-<li><details class="ep">
-<summary><span class="ep-n">1</span><span class="ep-txt"><span class="ep-t">Respuesta a la negativa</span><span class="ep-c">El mismo día que responde</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Respuesta a negativa · no es el momento<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Cuando responde que no avanza. Se agradece la franqueza, se cierra con cariño y se deja la puerta abierta.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="19">Estimado/a [Nombre],
-
-Gracias por tu respuesta y franqueza.
-
-Entendemos completamente el contexto en que están y lo desafiante que es priorizar en medio de una planificación compleja.
-
-Puede que más adelante ya no tenga sentido retomar esta conversación, y está perfecto si es así. Pero si al revisar prioridades sienten que esto puede ser un aporte real, felices de conversar en ese momento.
-
-Quedamos atentos y disponibles para cuando quieras retomar el proceso, y seguimos en contacto por medio de nuestro Newsletter.
-
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">2</span><span class="ep-txt"><span class="ep-t">Invitación al Newsletter</span><span class="ep-c">Si todavía no está inscrito</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Invitación al Newsletter · después del cierre<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Para seguir cerca como alguien que ayuda, sin vender. Si dice que sí, se inscribe con su mail.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="9">Hola [Nombre], ¡espero que estés muy bien!
-Para seguir en contacto sin llenarte de mensajes: una vez al mes enviamos herramientas prácticas para gerentes generales, enfocadas en mejorar los resultados financieros y el desempeño del equipo.
-Si te sirve, te inscribo con este mail. ¿Te parece?
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">3</span><span class="ep-txt"><span class="ep-t">Regalo</span><span class="ep-c">Cada 2 o 3 meses</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Regalo · para seguir cerca<span class="ec-canal">Mail · WhatsApp</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">Cada 2 o 3 meses. La herramienta se elige por el dolor que conociste en el proceso (tabla en <strong>Seguimiento › Regalo según el dolor</strong>).</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="7">Hola [Nombre], ¡espero que estés muy bien!
-Me acordé de lo que conversamos sobre [su tema].
-Si te sirve, te comparto [herramienta]: [para qué sirve, en una línea].
-Espero que sea de tu utilidad.
-Un abrazo,</textarea>
-</div></div>
-</details></li>
-<li><details class="ep">
-<summary><span class="ep-n">4</span><span class="ep-txt"><span class="ep-t">Retomar</span><span class="ep-c">A los 6 meses, o cuando cambie algo en su empresa</span></span><span class="ep-abrir" aria-hidden="true"></span></summary>
-<div class="ep-body"><div class="ec-card">
-<div class="ec-head"><span class="ec-title">Retomar · ya se interesó antes<span class="ec-canal">Mail</span></span><button class="ec-copy" onclick="copyPlainText(this.closest('.ec-card').querySelector('textarea').value, this)" type="button">Copiar</button></div>
-<div class="ec-nota">A los 6 meses, o cuando cambie algo en su empresa. Reconocer esa historia en la primera línea es lo que lo distingue de un mensaje frío.</div>
-<textarea class="ec-body" onfocus="this.select()" readonly="readonly" rows="21">Hola [Nombre],
-¿Cómo estás?
-Hace un tiempo te interesaste en un programa Scaling para [empresa].
-
-Te cuento que desde entonces hemos seguido creciendo en coaches, experiencias de éxito y metodologías de impacto que ayudan a escalar negocios y equipos hacia resultados extraordinarios de EBITDA y caja.
-
-Por lo mismo es que te invito a volver a evaluar un programa para [empresa] que te ayude a escalar los resultados del negocio y disfrutar el camino.
-
-Si no es un buen momento o estás priorizando otros temas, no te preocupes y seguimos en contacto por medio de nuestro Newsletter.
-
-Saludos,</textarea>
-</div></div>
-</details></li>
-</ol>
-<p class="entre-pie">Solo si entre una reunión y otra pasa tiempo y se puede enfriar: un toque cada 1 o 2 semanas, y cada uno le regala algo. <button class="ep-ir" data-go="seguimiento" data-radio="ctradio-0" data-to="sec-etapas" type="button">Ver todo según la etapa del lead →</button></p>
-</div><!--ENTRE-FIN-->
+<!--ENTRE-INI--><div class="entre" id="entre-s5"><button class="entre-ir" data-go="p/respuesta/si" type="button">Qué mandar si dice que sí</button><button class="entre-ir" data-go="p/respuesta/no" type="button">Qué mandar si dice que no</button></div><!--ENTRE-FIN-->
 </div>
 <!--RENOV-INI--><div class="stage-panel" id="s6">
 <div class="stage-header">
@@ -3108,7 +3522,14 @@ Saludos,</textarea>
   </div>
 
 
-<!--TIPOS-INI--><!--IDX-INI--><div class="idx"><!--IDXCTA-INI--><a class="ix-cta" data-scroll="sec-cta" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-stairs-up"></i>Acercar sin pedir reunión</span><span class="ix-d">Regalos, webinar y diagnóstico según la etapa del lead</span></a><!--IDXCTA-FIN--><a data-scroll="sec-tipos" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-mail-star"></i>Tipos de mensaje</span><span class="ix-d">Sirven para cualquier lead</span></a><a data-scroll="sec-canal" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-brand-linkedin"></i>Por canal</span><span class="ix-d">El viaje de LinkedIn, paso a paso</span></a><a data-scroll="sec-lead" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-users"></i>Por tipo de lead</span><span class="ix-d">De desconocido a excliente</span></a><a data-scroll="sec-base" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-address-book"></i>Base de referencia</span><span class="ix-d">Clientes para adjuntar</span></a><!--IDXCASOS-INI--><a class="ix-casos" data-scroll="sec-casos" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-trophy"></i>Casos de éxito para contar</span><span class="ix-d">Historias por problema: caja, personas, ejecución o estrategia</span></a><!--IDXCASOS-FIN--></div><!--IDX-FIN-->
+<!--TIPOS-INI--><!--IDX-INI--><div class="idx"><a data-go="p/acercar" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-gift"></i>Acercar sin pedir reunión</span></a>
+<a data-go="p/tipos" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-mail-star"></i>Tipos de mensaje</span></a>
+<a data-go="seguimiento/lead" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-users"></i>Por tipo de lead</span></a>
+<a data-go="seguimiento/canal" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-brand-linkedin"></i>Por canal · LinkedIn</span></a>
+<a data-go="seguimiento/base" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-address-book"></i>Base de referencia</span></a>
+<a data-go="seguimiento/casos" href="javascript:void(0)"><span class="ix-t"><i aria-hidden="true" class="ti ti-trophy"></i>Casos de éxito</span></a>
+</div><!--IDX-FIN-->
+<div class="sub" data-sub="acercar-detalle"><button class="sub-volver" data-go="seguimiento" type="button">‹ Volver</button>
 <!--CTA-INI--><div class="section-title" id="sec-cta"><i aria-hidden="true" class="ti ti-stairs-up"></i> Acercar sin pedir reunión &middot; CTAs intermedios</div>
 <div class="intro-box" style="margin-bottom: 14px;">Entre «no nos conoce» y «¿te gustaría una propuesta?» hay pasos más chicos. Cada toque <strong>le regala algo</strong> para lo que quiere lograr y pide un poco más que el anterior: así el lead llega a querer la propuesta, en vez de recibir un «¿nos juntamos?» antes de tiempo. <strong>El protagonista es el cliente</strong>: su bienestar, su crecimiento, sus resultados. Nosotros somos la guía que lo ayuda a llegar.</div>
 <div class="viaje-box">
@@ -3368,7 +3789,8 @@ Espero que sea de tu utilidad.
 Un abrazo,</textarea>
 </div>
 </div>
-<!--CTA-FIN-->
+<!--CTA-FIN--></div>
+<div class="sub" data-sub="tipos-detalle"><button class="sub-volver" data-go="seguimiento" type="button">‹ Volver</button>
 <div class="section-title" id="sec-tipos"><i aria-hidden="true" class="ti ti-mail-star"></i> Tipos de mensaje &middot; sirven para cualquier lead</div>
 <div class="intro-box" style="margin-bottom: 14px;">Estos mensajes son <strong>transversales</strong>: se usan igual sea cual sea el tipo de lead, cambiando solo los datos entre corchetes. También están en su segmento más abajo; acá están juntos para tenerlos a mano.</div>
 <!--GA-INI--><div class="paso-label"><b>A</b> El viaje comercial</div>
@@ -3784,7 +4206,8 @@ Por si te sirve, tenemos el Ejercicio de Historia Personal, si quieres construir
 
 Un abrazo,</textarea>
 </div>
-<!--TIPOS-FIN-->
+</div><!--TIPOS-FIN-->
+<div class="sub" data-sub="canal"><button class="sub-volver" data-go="seguimiento" type="button">‹ Volver</button>
 <!--CANAL-INI--><div class="section-title" id="sec-canal"><i aria-hidden="true" class="ti ti-brand-linkedin"></i> Viajes por canal &middot; LinkedIn</div>
 <div class="intro-box" style="margin-bottom: 14px;">La otra forma de llegar al mensaje: <strong>por dónde le vas a escribir</strong>, no por qué tipo de lead es. LinkedIn tiene dos viajes claros según si ya se conocen o no. Toca un paso y aparece el mensaje de ese paso.</div>
 <div class="viaje-box">
@@ -3936,7 +4359,8 @@ Mándame tu número y coordinamos.
 Saludos,</textarea>
 </div>
 </div>
-<!--CANAL-FIN-->
+<!--CANAL-FIN--></div>
+<div class="sub" data-sub="lead"><button class="sub-volver" data-go="seguimiento" type="button">‹ Volver</button>
 <div class="section-title" id="sec-lead"><i aria-hidden="true" class="ti ti-messages"></i> Mensajes por tipo de lead y etapa</div>
 <div class="intro-box" style="margin-bottom: 16px;">
 <strong>1)</strong> Elige el tipo de lead · <strong>2)</strong> elige la etapa o interacción · <strong>3)</strong> copia el mensaje y reemplaza lo que está en <span class="ph" style="color:#AD7E1F; font-weight:600;">[corchetes]</span>. Todos salen de guiones Sandler: no se explica el método ni se vende antes de escuchar el dolor. Si no sabes en qué tipo cae la persona, mira <a data-scroll="tipos-de-lead" href="javascript:void(0)" style="color:#1B4F8A; font-weight:600;">qué representa cada tipo</a> al final.
@@ -5462,6 +5886,8 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <tr><td class="name">8. Excliente</td><td class="desc">Alguien que ya fue cliente de Scaling — reactivar relación, nutrir con nuevas herramientas, pedir video testimonial y referidos.</td></tr>
 <tr><td class="name">Influencer</td><td class="desc">Personas con llegada o red de contactos relevante — colaboración, alianza y pedir referidos, no venta directa. No es una etapa del viaje: es un perfil aparte.</td></tr>
 </table>
+</div>
+<div class="sub" data-sub="base"><button class="sub-volver" data-go="seguimiento" type="button">‹ Volver</button>
 <div class="section-title" id="sec-base"><i aria-hidden="true" class="ti ti-address-book"></i> Base de referencia: clientes y exclientes</div>
 <div class="pending-box" style="border-color:#B0335B; background:#FDF0F4; margin-bottom:8px;">
 <i aria-hidden="true" class="ti ti-lock"></i>
@@ -5726,6 +6152,8 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <span class="ref-meta">Director Ejecutivo · Horizontal · www.horizontalchile.cl · +56 968487905</span>
 <button class="ref-mini-copy" data-line="Juan José Obach, Director Ejecutivo de Horizontal · www.horizontalchile.cl, +56 968487905" onclick="event.preventDefault(); copyPlainText(this.dataset.line, this);" title="Copiar este contacto" type="button">⧉</button></label>
 </div>
+</div>
+<div class="sub" data-sub="casos"><button class="sub-volver" data-go="seguimiento" type="button">‹ Volver</button>
 <!--CASOS-INI--><div class="section-title" id="sec-casos" style="margin-top: 26px;"><i aria-hidden="true" class="ti ti-trophy"></i> Casos de éxito para contar</div>
 <div class="intro-box" style="margin-bottom: 14px;">Una historia vende más que cualquier argumento: el lead se ve reflejado en el problema, siente lo que vivió el otro gerente y, de paso, nos ve con experiencia real. <strong>Elige el caso por el problema que te contó</strong>, no por el que más te guste.</div>
 <div class="ct-regla" style="margin: 0 0 14px;"><strong>Cómo contarlo:</strong> un minuto, no más. Parte por el problema (es ahí donde se ve reflejado), da un solo dato concreto y termina con la pregunta, no con el pitch. Un caso por conversación. Si hay uno de su misma industria, ese primero.<br/><strong>Nombres y cifras:</strong> son los que cuenta Alfonso en reuniones comerciales. Si dudas si un dato se puede decir con nombre, cuéntalo sin el nombre de la empresa.</div>
@@ -5925,7 +6353,7 @@ Perfecto. No es una venta, es una conversación diagnóstica. ¿Coordinamos 30 m
 <div class="ct-botones"><button class="ir-guion" data-go="seguimiento" data-radio="gradio-2" data-to="sec-regalos" type="button">El regalo que acompaña este tema <i aria-hidden="true" class="ti ti-gift"></i></button></div>
 </div>
 </div>
-<!--CASOS-FIN-->
+<!--CASOS-FIN--></div>
 <div class="footer-note">
     Todos los mensajes salen de guiones Sandler. Si un mensaje te funciona mejor con un ajuste, avísale a Sofía para actualizarlo aquí y que lo use todo el equipo.
 </div>
@@ -6034,15 +6462,97 @@ function copyRefs() {
 }
 
 
-var VISTAS = ['menu','estrategia','guiones','seguimiento'];
+/* ===== pantallas simples ===== */
+(function () {
+  // cada [data-msg] se reemplaza por una copia de su mensaje de la biblioteca
+  var lib = {};
+  var cards = document.querySelectorAll('#v-rapido .p-lib .msg-card');
+  for (var i = 0; i < cards.length; i++) lib[cards[i].id] = cards[i];
+  var slots = document.querySelectorAll('#v-rapido [data-msg]');
+  for (var j = 0; j < slots.length; j++) {
+    var c = lib[slots[j].getAttribute('data-msg')];
+    if (!c) { slots[j].textContent = 'Falta el mensaje ' + slots[j].getAttribute('data-msg'); continue; }
+    var k = c.cloneNode(true);
+    k.removeAttribute('id');
+    slots[j].parentNode.replaceChild(k, slots[j]);
+  }
+})();
+
+function ajustarTextos(raiz) {
+  var tas = raiz.querySelectorAll('textarea[data-copy]');
+  for (var i = 0; i < tas.length; i++) {
+    if (!tas[i].offsetParent) continue;
+    tas[i].style.height = 'auto';
+    tas[i].style.height = (tas[i].scrollHeight + 2) + 'px';
+  }
+}
+
+function mostrarPantalla(p) {
+  var ps = document.querySelectorAll('#v-rapido .pant'), elegida = null;
+  for (var i = 0; i < ps.length; i++) if (ps[i].getAttribute('data-p') === p) elegida = ps[i];
+  if (!elegida) { go('menu'); return; }
+  for (var j = 0; j < ps.length; j++) ps[j].classList.toggle('on', ps[j] === elegida);
+  var abiertos = elegida.querySelectorAll('details[open]');
+  for (var a = 0; a < abiertos.length; a++) abiertos[a].open = false;
+  var h = elegida.querySelector('h1');
+  if (h) document.title = h.textContent + ' · Scaling';
+  ajustarTextos(elegida);
+}
+
+function mostrarSub(s) {
+  var c = document.querySelector('#v-seguimiento .container');
+  if (!c) return;
+  var subs = c.querySelectorAll('.sub'), hay = false;
+  for (var i = 0; i < subs.length; i++) {
+    var on = subs[i].getAttribute('data-sub') === s;
+    subs[i].classList.toggle('on', on);
+    if (on) hay = true;
+  }
+  c.classList.toggle('con-sub', hay);
+}
+
+// pasos que se despliegan: uno abierto a la vez
+document.addEventListener('toggle', function (e) {
+  var d = e.target;
+  if (!d.classList || !d.classList.contains('p-paso') || !d.open) return;
+  var grupo = d.getAttribute('name');
+  if (grupo) {
+    var otros = document.querySelectorAll('#v-rapido details.p-paso[name="' + grupo + '"]');
+    for (var i = 0; i < otros.length; i++) if (otros[i] !== d) otros[i].open = false;
+  }
+  ajustarTextos(d);
+}, true);
+
+// elegir un camino (sí/no) y la ruta del viaje por canal
+document.addEventListener('click', function (e) {
+  if (!e.target.closest) return;
+  var b = e.target.closest('#v-rapido [data-camino], #v-rapido [data-ruta]');
+  if (!b || b.tagName !== 'BUTTON') return;
+  var attr = b.hasAttribute('data-camino') ? 'data-camino' : 'data-ruta';
+  var val = b.getAttribute(attr), pant = b.closest('.pant');
+  var todos = pant.querySelectorAll('[' + attr + ']');
+  var yaOn = attr === 'data-ruta' && b.classList.contains('on');
+  for (var i = 0; i < todos.length; i++) {
+    todos[i].classList.toggle('on', !yaOn && todos[i].getAttribute(attr) === val);
+  }
+  ajustarTextos(pant);
+});
+
+
+var VISTAS = ['menu','estrategia','guiones','seguimiento','rapido'];
 var TITULOS = {
   menu: 'Material Comercial · Scaling',
   estrategia: 'Estrategia Comercial · Scaling',
   guiones: 'Reuniones · Scaling',
-  seguimiento: 'Material seguimiento leads y cliente · Scaling'
+  seguimiento: 'Material seguimiento leads y cliente · Scaling',
+  rapido: 'Material Comercial · Scaling'
 };
-function pintar(v) {
-  if (VISTAS.indexOf(v) === -1) v = 'menu';
+// el hash es "vista" o "vista/sub": #seguimiento/casos, #p/tipos/propuesta (p = pantallas simples)
+function pintar(h) {
+  var partes = String(h || '').split('/');
+  var v = partes[0], resto = partes.slice(1).join('/');
+  if (v === 'p') v = 'rapido';
+  if (VISTAS.indexOf(v) === -1) { v = 'menu'; resto = ''; }
   for (var i = 0; i < VISTAS.length; i++) {
     var el = document.getElementById('v-' + VISTAS[i]);
     if (el) el.classList.toggle('on', VISTAS[i] === v);
@@ -6054,18 +6564,32 @@ function pintar(v) {
     else tabs[j].removeAttribute('aria-current');
   }
   document.title = TITULOS[v] || TITULOS.menu;
+  if (v === 'rapido') mostrarPantalla(resto);
+  if (v === 'seguimiento') mostrarSub(resto);
   window.scrollTo(0, 0);
+}
+// la sección de Seguimiento (.sub) en la que está un elemento, si está en una
+function subDe(id) {
+  var el = id && document.getElementById(id);
+  var s = el && el.closest ? el.closest('.sub') : null;
+  return s ? s.getAttribute('data-sub') : '';
 }
 function go(v) {
   if (('#' + v) === window.location.hash) { pintar(v); return; }
   window.location.hash = v;
 }
 function desdeHash() {
-  var h = (window.location.hash || '').replace('#', '');
-  if (VISTAS.indexOf(h) !== -1) { pintar(h); return; }
+  var h = decodeURIComponent((window.location.hash || '').replace('#', ''));
+  var base = h.split('/')[0];
+  if (VISTAS.indexOf(base) !== -1 || base === 'p') { pintar(h); return; }
   if (h) {
     var anc = document.getElementById(h);
-    if (anc) { anc.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    if (anc) {
+      var sb = subDe(h);
+      if (sb) mostrarSub(sb);
+      anc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
   }
   pintar('menu');
 }
@@ -6075,7 +6599,12 @@ document.addEventListener('click', function (e) {
   var t = e.target.closest('[data-go]');
   if (t) {
     e.preventDefault();
-    go(t.dataset.go);
+    var destino = t.dataset.go;
+    if (destino === 'seguimiento') {
+      var sub = subDe(t.dataset.seg ? 'segpanel-' + t.dataset.seg : (t.dataset.to || t.dataset.radio));
+      if (sub) destino += '/' + sub;
+    }
+    go(destino);
     var stage = t.dataset.stage;
     if (stage) {
       var sr = document.getElementById('stageradio-' + stage);
@@ -6108,8 +6637,12 @@ document.addEventListener('click', function (e) {
   var sc = e.target.closest('[data-scroll]');
   if (sc) {
     e.preventDefault();
-    var el = document.getElementById(sc.dataset.scroll);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var id = sc.dataset.scroll, sb = subDe(id);
+    if (sb && !document.querySelector('#v-seguimiento .sub.on[data-sub="' + sb + '"]')) go('seguimiento/' + sb);
+    setTimeout(function () {
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, sb ? 250 : 0);
   }
 });
 document.addEventListener('DOMContentLoaded', desdeHash);

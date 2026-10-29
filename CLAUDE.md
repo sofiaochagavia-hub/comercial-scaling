@@ -20,12 +20,14 @@ que trabajas**, salvo lo que tú mismo creaste en la misma sesión.
 ## Qué hay adentro
 
 ```
-index.html               LA página publicada: las 3 secciones en un solo archivo
-_fuente/                 las 3 páginas originales (no se publican: Pages ignora las carpetas con _)
+index.html               LA página publicada: todo en un solo archivo
+_fuente/                 las páginas originales (no se publican: Pages ignora las carpetas con _)
+  rapido.html            pantallas simples del inicio: Viaje del lead, Qué mandar
+                         después de cada reunión, Acercar sin pedir reunión, Tipos de mensaje
   estrategia.html        sección Estrategia
   guiones.html           sección Reuniones (guiones Sandler por etapa)
-  seguimiento.html       sección Seguimiento (mensajes por tipo de lead, CTAs, casos de éxito)
-  build.py               une las 3 páginas en index.html (requiere Python 3)
+  seguimiento.html       sección Seguimiento (mensajes por tipo de lead, canal, base, casos)
+  build.py               une todo en index.html (requiere Python 3)
 s01.webp … s30.webp      imágenes de las slides
 estrategia-comercial/, nuggets-de-venta/   versiones antiguas sueltas, no enlazadas desde index.html
 ```
@@ -42,6 +44,15 @@ estrategia-comercial/, nuggets-de-venta/   versiones antiguas sueltas, no enlaza
 
 Si las dos personas están editando el mismo día, avísense para no pisarse.
 
+**Pantallas simples (`rapido.html`).** Cada pantalla es un
+`<section class="pant" data-p="...">` y se abre con un botón
+`data-go="p/<data-p>"` (ej. `data-go="p/tipos/propuesta"`). Los mensajes
+están escritos **una sola vez** en la biblioteca del final del archivo
+(`<div class="p-lib">`) y las pantallas los llaman con
+`<div data-msg="id"></div>`: para cambiar un mensaje, se cambia solo ahí.
+Seguimiento muestra una sección a la vez (`#seguimiento/lead`,
+`#seguimiento/casos`…): cada sección está envuelta en un `<div class="sub">`.
+
 **El CRM copia los mensajes de esta página.** Su script (`npm run mensajes` en
 `scaling-crm`) lee las clases `.msg-card`, `.channel-badge`, `.msg-card-title`,
 `.msg-card-note` y `[data-copy]`. No cambies esa estructura sin revisar el
@@ -54,6 +65,9 @@ el CRM para que lo tome.
   solo para lo seleccionado o un enlace.
 - Orden de lectura claro, de arriba a abajo.
 - Los pasos van como lista numerada que se despliega.
+- Botones simples que muestran solo lo suyo: al apretar uno aparece solo la
+  información de ese botón, sin tener que bajar por cosas que no tienen
+  relación. Los botones llevan solo el nombre, sin descripciones extra.
 - Sin cajas de colores ni pastillas llamativas.
 - Por qué: los coaches lo usan desde el celular y tienen que encontrar rápido
   qué mandar.
@@ -69,8 +83,14 @@ el CRM para que lo tome.
   directo (conversemos).
 - Entre reuniones solo se manda algo si la relación se puede enfriar. Si la
   próxima reunión está a menos de 3 semanas, basta el mensaje del mismo día.
-- El diagnóstico de 3 minutos va **antes** de la propuesta, nunca después.
+- El diagnóstico de 3 minutos va **antes** de la propuesta, nunca mientras el
+  lead la está decidiendo. Excepción: si dijo que no, unos meses después sirve
+  para retomar.
+- Las opciones de cierre (sí / no / pospuesto o no responde) van solo después
+  de presentar la propuesta. Después de las primeras reuniones, lo primero son
+  las credenciales si todavía no se mandaron.
 - El acuerdo de trabajo va solo si la propuesta se ajustó; si la aceptan tal
-  cual, va directo el mail de bienvenida.
+  cual por mail, va directo el mail de bienvenida. Si dijo que sí solo de
+  palabra, va el "mail si dice que sí" pidiendo confirmarlo por escrito.
 - Metodologías: Sandler (ya desarrollado aquí) y StoryBrand (Sofía va a pasar
   el material; no lo apliques de conocimiento general).

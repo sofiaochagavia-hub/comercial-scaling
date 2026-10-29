@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Une las 3 paginas del material comercial en un solo index.html navegable."""
+"""Une las 3 paginas del material comercial (y las pantallas simples de rapido.html) en un solo index.html navegable."""
 import io, os, re, sys
 
 # la carpeta del repo (la que contiene _fuente/), esté donde esté
@@ -115,6 +115,13 @@ body_seg = container_of(seg)
 
 SCRIPT = re.search(r"<script>(.*?)</script>", seg, re.S).group(1)
 
+# pantallas simples (viaje, después de cada reunión, acercar, tipos de mensaje):
+# rapido.html ya trae su CSS con los prefijos puestos, así que va tal cual
+rap = read(os.path.join(SRC, "rapido.html"))
+css_rap  = re.search(r"<style>(.*?)</style>", rap, re.S).group(1)
+body_rap = re.search(r"<!--CUERPO-->(.*?)<!--/CUERPO-->", rap, re.S).group(1).strip()
+js_rap   = re.search(r"<script>(.*?)</script>", rap, re.S).group(1)
+
 # ------------------------------------------------------------------ shell
 SHELL_CSS = """
 :root {
@@ -182,28 +189,23 @@ body.nav-on .app-bar { display: block; }
 MENU = """<div class="wrap">
 <div class="head">
 <h1>Material Comercial · Scaling</h1>
-<p>Guías de trabajo del proceso comercial</p>
 </div>
 <div class="aviso">
 <i aria-hidden="true" class="ti ti-refresh"></i>
-<span><strong>Estas páginas se actualizan.</strong> No guardes copias ni capturas: entra siempre por aquí para tener la última versión.</span>
+<span><strong>Se actualiza.</strong> Entra siempre por aquí, no guardes copias.</span>
 </div>
-<div class="seccion">Proceso de venta</div>
-<button class="card" data-go="estrategia" type="button">
-<div class="card-top"><i aria-hidden="true" class="ti ti-target-arrow"></i><h2>1. Estrategia Comercial Scaling</h2></div>
-<p>¿A quién? ¿Por dónde? — el cliente principal (Humble Hungry Harry) y los canales de interacción, de los más fríos a los más cercanos.</p>
-<span class="abrir">Abrir →</span>
-</button>
-<button class="card" data-go="guiones" type="button">
-<div class="card-top"><i aria-hidden="true" class="ti ti-list-check"></i><h2>2. Reuniones</h2></div>
-<p>El guion de cada tipo de reunión — pitch de asado, catch up, presentación, diagnóstico, propuesta, seguimiento y cierre — con la metodología Sandler.</p>
-<span class="abrir">Abrir →</span>
-</button>
-<button class="card" data-go="seguimiento" type="button">
-<div class="card-top"><i aria-hidden="true" class="ti ti-messages"></i><h2>3. Material seguimiento leads y cliente</h2></div>
-<p>Los mensajes listos para copiar por etapa del viaje del lead — de desconocido a excliente — más la base de clientes de referencia agrupada por industria.</p>
-<span class="abrir">Abrir →</span>
-</button>
+<nav class="m-lista">
+<button class="m-btn" data-go="p/viaje" type="button"><i aria-hidden="true" class="ti ti-route"></i>Viaje del lead</button>
+<button class="m-btn" data-go="p/despues" type="button"><i aria-hidden="true" class="ti ti-calendar-check"></i>Qué mandar después de cada reunión</button>
+<button class="m-btn" data-go="p/acercar" type="button"><i aria-hidden="true" class="ti ti-gift"></i>Acercar sin pedir reunión</button>
+<button class="m-btn" data-go="p/tipos" type="button"><i aria-hidden="true" class="ti ti-mail"></i>Tipos de mensaje</button>
+</nav>
+<div class="seccion">Guías completas</div>
+<nav class="m-lista">
+<button class="m-btn" data-go="guiones" type="button"><i aria-hidden="true" class="ti ti-list-check"></i>Guiones de reunión</button>
+<button class="m-btn" data-go="estrategia" type="button"><i aria-hidden="true" class="ti ti-target-arrow"></i>Estrategia comercial</button>
+<button class="m-btn" data-go="seguimiento" type="button"><i aria-hidden="true" class="ti ti-messages"></i>Mensajes por tipo de lead y casos</button>
+</nav>
 <div class="pie">
 Material interno de Scaling · No compartir fuera del equipo<br/>
 ¿Falta algo o hay que corregir un contenido? Avísale a Sofía.
@@ -211,15 +213,20 @@ Material interno de Scaling · No compartir fuera del equipo<br/>
 </div>"""
 
 ROUTER = """
-var VISTAS = ['menu','estrategia','guiones','seguimiento'];
+var VISTAS = ['menu','estrategia','guiones','seguimiento','rapido'];
 var TITULOS = {
   menu: 'Material Comercial · Scaling',
   estrategia: 'Estrategia Comercial · Scaling',
   guiones: 'Reuniones · Scaling',
-  seguimiento: 'Material seguimiento leads y cliente · Scaling'
+  seguimiento: 'Material seguimiento leads y cliente · Scaling',
+  rapido: 'Material Comercial · Scaling'
 };
-function pintar(v) {
-  if (VISTAS.indexOf(v) === -1) v = 'menu';
+// el hash es "vista" o "vista/sub": #seguimiento/casos, #p/tipos/propuesta (p = pantallas simples)
+function pintar(h) {
+  var partes = String(h || '').split('/');
+  var v = partes[0], resto = partes.slice(1).join('/');
+  if (v === 'p') v = 'rapido';
+  if (VISTAS.indexOf(v) === -1) { v = 'menu'; resto = ''; }
   for (var i = 0; i < VISTAS.length; i++) {
     var el = document.getElementById('v-' + VISTAS[i]);
     if (el) el.classList.toggle('on', VISTAS[i] === v);
@@ -231,18 +238,32 @@ function pintar(v) {
     else tabs[j].removeAttribute('aria-current');
   }
   document.title = TITULOS[v] || TITULOS.menu;
+  if (v === 'rapido') mostrarPantalla(resto);
+  if (v === 'seguimiento') mostrarSub(resto);
   window.scrollTo(0, 0);
+}
+// la sección de Seguimiento (.sub) en la que está un elemento, si está en una
+function subDe(id) {
+  var el = id && document.getElementById(id);
+  var s = el && el.closest ? el.closest('.sub') : null;
+  return s ? s.getAttribute('data-sub') : '';
 }
 function go(v) {
   if (('#' + v) === window.location.hash) { pintar(v); return; }
   window.location.hash = v;
 }
 function desdeHash() {
-  var h = (window.location.hash || '').replace('#', '');
-  if (VISTAS.indexOf(h) !== -1) { pintar(h); return; }
+  var h = decodeURIComponent((window.location.hash || '').replace('#', ''));
+  var base = h.split('/')[0];
+  if (VISTAS.indexOf(base) !== -1 || base === 'p') { pintar(h); return; }
   if (h) {
     var anc = document.getElementById(h);
-    if (anc) { anc.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    if (anc) {
+      var sb = subDe(h);
+      if (sb) mostrarSub(sb);
+      anc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
   }
   pintar('menu');
 }
@@ -252,7 +273,12 @@ document.addEventListener('click', function (e) {
   var t = e.target.closest('[data-go]');
   if (t) {
     e.preventDefault();
-    go(t.dataset.go);
+    var destino = t.dataset.go;
+    if (destino === 'seguimiento') {
+      var sub = subDe(t.dataset.seg ? 'segpanel-' + t.dataset.seg : (t.dataset.to || t.dataset.radio));
+      if (sub) destino += '/' + sub;
+    }
+    go(destino);
     var stage = t.dataset.stage;
     if (stage) {
       var sr = document.getElementById('stageradio-' + stage);
@@ -285,8 +311,12 @@ document.addEventListener('click', function (e) {
   var sc = e.target.closest('[data-scroll]');
   if (sc) {
     e.preventDefault();
-    var el = document.getElementById(sc.dataset.scroll);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var id = sc.dataset.scroll, sb = subDe(id);
+    if (sb && !document.querySelector('#v-seguimiento .sub.on[data-sub="' + sb + '"]')) go('seguimiento/' + sb);
+    setTimeout(function () {
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, sb ? 250 : 0);
   }
 });
 document.addEventListener('DOMContentLoaded', desdeHash);
@@ -316,6 +346,8 @@ __CSS_EST__
 __CSS_GUI__
 /* ===== seguimiento ===== */
 __CSS_SEG__
+/* ===== pantallas simples ===== */
+__CSS_RAP__
 </style>
 </head>
 <body>
@@ -338,12 +370,14 @@ __CSS_SEG__
 </div>
 
 <div class="vista on" id="v-menu">__MENU__</div>
+<div class="vista" id="v-rapido">__BODY_RAP__</div>
 <div class="vista" id="v-estrategia">__BODY_EST__</div>
 <div class="vista" id="v-guiones">__BODY_GUI__</div>
 <div class="vista" id="v-seguimiento">__BODY_SEG__</div>
 
 <script>
 __SCRIPT__
+__JS_RAP__
 __ROUTER__
 </script>
 </body>
@@ -358,11 +392,14 @@ out = (HTML
        .replace("__CSS_EST__", css_est_s)
        .replace("__CSS_GUI__", css_gui_s)
        .replace("__CSS_SEG__", css_seg_s)
+       .replace("__CSS_RAP__", css_rap)
        .replace("__MENU__", MENU)
        .replace("__BODY_EST__", body_est)
        .replace("__BODY_GUI__", body_gui)
        .replace("__BODY_SEG__", body_seg)
+       .replace("__BODY_RAP__", body_rap)
        .replace("__SCRIPT__", SCRIPT)
+       .replace("__JS_RAP__", js_rap)
        .replace("__ROUTER__", ROUTER))
 
 io.open(OUT, "w", encoding="utf-8").write(out)
